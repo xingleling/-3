@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>电工四级理论题库 · 在线练习</title>
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:linear-gradient(180deg,#eef2ff 0%,#f6f8fc 260px,#f6f8fc 100%);color:#1f2937;min-height:100vh;
+       transition:background .3s ease,color .3s ease;-webkit-text-size-adjust:100%}
+  .wrap{max-width:820px;margin:0 auto;padding:14px 12px 110px;padding-left:calc(12px + env(safe-area-inset-left));
+        padding-right:calc(12px + env(safe-area-inset-right))}
+
+  /* ===== 顶部区域（可收起） ===== */
+  .topbar{margin-bottom:14px}
+  .topbar-mini{display:none}
+  .topbar.collapsed .topbar-full{display:none}
+  .topbar.collapsed .topbar-mini{
+    display:flex;align-items:center;gap:10px;
+    background:#fff;border:1px solid #e8edf6;border-radius:14px;
+    padding:11px 14px;cursor:pointer;
+    box-shadow:0 4px 14px rgba(15,23,42,.06);
+    font-size:13.5px;color:#334155;
+    transition:.15s;
+  }
+  .topbar.collapsed .topbar-mini:active{transform:scale(.99)}
+  .mini-icon{font-size:16px;line-height:1;flex:0 0 auto}
+  .mini-mode{font-weight:700;color:#1e40af;flex:0 0 auto}
+  .mini-prog{color:#64748b;flex:0 0 auto}
+  .mini-rate{color:#94a3b8;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mini-expand{color:#2563eb;font-weight:700;flex:0 0 auto}
+
+  header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:6px 2px 14px}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+  .logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#3b82f6,#6366f1);
+        display:grid;place-items:center;font-size:20px;box-shadow:0 6px 14px rgba(59,130,246,.35);flex:0 0 auto}
+  h1{font-size:17px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#111827}
+  .head-btns{display:flex;gap:5px;flex:0 0 auto;flex-wrap:wrap;justify-content:flex-end}
+  .ghost{background:#fff;border:1px solid #dbe2ef;color:#475569;padding:8px 10px;border-radius:10px;
+         font-size:12.5px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:.18s}
+  .ghost:active{transform:scale(.96)}
+  .ghost.hl{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent;
+            box-shadow:0 6px 14px rgba(59,130,246,.3)}
+  .ghost.icon{padding:8px 9px;line-height:1;font-size:13px;color:#64748b}
+  .ghost.icon:hover{border-color:#bfd3f8;color:#2563eb}
+  #themeBtn{font-size:15px;padding:7px 9px;line-height:1}
+
+  .modes{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:none;
+         -webkit-overflow-scrolling:touch}
+  .modes::-webkit-scrollbar{display:none}
+  .modes button{flex:0 0 auto;padding:9px 14px;border-radius:999px;border:1px solid #dbe2ef;background:#fff;
+                color:#475569;font-size:13.5px;cursor:pointer;white-space:nowrap;transition:.18s;font-family:inherit}
+  .modes button.active{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent;
+                       box-shadow:0 6px 14px rgba(59,130,246,.3)}
+  .badge{display:inline-block;min-width:18px;padding:0 5px;border-radius:9px;background:#ef4444;color:#fff;
+         font-size:11px;line-height:18px;text-align:center;vertical-align:1px}
+  .statsbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+  .stat{background:#fff;border-radius:12px;padding:8px 4px;text-align:center;border:1px solid #e8edf6}
+  .stat b{display:block;font-size:17px;line-height:1.35}
+  .stat span{font-size:11.5px;color:#94a3b8}
+  .stat.ok b{color:#16a34a}
+  .stat.bad b{color:#dc2626}
+  .progress{height:7px;border-radius:99px;background:#e2e8f4;overflow:hidden;margin-bottom:14px}
+  .progress i{display:block;height:100%;width:0;border-radius:99px;
+              background:linear-gradient(90deg,#3b82f6,#6366f1);transition:width .25s}
+  .card{background:#fff;border-radius:18px;padding:18px 16px;box-shadow:0 10px 30px rgba(15,23,42,.07);
+        border:1px solid #eef2f9;min-height:240px}
+  .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+  .tag{font-size:12px;padding:3px 10px;border-radius:8px;background:#eef4ff;color:#2563eb;font-weight:600}
+  .tag.judge{background:#fff4e6;color:#d97706}
+  .qno{font-size:12px;color:#94a3b8}
+  .qtext{font-size:16.5px;line-height:1.68;font-weight:600;margin-bottom:16px;color:#111827;
+         word-wrap:break-word;overflow-wrap:break-word}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opt{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:12px 14px;border-radius:12px;
+       border:1.5px solid #e5eaf3;background:#fbfcff;font-size:15px;line-height:1.5;color:#1f2937;cursor:pointer;
+       transition:.15s;font-family:inherit;word-wrap:break-word;overflow-wrap:break-word}
+  .opt:hover{border-color:#bfd3f8;background:#f3f7ff}
+  .opt .letter{flex:0 0 24px;height:24px;border-radius:7px;background:#eaf0fb;color:#4b6b9e;display:grid;
+               place-items:center;font-size:13px;font-weight:700}
+  .opt.right{border-color:#16a34a;background:#f0fdf4}
+  .opt.right .letter{background:#16a34a;color:#fff}
+  .opt.wrong{border-color:#dc2626;background:#fef2f2}
+  .opt.wrong .letter{background:#dc2626;color:#fff}
+  .opt.locked{cursor:default}
+  .feedback{margin-top:14px;font-size:14px;min-height:22px;line-height:1.6}
+  .feedback.ok{color:#16a34a}
+  .feedback.bad{color:#dc2626}
+  .hint{color:#9aa8bd;font-size:13px}
+  .navbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+          border-top:1px solid #e6ecf5;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+          display:flex;gap:8px;align-items:center;justify-content:center;z-index:50}
+  .nav-btn{flex:1;max-width:220px;padding:12px;border-radius:12px;border:1px solid #dbe2ef;background:#fff;
+           color:#334155;font-size:15px;cursor:pointer;font-family:inherit}
+  .nav-btn.primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent;
+                   box-shadow:0 6px 16px rgba(59,130,246,.32)}
+  .nav-btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+  .jump{display:flex;gap:4px;align-items:center}
+  .jump input{width:64px;padding:10px 4px;border-radius:10px;border:1px solid #dbe2ef;text-align:center;
+              font-size:14px;font-family:inherit;outline:none}
+  .jump button{padding:10px;border-radius:10px;border:1px solid #dbe2ef;background:#fff;color:#475569;
+               font-size:13px;cursor:pointer;font-family:inherit}
+  .empty{text-align:center;padding:50px 10px;color:#475569;font-size:16px;line-height:2}
+  .empty span{font-size:13px;color:#94a3b8}
+
+  /* ===== 历史记录面板 ===== */
+  .hpanel{position:fixed;top:0;bottom:0;left:0;right:0;z-index:120;background:#f6f8fc;
+          display:none;flex-direction:column;max-width:820px;margin:0 auto;
+          box-shadow:0 0 60px rgba(15,23,42,.18)}
+  .hpanel.show{display:flex}
+  .hp-head{display:flex;align-items:center;gap:10px;padding:12px 14px;
+           background:#fff;border-bottom:1px solid #e9eef7;
+           padding-top:calc(12px + env(safe-area-inset-top))}
+  .hp-back{background:#f1f5fb;border:none;color:#475569;width:34px;height:34px;border-radius:10px;
+           font-size:16px;cursor:pointer;line-height:1;font-family:inherit;flex:0 0 auto}
+  .hp-back:active{transform:scale(.94)}
+  .hp-title-wrap{flex:1;min-width:0}
+  .hp-head h2{margin:0;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hp-head .sub2{margin:2px 0 0;font-size:11.5px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hp-close{background:#f1f5fb;border:none;color:#475569;width:34px;height:34px;border-radius:10px;
+            font-size:15px;cursor:pointer;line-height:1;font-family:inherit;flex:0 0 auto}
+  .hp-close:active{transform:scale(.94)}
+  .hp-tabs{display:flex;gap:8px;padding:10px 14px;background:#fff;border-bottom:1px solid #e9eef7}
+  .hp-tabs button{flex:0 0 auto;padding:8px 14px;border-radius:999px;border:1px solid #dbe2ef;background:#fff;
+                  color:#475569;font-size:13px;cursor:pointer;font-family:inherit}
+  .hp-tabs button.active{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent}
+  .hp-body{flex:1;overflow-y:auto;padding:12px 12px 20px;-webkit-overflow-scrolling:touch}
+  .hp-foot{padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e9eef7;
+           display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap}
+
+  .session-card{background:#fff;border-radius:16px;padding:14px;margin-bottom:10px;
+                border:1.5px solid #eef2f9;box-shadow:0 4px 14px rgba(15,23,42,.05);
+                cursor:pointer;transition:.15s}
+  .session-card:active{transform:scale(.985)}
+  .session-card.live{border-color:#93b4f7;background:linear-gradient(180deg,#f7faff,#fff);
+                     box-shadow:0 6px 20px rgba(59,130,246,.14)}
+  .sc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+  .hname-wrap{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}
+  .hname{font-size:15.5px;font-weight:700;color:#111827;cursor:pointer;
+         border-bottom:1px dashed transparent;padding-bottom:1px}
+  .hname:hover{border-bottom-color:#cbd5e1}
+  .hname-input{font-size:15.5px;font-weight:700;font-family:inherit;color:#111827;
+               border:1.5px solid #93b4f7;border-radius:8px;padding:2px 8px;outline:none;
+               background:#fff;min-width:120px;max-width:200px}
+  .live-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;
+              color:#1d4ed8;background:#e3edff;border-radius:99px;padding:3px 9px;flex:0 0 auto}
+  .live-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#3b82f6;
+                      animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+  .sc-time{font-size:11.5px;color:#94a3b8;flex:0 0 auto}
+  .sc-mode{font-size:12px;color:#64748b;margin-bottom:8px}
+  .sc-stats{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px}
+  .sc-stats .ok-t{color:#16a34a;font-weight:700}
+  .sc-stats .bad-t{color:#dc2626;font-weight:700}
+  .sc-stats .tot-t{color:#94a3b8}
+
+  .hitem{background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:10px;border:1px solid #eef2f9;
+         box-shadow:0 4px 12px rgba(15,23,42,.04)}
+  .hrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .hno{font-size:11.5px;color:#94a3b8}
+  .hq{font-size:14.5px;line-height:1.6;color:#1f2937;font-weight:600;margin:8px 0}
+  .ha{font-size:13.5px;line-height:1.85;color:#64748b}
+  .ha .yours{color:#dc2626;font-weight:700}
+  .ha .right{color:#16a34a;font-weight:700}
+
+  .primary-sm{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border:none;border-radius:11px;
+              padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;
+              box-shadow:0 6px 16px rgba(59,130,246,.3)}
+  .primary-sm:active{transform:scale(.97)}
+  .ghost-sm{background:#fff;border:1px solid #dbe2ef;color:#64748b;border-radius:11px;
+            padding:11px 16px;font-size:13.5px;cursor:pointer;font-family:inherit}
+  .ghost-sm:active{transform:scale(.97)}
+
+  /* ================= 夜间模式 ================= */
+  body.dark{background:linear-gradient(180deg,#0f172a 0%,#0b1220 260px,#0b1220 100%);color:#e2e8f0}
+  body.dark .topbar.collapsed .topbar-mini{background:#1e293b;border-color:#334155;color:#cbd5e1;
+                                          box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  body.dark .mini-mode{color:#93c5fd}
+  body.dark .mini-prog{color:#94a3b8}
+  body.dark .mini-expand{color:#60a5fa}
+  body.dark h1{color:#f1f5f9}
+  body.dark .ghost{background:#1e293b;border-color:#334155;color:#cbd5e1}
+  body.dark .ghost:hover{border-color:#475569;color:#e2e8f0}
+  body.dark .ghost.hl{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent}
+  body.dark .ghost.icon{color:#94a3b8}
+  body.dark .ghost.icon:hover{border-color:#3b82f6;color:#93c5fd}
+  body.dark .modes button{background:#1e293b;border-color:#334155;color:#cbd5e1}
+  body.dark .modes button.active{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent}
+  body.dark .stat{background:#1e293b;border-color:#334155}
+  body.dark .stat b{color:#e2e8f0}
+  body.dark .stat span{color:#94a3b8}
+  body.dark .stat.ok b{color:#4ade80}
+  body.dark .stat.bad b{color:#f87171}
+  body.dark .progress{background:#1e293b}
+  body.dark .card{background:#1e293b;border-color:#334155;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  body.dark .tag{background:#1e3a5f;color:#93c5fd}
+  body.dark .tag.judge{background:#4a2f0a;color:#fbbf24}
+  body.dark .qno{color:#64748b}
+  body.dark .qtext{color:#f1f5f9}
+  body.dark .opt{background:#0f172a;border-color:#334155;color:#e2e8f0}
+  body.dark .opt:hover{border-color:#3b82f6;background:#1e293b}
+  body.dark .opt .letter{background:#1e3a5f;color:#93c5fd}
+  body.dark .opt.right{border-color:#22c55e;background:#052e16}
+  body.dark .opt.right .letter{background:#22c55e;color:#fff}
+  body.dark .opt.wrong{border-color:#ef4444;background:#450a0a}
+  body.dark .opt.wrong .letter{background:#ef4444;color:#fff}
+  body.dark .feedback.ok{color:#4ade80}
+  body.dark .feedback.bad{color:#f87171}
+  body.dark .hint{color:#64748b}
+  body.dark .navbar{background:rgba(15,23,42,.94);border-top-color:#334155}
+  body.dark .nav-btn{background:#1e293b;border-color:#334155;color:#cbd5e1}
+  body.dark .nav-btn.primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent}
+  body.dark .jump input{background:#0f172a;border-color:#334155;color:#e2e8f0}
+  body.dark .jump input::placeholder{color:#475569}
+  body.dark .jump button{background:#1e293b;border-color:#334155;color:#cbd5e1}
+  body.dark .empty{color:#cbd5e1}
+  body.dark .empty span{color:#64748b}
+
+  body.dark .hpanel{background:#0b1220}
+  body.dark .hp-head{background:#1e293b;border-bottom-color:#334155}
+  body.dark .hp-head h2{color:#f1f5f9}
+  body.dark .hp-head .sub2{color:#64748b}
+  body.dark .hp-back,body.dark .hp-close{background:#334155;color:#cbd5e1}
+  body.dark .hp-tabs{background:#1e293b;border-bottom-color:#334155}
+  body.dark .hp-tabs button{background:#0f172a;border-color:#334155;color:#cbd5e1}
+  body.dark .hp-tabs button.active{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border-color:transparent}
+  body.dark .hp-foot{background:#1e293b;border-top-color:#334155}
+  body.dark .session-card{background:#1e293b;border-color:#334155}
+  body.dark .session-card.live{border-color:#3b82f6;background:linear-gradient(180deg,#1e3a5f,#1e293b)}
+  body.dark .hname{color:#f1f5f9}
+  body.dark .hname-input{background:#0f172a;color:#f1f5f9;border-color:#3b82f6}
+  body.dark .sc-mode{color:#94a3b8}
+  body.dark .hitem{background:#1e293b;border-color:#334155}
+  body.dark .hq{color:#e2e8f0}
+  body.dark .ha{color:#94a3b8}
+  body.dark .ghost-sm{background:#1e293b;border-color:#334155;color:#cbd5e1}
+
+  /* ================= 手机适配 ================= */
+  /* 中等屏幕：按钮紧凑些 */
+  @media(max-width:600px){
+    .wrap{padding:12px 10px 100px}
+    .ghost{padding:7px 8px;font-size:12px;border-radius:9px}
+    .ghost.icon{padding:7px 8px}
+    #themeBtn{font-size:14px;padding:6px 8px}
+    h1{font-size:16px}
+    .logo{width:36px;height:36px;border-radius:12px;font-size:18px}
+    .card{padding:16px 14px}
+    .qtext{font-size:16px}
+  }
+
+  /* 窄屏（大多数手机）：顶部按钮换行铺满 */
+  @media(max-width:520px){
+    .wrap{padding:10px 10px 96px}
+    header{flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+    .brand{flex:1 1 100%;min-width:0}
+    .head-btns{
+      flex:1 1 100%;
+      display:grid;
+      grid-template-columns:1.5fr 1fr 0.8fr 44px 44px;
+      gap:5px;
+      justify-content:stretch;
+    }
+    .head-btns .ghost{
+      padding:10px 4px;font-size:12px;line-height:1.2;
+      text-align:center;overflow:hidden;text-overflow:ellipsis;
+      min-width:0;
+    }
+    .head-btns .ghost.icon{padding:10px 4px;font-size:15px}
+    #themeBtn{font-size:16px;padding:9px 4px}
+
+    .modes{margin-bottom:10px}
+    .modes button{padding:8px 12px;font-size:13px}
+
+    .statsbar{gap:6px}
+    .stat{padding:7px 3px;border-radius:10px}
+    .stat b{font-size:16px}
+    .stat span{font-size:11px}
+
+    .progress{margin-bottom:12px}
+
+    .card{padding:15px 13px;border-radius:16px;min-height:220px}
+    .qhead{margin-bottom:10px}
+    .tag{font-size:11.5px;padding:3px 9px}
+    .qno{font-size:11px}
+    .qtext{font-size:15.5px;line-height:1.62;margin-bottom:14px}
+    .opts{gap:9px}
+    .opt{padding:11px 12px;font-size:14.5px;border-radius:11px;gap:9px}
+    .opt .letter{flex:0 0 22px;height:22px;font-size:12px;border-radius:6px}
+    .feedback{font-size:13.5px;margin-top:12px}
+
+    .navbar{padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:6px}
+    .nav-btn{padding:11px 8px;font-size:14px;border-radius:11px}
+    .jump{gap:3px}
+    .jump input{width:48px;padding:9px 3px;font-size:13px;border-radius:9px}
+    .jump button{padding:9px 8px;font-size:12px;border-radius:9px}
+  }
+
+  /* 超窄屏（<380px）：进一步紧凑 */
+  @media(max-width:380px){
+    h1{font-size:15px}
+    .logo{width:34px;height:34px;border-radius:11px;font-size:17px}
+    .head-btns .ghost{font-size:11.5px;padding:9px 3px}
+    .modes button{padding:8px 10px;font-size:12.5px}
+    .qtext{font-size:15px}
+    .opt{font-size:14px;padding:10px 11px}
+    .nav-btn{font-size:13.5px;padding:10px 6px}
+    .jump input{width:42px;font-size:12.5px}
+    .jump button{padding:9px 6px;font-size:11.5px}
+    .stat b{font-size:15px}
+    .stat span{font-size:10.5px}
+    .hp-head h2{font-size:15px}
+    .hname{font-size:14.5px}
+    .session-card{padding:12px}
+    .hitem{padding:11px 12px}
+  }
+
+  /* 横屏 / 小高度设备 */
+  @media(max-height:500px){
+    .card{min-height:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 顶部区域（可收起） ===== -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-full">
+      <header>
+        <div class="brand">
+          <span class="logo">⚡</span>
+          <h1>电工四级理论题库</h1>
+        </div>
+        <div class="head-btns">
+          <button class="ghost hl" id="histBtn">历史记录</button>
+          <button class="ghost" id="redoBtn">新练习</button>
+          <button class="ghost" id="clearBtn">清空</button>
+          <button class="ghost icon" id="themeBtn" title="夜间模式">🌙</button>
+          <button class="ghost icon" id="collapseBtn" title="收起顶部">▲</button>
+        </div>
+      </header>
+
+      <div class="modes" id="modes">
+        <button data-mode="all" class="active">全部练习</button>
+        <button data-mode="single">单选题</button>
+        <button data-mode="judge">判断题</button>
+        <button data-mode="random">随机练习</button>
+        <button data-mode="wrong">错题重练 <span class="badge" id="wrongBadge">0</span></button>
+      </div>
+
+      <div class="statsbar">
+        <div class="stat"><b id="statDone">0</b><span>已答</span></div>
+        <div class="stat ok"><b id="statRight">0</b><span>正确</span></div>
+        <div class="stat bad"><b id="statWrong">0</b><span>错误</span></div>
+        <div class="stat"><b id="statRate">0%</b><span>正确率</span></div>
+      </div>
+      <div class="progress"><i id="progressBar"></i></div>
+    </div>
+
+    <!-- 收起后的紧凑栏 -->
+    <div class="topbar-mini" id="topbarMini" title="点击展开顶部">
+      <span class="mini-icon">⚡</span>
+      <span class="mini-mode" id="miniMode">全部练习</span>
+      <span class="mini-prog" id="miniProg">第 1 / 187 题</span>
+      <span class="mini-rate" id="miniRate">未作答</span>
+      <span class="mini-expand">展开 ▼</span>
+    </div>
+  </div>
+
+  <main id="card" class="card"></main>
+</div>
+
+<div class="navbar">
+  <button class="nav-btn" id="prevBtn">← 上一题</button>
+  <div class="jump">
+    <input id="jumpInput" type="number" min="1" placeholder="#">
+    <button id="jumpBtn">跳转</button>
+  </div>
+  <button class="nav-btn primary" id="nextBtn">下一题 →</button>
+</div>
+
+<!-- ===== 历史记录面板 ===== -->
+<div class="hpanel" id="hpanel">
+  <div class="hp-head">
+    <button class="hp-back" id="hpBack" style="display:none">←</button>
+    <div class="hp-title-wrap">
+      <h2 id="hpTitle">历史记录</h2>
+      <p class="sub2" id="hpSub"></p>
+    </div>
+    <button class="hp-close" id="hpClose">✕</button>
+  </div>
+  <div class="hp-tabs" id="hpTabs" style="display:none">
+    <button id="htWrong" class="active">错题 0</button>
+    <button id="htAll">全部 0</button>
+  </div>
+  <div class="hp-body" id="hlist"></div>
+  <div class="hp-foot" id="hpFoot"></div>
+</div>
+
+<script>
+/* ================== 题库数据 ================== */
+const SINGLE = [
+[1,"电工职业守则中强调的遵纪守法不包括（　）的要求。",["国家法律","企业内部纪律","地方风俗习惯","行业规范"],"C"],
+[2,"关于职业幸福感，它通常是建立在员工对（　）的理解和接受基础上。",["工作报酬","公司福利","职业生涯","职业责任"],"D"],
+[3,"软启动器能够减少启动时产生的（　），从而保护电机和相关设备。",["振动","噪声","冲击电流","温度升高"],"C"],
+[4,"软启动器主要通过改变（　）来控制电动机的启动过程。",["电源频率","启动电压","负载大小","工作温度"],"B"],
+[5,"PLC在一个完整的扫描周期中，最终完成的任务是在（　）阶段更新输出锁存电路的状态。",["输入采样","指令解释","程序执行","输出刷新"],"D"],
+[6,"软启动器在运行过程中，如果发现启动时间明显延长，可能是由于（　）引起的问题。",["电源电压过高","负载过轻","内部元件老化","环境温度过低"],"C"],
+[7,"可编程控制器的输入信号通常来自于（　）。",["传感器和开关","变压器","电机","继电器线圈"],"A"],
+[8,"充电桩的通信接口主要用于与（　）进行信息交换。",["电网系统","车辆管理系统","用户手机","充电站服务器"],"B"],
+[9,"对于小型可编程控制器而言，常用的直流电源电压是（　）。",["5VDC","12VDC","24VDC","36VDC"],"C"],
+[10,"在充电桩的调试过程中，首先要确保（　）的设置和调整是正确的。",["显示屏亮度","通信协议","外壳材料","充电线缆长度"],"B"],
+[11,"当充电桩无法启动充电时，首先应检查的是（　）。",["电源输入状态","用户支付信息","充电桩外观损坏情况","后台系统日志"],"A"],
+[12,"对于直流充电桩而言，重点维护的对象是其内部的（　）。",["电缆长度","显示屏亮度","功率模块","散热风扇"],"C"],
+[13,"启动可编程控制器编程软件时，若出现版本不兼容提示，应（　）。",["忽略提示继续使用","更新软件版本","卸载软件重新安装","联系技术支持"],"B"],
+[14,"当需要将某个输出信号置为1并且保持该状态时，应该使用（　）指令。",["AND","LD","SET","OUT"],"C"],
+[15,"为了确保计数器指令能够正确工作，其初始化条件一般通过（　）触发。",["手动按钮","定时器中断","系统复位信号","外部继电器"],"C"],
+[16,"当可编程控制器出现通信故障时，首先应该检查（　）。",["电源电压","通信线路","程序代码","输出负载"],"B"],
+[17,"为了排查PLC程序中的错误，可以利用（　）来监控程序运行状态。",["仿真软件","万用表","示波器","PLC自带诊断功能"],"D"],
+[18,"为了实现电动机的顺序启动，在控制回路中通常会加入（　）来保证顺序逻辑。",["热继电器","时间继电器","熔断器","电流继电器"],"B"],
+[19,"中间继电器的触点容量应根据（　）来选择。",["环境湿度","负载电流","线圈电阻","安装位置"],"B"],
+[20,"当电动机处于连续运转状态时，其控制电路中的自锁触点应该（　）。",["与主接触器串联","与主接触器并联","接于电源与停止按钮之间","串联在热继电器之后"],"B"],
+[21,"计数器选型过程中，对于需要远程监控的应用场景，应重点考虑（　）特性。",["防水等级","通信接口","抗干扰能力","耐温性能"],"B"],
+[22,"当机床电气系统出现间歇性故障时，最有效的排查方法是（　）。",["直接更换所有元器件","使用替代法逐个检查","重新布线整个系统","忽略故障继续运行"],"B"],
+[23,"临时用电配电系统中，开关箱与固定式用电设备的水平距离不宜超过（　）米。",["10","20","30","40"],"C"],
+[24,"C6140车床电气控制电路中，用于限制工作台行程的元件是（　）。",["按钮开关","行程开关","热继电器","接触器"],"B"],
+[26,"接触器选型过程中，如果负载是电机，则需要特别考虑（　）的影响。",["启动电流较大","电阻值较小","线圈发热","绝缘等级要求"],"A"],
+[27,"M7130平面磨床电气控制电路中，为确保安全操作，通常会使用（　）来检测工作台位置。",["光电传感器","接近开关","限位开关","编码器"],"C"],
+[28,"对于移动式电气设备，最适宜采用的接零系统是（　）。",["TN-C","TN-S","TT","IT"],"B"],
+[29,"时间继电器的额定电流指的是其线圈允许长期通过的（　）。",["最大电压","最大电流","最小电流","最小电压"],"B"],
+[30,"当三相交流笼型异步电动机出现过载现象时，应优先检查（　）的工作状态。",["热继电器","接触器线圈","行程开关","电动机绕组"],"A"],
+[31,"断路器的额定绝缘电压（　）其使用环境的实际工作电压。",["必须高于","可以低于","等于","无关紧要"],"A"],
+[32,"根据安全规范，临时用电设备的金属外壳必须与（　）可靠连接。",["电源线","接地线","零线","火线"],"B"],
+[33,"对于临时供电系统而言，在进行接地电阻测试之前首先要做的是确保（　）。",["负载已连接好","所有人员撤离现场","断开市电供电来源","绝缘电阻已经合格"],"C"],
+[34,"在三相交流绕线式异步电动机启动控制电路中，启动时转子回路串入的元件是（　）。",["电容","电阻","电感","二极管"],"B"],
+[35,"接地装置安装过程中，接地体之间的连接应采用（　）方式以确保电气连续性。",["绑扎","焊接","胶带缠绕","螺栓连接"],"B"],
+[36,"为了实现绕线式异步电动机的平稳启动，通常使用（　）来逐级切除启动电阻。",["延时触头","温度继电器","电流继电器","液磁开关"],"A"],
+[37,"在完成三相交流绕线式异步电动机启动控制电路调试后，应该记录各项参数和结果，这一过程的主要目的是为了（　）。",["向客户汇报工作","满足工艺要求","积累数据供后续改进","简化操作流程"],"C"],
+[38,"三相交流异步电动机能耗制动时，电动机处于（　）状态。",["发电","电动","停止","加速"],"A"],
+[39,"速度继电器的常开触点一般用于（　）控制电路中。",["启动","停止","正反转","调速"],"A"],
+[40,"在调整速度继电器时，通过改变触点（　）可以调整动作灵敏度。",["材质","间距","颜色","温度"],"B"],
+[41,"当速度继电器出现频繁误动作时，可能的原因是（　）。",["触点弹簧压力过大","转轴润滑不良","复位弹簧失效","安装位置不当"],"C"],
+[42,"光电开关在工业自动化中主要用于检测（　）。",["电流变化","物体存在与否","温度变化","电压波动"],"B"],
+[43,"光电开关出现误动作的原因可能是（　）。",["检测距离设置过短","周围有强光源干扰","电源电压过高","负载电阻过大"],"B"],
+[44,"霍尔效应是指在置于磁场中的导体或半导体中通以（　），则在垂直于电流和磁场的方向上将产生电动势的现象。",["直流电流","交流电流","静电荷","热能"],"A"],
+[45,"温度继电器的复位方式一般为（　）。",["手动复位","自动复位","远程复位","延时复位"],"B"],
+[46,"温度继电器主要用于检测和控制（　）的变化。",["电压","电流","温度","湿度"],"C"],
+[47,"霍尔开关在工业应用中常用于（　）的检测。",["液体流量","气体浓度","旋转编码器","环境温度"],"C"],
+[48,"温度继电器在使用过程中如果出现频繁动作，可能是由于（　）造成的。",["环境温度过低","设定值过高","触点接触不良","电源电压不稳定"],"C"],
+[49,"霍尔开关的输出信号通常是（　）信号。",["模拟","数字","脉冲","频率"],"B"],
+[50,"在调试霍尔开关时，正确的操作顺序是先（　），再调整灵敏度参数。",["检查电源电压","确认机械固定","读取初始信号","进行电气连接"],"A"],
+[51,"压力继电器的微动开关主要用于（　）。",["传递压力信号","调整设定压力","实现电路通断","提供弹性支撑"],"C"],
+[52,"电感式开关的核心元件是（　），它决定了传感器的灵敏度和响应速度。",["电阻","电容","振荡线圈","二极管"],"C"],
+[53,"电感式开关可以有效工作在含有大量（　）的工况中。",["水汽","粉尘","化学气体","电磁噪声"],"D"],
+[54,"当需要提高压力继电器的动作灵敏度时，应适当（　）弹簧预紧力。",["增大","减小","保持不变","完全放松"],"B"],
+[55,"压力继电器能够根据（　）的变化来控制电路的通断。",["温度","压力","速度","位置"],"B"],
+[56,"使用万用表测量电阻时，必须确保被测电路处于（　）状态。",["通电","断电","短路","开路"],"B"],
+[57,"如果一个电源输出的是稳定且不发生变化的电流，则我们称这个电源为（　）。",["正弦波交流源","非正弦波电源","脉冲电源","恒流直流源"],"D"],
+[58,"《中华人民共和国劳动合同法》规定，经济补偿按劳动者在本单位工作的年限，每满一年支付（　）个月工资的标准向劳动者支付。",["半","一","两","三"],"B"],
+[59,"下列材料中，导电性能最差的是（　）。",["铜","铝","铁","银"],"C"],
+[60,"在高温环境下工作的电气设备，应优先选择（　）作为导电材料。",["铝","铜","银","镍"],"D"],
+[61,"在进行心肺复苏前，首先需要确认患者的（　）。",["体温","意识","血压","脉搏"],"B"],
+[62,"在电气设备中，用于变压器绕组绝缘的主要材料是（　）。",["玻璃纤维","聚酯薄膜","云母片","陶瓷材料"],"C"],
+[63,"在测量未知电路的电压时，应首先将万用表的量程设为（　）。",["最小量程","中间量程","最大量程","自动量程"],"C"],
+[64,"质量控制的核心要点之一是通过（　）来预防质量问题的发生。",["增加库存","提高售价","改进工艺流程","减少广告投入"],"C"],
+[65,"对于压力继电器，（　）描述是正确的。",["只能用于低压系统","只能用于高压系统","只能根据系统压力一次性设定","可用于各种压力等级的系统"],"D"],
+[66,"在多点输出的电容式开关中，（　）描述是正确的。",["每个输出点都有独立的传感器","所有输出点都共享一个传感器","输出点的数量由开关的尺寸决定","输出点的类型由开关的安装环境决定"],"A"],
+[67,"电容式开关的响应时间一般不包含（　）部分。",["机械动作时间","充电时间","放电时间","信号处理时间"],"A"],
+[68,"电容式开关在安装时，一般推荐的检测距离范围是（　）。",["1mm~200mm","1mm~100mm","1m~10m","100mm~1m"],"A"],
+[69,"在电容式开关的故障排除中，首先应该检查（　）。",["传感器的输出信号","电容器的外观损坏","传感器的安装环境","传感器的供电电压"],"D"],
+[70,"根据电容式开关的选型原则，C2.5T/R中的C代表（　）。",["频率","负载电阻","电容的容量","电容的电压"],"C"],
+[71,"当电容式开关的响应时间过长，（　）可能是原因。",["电容器容量不足","传感器灵敏度低","环境温度变化","电源电压不稳定"],"B"],
+[72,"在电容式开关中，为了获得更好的开关效果，一般会选择（　）。",["容量越大的电容","容量越小的电容","体积越小的电容","频率越高的电容"],"A"],
+[73,"软启动器在电动机启动过程中，能够实现启动电压的平滑上升，这主要得益于（　）的控制。",["电感器","电容器","变压器","微处理器"],"D"],
+[74,"在软启动器维护中，如果发现并联的时间继电器有送电即亮的现象，应该（　）。",["立即更换新的继电器","继续观察不采取行动","检查控制电路的接线","更换软启动器"],"C"],
+[75,"在PLC系统中，用于将控制信号从PLC传送到执行机构的部件是（　）。",["输入模块","输出模块","通信模块","中央处理单元"],"B"],
+[76,"软启动器的启动时间可根据实际需要在（　）秒内调整。",["0-10","10-60","30-120","1-30"],"D"],
+[77,"（　）启动方式不属于软启动器的常见启动方式。",["电压斜坡起动","突调频率起动","限流起动","斜坡限流起动"],"B"],
+[78,"（　）不是PLC按照结构分类的依据。",["小型PLC","中型PLC","大型PLC","PLC的输入输出类型"],"D"],
+[79,"（　）情况下接地电阻测试仪不能正常工作。",["电源正常","环境温度适宜","仪器内部电池充足","探针插入地下深度不够"],"D"],
+[80,"在整流电路中，如果需要得到更平滑的直流输出，通常需要加入（　）。",["放大器","滤波器","稳压器","逆变器"],"B"],
+[81,"在PLC控制系统中，若负载电流较大，通常选择（　）输出模块。",["晶体管","继电器","晶体管/继电器混合型","固态继电器"],"B"],
+[82,"对于需要频繁通断的负载，PLC输出模块最好选择（　）。",["继电器","双向晶闸管","晶体管","继电器/晶体管混合型"],"C"],
+[83,"在PLC控制电路中，如果需要实现互锁控制，通常使用（　）来实现。",["输入信号","输出信号","外部继电器","内部继电器"],"D"],
+[84,"对于800V架构下的电动汽车，（　）是车载充电机OBC需要满足的条件。",["减少充电时间","降低输出电压","提升充电功率","增加输出电流"],"C"],
+[85,"在充电桩参数设置中，（　）不是决定充电电流大小的因素。",["用户需求","充电桩类型","电池容量","电池温度"],"A"],
+[86,"下列（　）充电模式通常不适用于快速充电桩的参数设置。",["恒流充电","阶段充电","脉冲充电","恒压充电"],"D"],
+[87,"在安装PLC编程软件前，（　）是必须确认的。",["计算机操作系统版本","计算机颜色配置","计算机键盘布局","计算机鼠标品牌"],"A"],
+[88,"在PLC编程软件的界面布局中，（　）区域用于编写和修改控制逻辑。",["逻辑编辑区","输入区","输出区","状态监控区"],"A"],
+[89,"在使用PLC编程软件时，（　）快捷键通常用于打开或关闭程序注释。",["Ctrl+Shift+C","Ctrl+Z","Ctrl+S","Ctrl+F"],"A"],
+[90,"在进行充电桩的日常维护时，（　）不是对充电枪维护的正确做法。",["拔枪时野蛮拖拽","不使用时将枪头插回插座","保持枪头干燥，无积水","定期检查线缆和枪头"],"A"],
+[91,"充电桩的急停开关损坏时，（　）措施是正确的。",["立即手动断开电源","等待下次维护时再处理","通知专业人员维修","用胶带封住以避免误操作"],"C"],
+[92,"当使用PLC编程软件进行项目开发时，（　）操作不应在项目管理中进行。",["设置项目参数","编写用户手册","分配I/O地址","编译程序代码"],"B"],
+[93,"在优化PLC串口配置界面后，（　）操作不能进行。",["读取PLC信息","列出所有可用串口","下载程序","修改工程机型"],"D"],
+[94,"在进行PLC程序仿真测试时，（　）是必须的步骤。",["启用虚拟轴功能","连接所有物理硬件","下载程序到PLC","手动控制所有输入输出"],"A"],
+[95,"在PLC仿真测试中，若要监控轴的运动状态和参数，可以通过（　）途径。",["使用调试面板","修改电路板参数","直接观察物理轴","分析系统日志"],"A"],
+[96,"在SIMATIC管理器中，用于查看PLC模块故障诊断符号的菜单命令是（　）。",["在线","查看","离线","配置"],"A"],
+[97,"在PLC编程中，接通延时定时器通常用于（　）。",["定时启动设备","延时停止设备","流程控制","计数功能"],"B"],
+[98,"在PLC程序流程控制中，当满足特定条件时，可以使用（　）指令来跳过某些程序段。",["循环","延时","顺序","跳转"],"D"],
+[99,"在PLC的逻辑控制中，（　）是PLC的基本逻辑运算。",["加法运算","减法运算","与运算","乘法运算"],"C"],
+[100,"在PLC的高级指令中，用于条件分支判断的指令是（　）。",["CASE","IF-ENDIF","FOR-NEXT","WHILE-END"],"A"],
+[101,"在PLC控制电路中，单向顺序启停控制电路的主要特点是（　）。",["无记忆功能","执行机构按顺序动作","执行机构同时动作","无法实现停止功能"],"B"],
+[102,"在汽车电路中，使用中间继电器的主要目的是（　）。",["增大电流容量","防止触点烧蚀","提高开关速度","减少电路复杂性"],"B"],
+[103,"在继电器选型时，（　）不是主要的考虑因素。",["触头数量","继电器重量","工作电压","外壳材质"],"B"],
+[104,"若要实现两台电动机顺序启动，接触器KM1的（　）应串接到接触器KM2的线圈电路中。",["常闭触点","常开触点","动合触点","动断触点"],"B"],
+[105,"按时间原则控制的电动机顺序启动电路，其核心是（　）。",["速度继电器","压力继电器","温度继电器","时间继电器"],"D"],
+[106,"在临时用电配电箱、开关箱内，（　）做法是不允许的。",["放置杂物","保持整洁","随意改动电器配置和接线","使用符合原规格的熔体更换熔断器"],"C"],
+[107,"在机床电气控制电路中，对于PLC程序的故障，（　）不是常见的处理方法。",["重新编程","更换整个PLC系统","修改PLC程序","更换备用接口"],"B"],
+[108,"多地控制电路的设计可以实现电动机的（　）。",["多地启动","多地停止","多地启动和停止","单地控制"],"C"],
+[109,"当数控机床出现电气故障时，（　）做法是错误的。",["立即断开电源","使用系统自诊断功能","随意触动电路元件","根据梯形图分析"],"C"],
+[110,"在设计三相交流笼型异步电动机顺序控制电路时，第一台电动机启动后，第二台电动机启动的控制信号通常来自于（　）。",["第一台电动机的停止按钮","第一台电动机的接触器常开触点","第一台电动机的启动按钮","第二台电动机的接触器常闭触点"],"B"],
+[111,"临时用电架空线路在施工现场的最大弧垂与地面距离应不低于（　）米。",["1.5","2.5","2.0","3.0"],"B"],
+[112,"对于临时用电架空线路，（　）不是其安装要求。",["可以架设在易燃材料附近","架设在专用电杆或支架上","不得进行接头连接","最大弧垂与地面距离符合规定"],"A"],
+[113,"中间继电器在电气工程中的作用不包括（　）。",["动力传输","信号传递","电路保护","远程操控"],"A"],
+[114,"在顺序控制电路中，用于实现两台电动机顺序启动的接触器，其常开触点应该（　）。",["并联在下一台电动机的启动回路中","串联在下一台电动机的启动回路中","串联在上一台电动机的停止回路中","并联在上一台电动机的停止回路中"],"B"],
+[115,"在C6140车床的电气控制电路中，当需要切断控制电路电源以确保人身安全时，是通过（　）来实现的。",["位置开关SQ2","钥匙开关SB","断路器QF","位置开关SQ1"],"D"],
+[116,"下列（　）类型的时间继电器在线圈断电后触点会有延时动作。",["通电延时型","断电延时型","无延时型","立即动作型"],"B"],
+[117,"在低压电器设备维护中，对设备进行检查前，应首先确保（　）。",["设备处于运行状态","设备已经断电","设备周围环境安全","设备处于备用状态"],"B"],
+[118,"低压电器设备在运行操作中，若发现设备温度异常升高，应立即（　）。",["继续观察","降低负载","断开电源","加大负载"],"C"],
+[119,"低压断路器的额定电流选择应基于（　）。",["线路的最大短路电流","线路的额定电压","设备的遮断电流","线路的计算负荷电流"],"D"],
+[120,"在C6140车床的电气控制电路中，用于控制刀架快速移动的电机一般采用（　）。",["步进电机","直流电机","同步电机","异步电机"],"A"],
+[121,"在接触器选型时，（　）不是必须考虑的因素。",["负载的计算电流","接触器的外观颜色","接触器的接通电流","操作频率"],"B"],
+[122,"在潮湿环境中，应选择至少为IP（　）级的低压电器及电动机。",["IP20","IP54","IP67","IP44"],"D"],
+[123,"在热继电器选型时，其额定电压应（　）回路的工作电压。",["不小于","大于","小于","等于"],"A"],
+[124,"对于照明电路，热继电器的瞬时电流整定值通常是线路计算负荷电流的（　）倍。",["6","2","4","8"],"A"],
+[125,"绕线式异步电动机启动时，通常采用（　）方式来逐段切除转子回路中的电阻。",["平衡短接法","不平衡短接法","电流原则控制","时间原则控制"],"A"],
+[126,"在临时用电系统中，当达到规定接地电阻值有困难时，可以调整到（　）以内。",["20","40","30","50"],"C"],
+[128,"低压断路器按其结构、功能和用途可分为多种类型，不属于常见分类的是（　）。",["冰箱式","万能式","塑料外壳式","灭磁式"],"A"],
+[129,"在临时用电系统中，（　）设备的金属外壳不必与保护零线连接。",["发电机","继电器","电动机","断路器"],"B"],
+[130,"临时用电工程在验收合格后，（　）不是必须做到的。",["采用固定式或移动式配电箱","配电箱中心点与地面垂直距离符合规定","必须经过专业电工的检查","保护装置齐全、灵敏、可靠"],"C"],
+[131,"在M7130平面磨床中，砂轮箱的运动是由（　）电动机驱动的。",["M4","M1","M2","M3"],"A"],
+[132,"接触器按工作电压类型分为（　）。",["直流接触器和交流接触器","高电压接触器和低电压接触器","有载接触器和空载接触器","手动接触器和自动接触器"],"A"],
+[133,"关于临时用电系统接地装置的安装，（　）说法是正确的。",["接地电阻应小于规定值","接地线可以采用任意材质的导线","接地装置的安装位置可以随意选择","接地装置安装后不需要测试"],"A"],
+[134,"在Z37型摇臂钻床电气控制线路中，用于控制主轴启动和停止的元件通常是（　）。",["继电器","接触器","熔断器","电阻器"],"B"],
+[135,"若要实现对电动机正反转的自动控制，需要使用的电器是（　）。",["隔离开关QS","熔断器FU","接触器KM","继电器"],"D"],
+[136,"关于临时用电系统接地装置的维护，（　）做法是错误的。",["定期检查接地线连接是否牢固","确保接地极无腐蚀","接地电阻超过规定值时立即更换接地极","在土壤干燥时进行接地电阻测量"],"C"],
+[137,"（　）措施不属于等电位联结原则。",["使用独立接地系统","确保各个设备之间的电位相等","减少雷电流产生的电压差","连接所有设备的接地"],"A"],
+[138,"在Z37型摇臂钻床电气控制线路中，若油缸被卡导致摇臂不易变速，（　）措施是正确的。",["调整液压体系阀","加大液压油量","检查油路中的压力","更换摇臂部件"],"C"],
+[140,"在再生发电制动电路中，当电动机需要制动时，下列（　）措施是必须采取的。",["将电动机与负载断开","断开电源","改变电源相序","在电动机绕组中接入直流电源"],"A"],
+[141,"在防雷接地系统中，如果孔或轴的上偏差或下偏差为0，则（　）。",["必须标注","用虚线标注","用红色标注","可以省略标注"],"D"],
+[142,"对于企业员工来说，追求精益求精意味着（　）。",["提高个人及团队的工作效率","增加工作负担","忽视个人发展","过度关注细节"],"A"],
+[143,"关于职业道德的说法中，正确的是（　）。",["职业道德是主观思考的产物，没有客观依据","每个人都有各自的职业道德观念，以共同的职业道德规范要求他人是不正确的","职业道德是在职业活动中调节人与人之间关系的特殊行为规范","职业道德同法律一样，必须在外在规范的约束下才能发挥作用"],"C"],
+[144,"（　）不是职业道德的作用。",["规范全社会职业秩序和劳动者的职业行为","减少劳动者的工作压力","提高劳动者的职业素质","促进社会良好道德风尚的形成"],"B"],
+[145,"（　）不是爱护设备的具体表现。",["随意更改设备设置","定期对设备进行保养","操作设备时遵守规程","发现设备故障及时上报"],"A"],
+[146,"（　）不是工艺管理的主要内容。",["树立良好的职业道德","自觉遵守工艺纪律","随意改变工艺流程以提高效率","严格按工艺规程进行生产操作"],"C"],
+[147,"在职业道德中，（　）行为是不被提倡的。",["在工作中接受被监理单位的礼金","严格保守工作秘密","积极参与团队合作","遵守相关法律法规"],"A"],
+[150,"在使用双臂电桥进行电阻测量前，（　）操作是不必要的。",["装入电池后立即进行测量","检查已知电阻的准确性","保持电路的稳定性","估计未知电阻阻值"],"A"],
+[151,"（　）系列的最大输出电流为100mA。",["78M系列","78系列","79系列","78L系列"],"D"],
+[152,"在选择79系列三端稳压集成电路时，若负载电流较大，应该（　）。",["增加散热片","选择大功率型号","降低输入电压","减少负载电流"],"B"],
+[153,"在使用信号发生器时，如果需要获得实际输出信号频率，应该（　）操作。",["直接读取微调器指示数据","只调节档级开关不调微调器","按下相应的档级开关并调节微调器","只调节微调器不按档级开关"],"C"],
+[154,"对于SDG5162函数/任意波形信号发生器，（　）描述是正确的。",["带宽为120MHz","输出信号地与机壳地不隔离","不支持USB Host","具有14bit垂直分辨率"],"D"],
+[155,"在信号发生器中，DDS技术的全称是（　）。",["Digital Signal Broadcasting","Direct Digital Synthesis","Direct Signal Broadcasting","Digital Signal Conversion"],"B"],
+[156,"单相全控桥式晶闸管整流电路，在阻感性负载下，（　）时刻晶闸管会承受反压。",["正半波开始时","负半波开始时","触发信号给出后","电源电压过零时"],"B"],
+[157,"单相半波可控整流电路中，当晶闸管导通时，（　）现象会发生。",["负载电压为零","负载电流减小","负载电流方向改变","负载电压等于输入电压"],"D"],
+[158,"在示波器上，时间基准（time base）设置不当会导致（　）。",["时间延迟","信号幅度变化","信号失真","信号频率改变"],"A"],
+[159,"在示波器触发设置中，如果需要捕获特定的事件，应首先选择（　）。",["信号源","触发级别","触发类型","时间基准"],"C"],
+[160,"（　）类型的螺丝刀不能通过更换批头以适应不同螺丝。",["组合型螺丝刀","电动螺丝刀","精密型手动螺丝刀","一字型螺丝刀"],"D"],
+[161,"在电工工具中，用于旋动头部为横槽的螺钉的螺丝刀刀头形状是（　）。",["十字形","圆形","三角形","一字形"],"D"],
+[162,"在良导体材料中，导电性能最好的是（　）。",["铜","铝","铁","金"],"D"],
+[163,"在电气设备的维护和修理中，（　）做法是正确的。",["带电作业以节省时间","仅凭经验判断设备状态","在断电情况下进行维护","忽略设备的异常声响"],"C"],
+[164,"根据《劳动合同法》，用人单位自用工之日起超过一个月不满一年未与劳动者订立书面劳动合同的，应当向劳动者每月支付（　）的工资。",["二倍","一倍","一点五倍","三倍"],"A"],
+[165,"二极管在正向电压较小时，呈现的电阻较大，几乎不导通的区域被称为（　）。",["导通区","截止区","扩散区","死区"],"D"],
+[166,"对于大容量、高参数电力传输需求，传统电工材料通常（　）。",["存在性能瓶颈","能够满足需求","完全无法使用","仅限于特殊应用"],"A"],
+[167,"在潮湿天气，无伞型罩的绝缘棒（　）使用。",["不宜","可以随意","应谨慎","没有影响"],"A"],
+[168,"下列（　）工具不是钳工在划线阶段常用的。",["样冲","手电钻","分度头","方箱"],"B"],
+[169,"劳动者在劳动合同解除或终止前12个月的平均工资低于当地最低工资标准的，经济补偿金的计算按照（　）进行。",["当地最低工资标准","实际工资","平均工资","计时工资或计件工资"],"A"],
+[170,"当使用万用表测量电容时，若没有C-×槽，可以选择（　）进行测量。",["电阻档","电压档","通用的测量插口","二极管测量档"],"C"],
+[171,"下列（　）做法不适宜在触电急救时使用。",["使用干燥衣物拖拽触电者","直接用手触碰触电者","用绝缘物挑开电线","迅速切断电源"],"B"],
+[173,"在NPN型三极管中，基区是由（　）半导体材料组成的。",["N型","相同","P型","无法确定"],"C"],
+[174,"环境保护法律法规要求，对于开发建设项目必须实行（　）制度和“三同时”制度。",["环境治理方案","环境质量监测","环境影响评价","环境保护税征收"],"C"],
+[175,"在环境保护法律法规中，政府担当的角色是（　）。",["环境监管的监督者","环境治理的实施者","环境污染的制造者","环境保护的旁观者"],"A"],
+[176,"在变压器空载状态下，一次绕组所流过的电流称为（　）。",["负载电流","空载电流","短路电流","额定电流"],"B"],
+[177,"如果三极管的静态工作点设置不当，可能会导致（　）。",["放大倍数增加","输出信号失真","三极管损坏","电流放大作用消失"],"B"],
+[178,"（　）情况下接地电阻测试仪不能正常工作。",["电源正常","环境温度适宜","仪器内部电池充足","探针插入地下深度不够"],"D"],
+[179,"在整流电路中，如果需要得到更平滑的直流输出，通常需要加入（　）。",["放大器","滤波器","稳压器","逆变器"],"B"],
+[180,"在光电开关中，用于接收光信号并将其转换为电信号的元件是（　）。",["发射器","检测电路","接收器","光学元件"],"C"],
+[181,"在光电开关中，用于滤出有效信号和应用该信号的部件是（　）。",["发射器","接收器","光学元件","检测电路"],"D"],
+[182,"速度继电器线圈的圈数和线径与（　）继电器相似。",["电压","电流","中间","热敏干簧"],"B"],
+[183,"对射式光电开关的发射器和接收器在安装时，应当保持（　）。",["相互靠近","相互远离","光轴重合","在同一平面上"],"C"],
+[184,"速度继电器接线时，应首先确认（　）。",["线缆的长度","继电器的位置","线缆的规格","继电器的颜色"],"C"],
+[185,"当使用NPN型三线制光电开关时，其输出信号线通常的颜色是（　）。",["红色","黑色","蓝色","白色"],"B"],
+[186,"速度继电器调整完成后，下列（　）测试是必须进行的。",["电气寿命测试","机械强度测试","环境适应性测试","动作速度测试"],"D"],
+[187,"光电开关中，光电器件的响应时间主要取决于（　）。",["光敏三极管的PN结导通时间","发光二极管的亮度","环境温度","光电开关的供电电压"],"A"],
+[188,"在包卷输送线和分包输送线中，通常使用（　）光电开关进行物体检测。",["镜反射式","漫反射式","对射式","以上均不适用"],"B"],
+[189,"在调整光电开关的灵敏度时，（　）说法是正确的。",["灵敏度调低，检测范围缩小","灵敏度调低，检测范围扩大","灵敏度调高，检测范围缩小","灵敏度调整不影响检测范围"],"A"],
+[190,"速度继电器发生故障时，（　）处理方法是正确的。",["立即断开电源","继续运行以观察","自行拆卸维修","通知专业人员"],"D"],
+[191,"在光电开关的使用过程中，（　）不是造成其检测误差的主要原因。",["发射器的指向角","被测物体表面的反射率","环境中的强酸性物质","光电开关的最大检测距离"],"C"],
+[192,"当需要检测物体的存在并判断其尺寸时，应优先考虑选用（　）光电开关。",["漫反射式","对射式","镜反射式","光纤式"],"B"]
+];
+
+const JUDGE = [
+[193,"为了延长设备寿命，电工可以在设备超负荷工作时减少巡检频率。","B"],
+[194,"社会公德的特点之一是全民共同遵守，体现了广泛的社会共识。","A"],
+[195,"软启动器的故障指示灯亮起时，可以直接忽略并继续运行设备。","B"],
+[196,"在使用可编程控制器编程软件时，先编写代码后建立新项目可以确保程序的完整性。","B"],
+[197,"可编程控制器中的计数器指令可以用于统计脉冲信号的数量，实现精确控制。","A"],
+[198,"在分析机床电气故障时，利用逻辑分析法可以有效缩小故障范围，提高维修效率。","A"],
+[199,"时间继电器选型仅需关注其动作时间和延时范围，而无须考虑其他因素。","B"],
+[200,"速度继电器的工作原理依赖于电磁感应现象，而不是机械离心力的作用。","B"],
+[201,"光电开关在高粉尘环境中工作时，可能会因为灰尘遮挡导致检测灵敏度下降。","A"],
+[202,"霍尔开关的响应速度较慢，因此不适合用于高频信号的检测。","B"],
+[203,"温度继电器的调整过程中，设定值的准确性直接影响到设备的安全运行。","A"],
+[204,"温度继电器可以随意改变其出厂设定的动作温度值而不影响其正常使用性能。","B"],
+[205,"霍尔开关的安装位置对检测精度没有影响，可以随意安装。","B"],
+[206,"温度继电器适用于监测电机绕组或其他元件的过热情况以保护设备免受损坏。","A"],
+[207,"当压力继电器的压力达到设定值，但触点无动作，可能是因为电气线路存在短路。","B"],
+[208,"电感式开关仅适用于金属物体的检测，无法用于非金属物体的检测。","B"],
+[209,"阻容耦合放大电路中的电容C1主要起到隔直通交的作用，对信号的放大没有直接影响。","A"],
+[210,"阻容耦合放大电路在高频区域的表现比低频区域更好，因为电容的阻抗随着频率的增加而减小。","B"],
+[211,"阻容耦合放大电路中，电容C1的存在可以保证输入信号顺利耦合到晶体管的基极，同时不影响晶体管的静态工作点。","A"],
+[212,"单相桥式半控整流电路中，所有晶闸管都会在负半周承受正向电压并导通。","B"],
+[213,"螺丝刀通常只有一个薄楔形头，无法适应不同类型的螺丝槽。","B"],
+[214,"在低压电力系统中，绝缘手套可以作为基本安全用具直接接触电源。","A"],
+[215,"所有绝缘安全用具都能承受电气设备的工作电压，可以直接用来操作带电设备。","B"],
+[216,"交流电的频率与角频率之间的关系是线性的，角频率是频率的两倍。","B"],
+[217,"二极管在正向导通时，其正向电压降通常为0.6V，这是所有二极管的共同特性。","A"],
+[218,"电工锤是电工常用工具中的一种，主要用于敲击而非切割。","A"],
+[219,"万用表测量交流电压时，不需要考虑电压的极性，可以直接测量。","B"],
+[220,"电气施工图中，设备的安装方法、质量要求以及使用维修方面的技术要求往往会在图纸上完全反映出来。","B"],
+[221,"钳形电流表在使用时，必须确保被测电路的电压等级与表的电压等级相匹配。","A"],
+[222,"稳压电源的输出电压在电网电压波动时能够保持稳定。","A"],
+[223,"速度继电器在维护时，必须先断开电源并等待至少5分钟后才能进行操作，以保证安全。","A"],
+[224,"温度继电器调整时，首先需要确定继电器的动作温度，这一步骤是在切断电源后进行的。","A"],
+[225,"在检测温度继电器故障时，可以通过对比动作温度与设定值来初步判断其是否工作正常。","A"],
+[226,"霍尔传感器在安装时，可以忽略磁场干扰对其性能的影响。","B"],
+[227,"在霍尔传感器安装过程中，确保电路接触良好是预防故障的重要措施。","A"],
+[228,"霍尔元件在检测到磁铁靠近时，一定会输出高电平信号。","B"],
+[229,"电感式接近开关在进行金属物体检测时，需要与被检测物体进行直接接触。","A"],
+[230,"电感式接近开关的振荡器产生的交变磁场，在金属物体接近时会在其内部产生涡流。","A"],
+[231,"调整压力继电器时，返回压力的设置应低于动作压力。","B"],
+[232,"压力继电器输出异常时，电源电压必须在24V以上才能正常工作。","B"],
+[233,"压力继电器在电路中可以用来控制大电流回路，且其自身消耗的电流较大。","B"],
+[234,"电容式接近开关只能检测金属物体，因为只有金属物体才能产生足够的涡流。","B"],
+[235,"电容式开关在断电后，其设置参数会因为采用数据存储技术而不会丢失。","A"],
+[236,"所有的电容式开关都只有单一的输出类型，无法提供多点输出。","B"],
+[237,"在处理软启动器EF34（多相欠流）故障时，首先应该检查启动信号端子（8、9、11）的控制电路。","A"],
+[238,"定期对软启动器的散热片进行清洁是维护保养的一项重要内容。","A"],
+[239,"在充电桩的充电过程中，充电电流会随着电池电量的增加而逐渐减小，以保持电池充电效率最优化。","A"],
+[240,"在三相交流笼型异步电动机位置控制电路中，接触器的主触点用于控制电动机的启动和停止。","A"]
+];
+
+/* ================== 构建题库 ================== */
+const BANK = [];
+SINGLE.forEach(function(it){
+  BANK.push({no:it[0],type:'single',q:it[1],o:it[2],a:'ABCD'.indexOf(it[3])});
+});
+JUDGE.forEach(function(it){
+  BANK.push({no:it[0],type:'judge',q:it[1],o:['正确','错误'],a:it[2]==='A'?0:1});
+});
+BANK.sort(function(x,y){return x.no-y.no;});
+
+const BY_NO = {};
+BANK.forEach(function(it){ BY_NO[it.no] = it; });
+
+const MODE_NAMES = {
+  all:'全部练习', single:'单选题', judge:'判断题', random:'随机练习', wrong:'错题重练'
+};
+
+/* ================== 存储 ================== */
+const LS_SESSIONS = 'dg4_sessions_v2';
+const LS_THEME = 'dg4_theme_v1';
+const state = {
+  mode:'all',
+  queue:[],
+  pos:0,
+  sessions:[],
+  currentId:null,
+  histView:'list',
+  histSessionId:null,
+  histDetailTab:'wrong'
+};
+
+function loadSessions(){
+  try{
+    var raw = localStorage.getItem(LS_SESSIONS);
+    if(raw){
+      var d = JSON.parse(raw);
+      state.sessions = Array.isArray(d.sessions) ? d.sessions : [];
+      state.currentId = d.currentId || null;
+    }
+  }catch(e){ state.sessions = []; state.currentId = null; }
+  if(!state.sessions.length){ state.currentId = null; }
+}
+function saveSessions(){
+  try{
+    localStorage.setItem(LS_SESSIONS, JSON.stringify({
+      sessions: state.sessions,
+      currentId: state.currentId
+    }));
+  }catch(e){}
+}
+
+/* ================== 会话 ================== */
+function getSession(id){
+  for(var i=0;i<state.sessions.length;i++){
+    if(state.sessions[i].id === id) return state.sessions[i];
+  }
+  return null;
+}
+function getCurrentSession(){
+  var s = getSession(state.currentId);
+  if(!s){ s = createSession(state.mode); }
+  return s;
+}
+function createSession(mode, name){
+  var s = {
+    id: 's' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    name: name || ('第' + (state.sessions.length + 1) + '次练习'),
+    mode: mode,
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+    answers: {}
+  };
+  state.sessions.push(s);
+  state.currentId = s.id;
+  saveSessions();
+  return s;
+}
+function sessionForMode(mode){
+  for(var i=state.sessions.length-1;i>=0;i--){
+    if(state.sessions[i].mode === mode) return state.sessions[i];
+  }
+  return null;
+}
+function sessionStats(s){
+  var total=0, right=0, wrong=0;
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    total++;
+    if(s.answers[no].c === item.a) right++; else wrong++;
+  });
+  return {total:total, right:right, wrong:wrong};
+}
+function computeWrongSet(){
+  var last = {};
+  state.sessions.forEach(function(s){
+    Object.keys(s.answers).forEach(function(no){
+      var a = s.answers[no];
+      if(!last[no] || a.t > last[no].t) last[no] = a;
+    });
+  });
+  var set = new Set();
+  Object.keys(last).forEach(function(no){
+    var item = BY_NO[no];
+    if(item && last[no].c !== item.a) set.add(Number(no));
+  });
+  return set;
+}
+
+/* ================== 工具 ================== */
+const $ = function(id){return document.getElementById(id);};
+const card = $('card');
+
+function esc(s){
+  return String(s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+  });
+}
+function shuffle(arr){
+  for(var i=arr.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1));
+    var t=arr[i];arr[i]=arr[j];arr[j]=t;
+  }
+  return arr;
+}
+function fmtTime(t){
+  var d = new Date(t);
+  var p = function(n){ return String(n).padStart(2,'0'); };
+  var now = new Date();
+  var sameDay = d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth() && d.getDate()===now.getDate();
+  if(sameDay) return '今天 ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  return (d.getMonth()+1) + '月' + d.getDate() + '日 ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+function optLabel(item, i){
+  return (item.type==='judge' ? '' : 'ABCD'[i] + '. ') + item.o[i];
+}
+
+/* ================== 主题切换 ================== */
+function applyTheme(dark){
+  document.body.classList.toggle('dark', !!dark);
+  var btn = $('themeBtn');
+  if(btn){
+    btn.textContent = dark ? '☀️' : '🌙';
+    btn.title = dark ? '白天模式' : '夜间模式';
+    btn.setAttribute('aria-label', dark ? '切换到白天模式' : '切换到夜间模式');
+  }
+}
+function loadTheme(){
+  try{
+    var v = localStorage.getItem(LS_THEME);
+    if(v === 'dark') return true;
+    if(v === 'light') return false;
+  }catch(e){}
+  try{
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }catch(e){ return false; }
+}
+function saveTheme(dark){
+  try{ localStorage.setItem(LS_THEME, dark ? 'dark' : 'light'); }catch(e){}
+}
+function toggleTheme(){
+  var dark = !document.body.classList.contains('dark');
+  applyTheme(dark);
+  saveTheme(dark);
+}
+
+/* ================== 队列 ================== */
+function buildQueue(mode){
+  var all = BANK.map(function(_,i){return i;});
+  if(mode==='single') return all.filter(function(i){return BANK[i].type==='single';});
+  if(mode==='judge')  return all.filter(function(i){return BANK[i].type==='judge';});
+  if(mode==='wrong'){
+    var ws = computeWrongSet();
+    return all.filter(function(i){return ws.has(BANK[i].no);});
+  }
+  if(mode==='random') return shuffle(all);
+  return all;
+}
+
+/* ================== 顶部收起 ================== */
+function collapseTopbar(){
+  $('topbar').classList.add('collapsed');
+  updateMiniBar();
+}
+function expandTopbar(){
+  $('topbar').classList.remove('collapsed');
+}
+
+function updateMiniBar(){
+  var sess = getCurrentSession();
+  var done = 0, right = 0;
+  state.queue.forEach(function(i){
+    var it = BANK[i], rec = sess.answers[it.no];
+    if(rec !== undefined){ done++; if(rec.c === it.a) right++; }
+  });
+  $('miniMode').textContent = MODE_NAMES[state.mode] || '练习';
+  $('miniProg').textContent = state.queue.length
+    ? ('第 ' + (state.pos + 1) + ' / ' + state.queue.length + ' 题')
+    : '暂无题目';
+  var rateEl = $('miniRate');
+  if(done === 0){
+    rateEl.textContent = '未作答';
+    rateEl.style.color = '#94a3b8';
+  }else{
+    var rate = Math.round(right / done * 100);
+    rateEl.textContent = '已答 ' + done + ' · 正确 ' + rate + '%';
+    rateEl.style.color = rate >= 60 ? '#16a34a' : '#dc2626';
+  }
+}
+
+/* ================== 答题卡 ================== */
+function currentItem(){ return BANK[state.queue[state.pos]]; }
+
+function render(){
+  var sess = getCurrentSession();
+
+  if(state.queue.length===0){
+    card.innerHTML = '<div class="empty">🎉 当前分组没有题目<br><span>' +
+      (state.mode==='wrong' ? '错题本是空的，先去「全部练习」刷题吧' : '请切换其他分组') +
+      '</span></div>';
+    updateStats();
+    updateNav();
+    return;
+  }
+
+  var item = currentItem();
+  var rec = sess.answers[item.no];
+  var answered = (rec !== undefined);
+  var chosen = answered ? rec.c : undefined;
+
+  card.innerHTML =
+    '<div class="qhead">' +
+      '<span class="tag ' + (item.type==='judge'?'judge':'') + '">' +
+        (item.type==='single'?'单选题':'判断题') + '</span>' +
+      '<span class="qno">第 ' + (state.pos+1) + ' / ' + state.queue.length +
+        ' 题 · No.' + item.no + '</span>' +
+    '</div>' +
+    '<div class="qtext">' + esc(item.q) + '</div>' +
+    '<div class="opts" id="opts"></div>' +
+    '<div class="feedback" id="fb"></div>';
+
+  var optsEl = $('opts');
+  item.o.forEach(function(text,i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt';
+    b.innerHTML = '<span class="letter">' + 'ABCD'[i] + '</span><span>' + esc(text) + '</span>';
+    if(answered){
+      b.classList.add('locked');
+      if(i===item.a) b.classList.add('right');
+      else if(i===chosen) b.classList.add('wrong');
+    }else{
+      b.addEventListener('click', function(){ choose(i); });
+    }
+    optsEl.appendChild(b);
+  });
+
+  var fb = $('fb');
+  if(answered){
+    if(chosen===item.a){
+      fb.className = 'feedback ok';
+      fb.innerHTML = '<b>✓ 回答正确</b>　正确答案：' + optLabel(item, item.a);
+    }else{
+      fb.className = 'feedback bad';
+      fb.innerHTML = '<b>✗ 回答错误</b>　正确答案：' + optLabel(item, item.a) +
+                     '　（你选了 ' + optLabel(item, chosen) + '）';
+    }
+  }else{
+    fb.className = 'feedback';
+    fb.innerHTML = '<span class="hint">点击选项作答 · 键盘 A/B/C/D 或 1-4 也可作答</span>';
+  }
+
+  updateStats();
+  updateNav();
+}
+
+function updateStats(){
+  var sess = getCurrentSession();
+  var done=0, right=0;
+  state.queue.forEach(function(i){
+    var it = BANK[i], rec = sess.answers[it.no];
+    if(rec !== undefined){ done++; if(rec.c === it.a) right++; }
+  });
+  var wrongN = done - right;
+  $('statDone').textContent = done;
+  $('statRight').textContent = right;
+  $('statWrong').textContent = wrongN;
+  $('statRate').textContent = done ? Math.round(right/done*100)+'%' : '0%';
+  $('progressBar').style.width = (state.queue.length ? (done/state.queue.length*100) : 0) + '%';
+  $('wrongBadge').textContent = computeWrongSet().size;
+  updateMiniBar();
+}
+
+function updateNav(){
+  $('prevBtn').disabled = state.pos<=0;
+  $('nextBtn').disabled = state.pos>=state.queue.length-1;
+}
+
+/* ================== 交互 ================== */
+function choose(i){
+  if(state.queue.length===0) return;
+  var item = currentItem();
+  var sess = getCurrentSession();
+  if(sess.answers[item.no] !== undefined) return;
+
+  sess.answers[item.no] = { c:i, t:Date.now() };
+  sess.updatedAt = Date.now();
+  saveSessions();
+
+  render();
+  if($('hpanel').classList.contains('show')) renderHistory();
+}
+
+function next(){
+  if(state.pos < state.queue.length-1){ state.pos++; render(); }
+}
+function prev(){
+  if(state.pos > 0){ state.pos--; render(); }
+}
+
+function updateModeButtons(){
+  Array.prototype.forEach.call(document.querySelectorAll('.modes button'), function(b){
+    b.classList.toggle('active', b.dataset.mode === state.mode);
+  });
+}
+
+function switchMode(mode){
+  state.mode = mode;
+  var s = sessionForMode(mode);
+  if(!s) s = createSession(mode);
+  state.currentId = s.id;
+  state.queue = buildQueue(mode);
+
+  var idx = 0;
+  for(var i=0;i<state.queue.length;i++){
+    var no = BANK[state.queue[i]].no;
+    if(s.answers[no] === undefined){ idx = i; break; }
+    if(i === state.queue.length-1) idx = i;
+  }
+  state.pos = idx;
+
+  saveSessions();
+  updateModeButtons();
+  render();
+}
+
+/* ================== 历史记录面板 ================== */
+function openHistory(){
+  state.histView = 'list';
+  state.histSessionId = null;
+  renderHistory();
+  $('hpanel').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeHistory(){
+  $('hpanel').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function renderHistory(){
+  if(state.histView === 'detail') renderSessionDetail();
+  else renderSessionList();
+}
+
+function renderSessionList(){
+  $('hpBack').style.display = 'none';
+  $('hpTabs').style.display = 'none';
+  $('hpTitle').textContent = '历史记录';
+
+  var list = state.sessions.filter(function(s){
+    return Object.keys(s.answers).length > 0 || s.id === state.currentId;
+  }).sort(function(a,b){ return b.updatedAt - a.updatedAt; });
+
+  $('hpSub').textContent = list.length ? ('共 ' + list.length + ' 次练习记录') : '暂无记录';
+
+  var box = $('hlist');
+  if(list.length === 0){
+    box.innerHTML = '<div class="empty">暂无练习记录<br><span>去练习吧，每次作答都会自动保存为一条记录</span></div>';
+    $('hpFoot').innerHTML = '';
+    return;
+  }
+
+  box.innerHTML = list.map(function(s){
+    var stat = sessionStats(s);
+    var isLive = (s.id === state.currentId);
+    return '<div class="session-card ' + (isLive?'live':'') + '" data-id="' + s.id + '">' +
+      '<div class="sc-top">' +
+        '<div class="hname-wrap">' +
+          '<span class="hname" data-id="' + s.id + '" title="点击修改名称">' + esc(s.name) + '</span>' +
+          (isLive ? '<span class="live-badge">正在练习中</span>' : '') +
+        '</div>' +
+        '<span class="sc-time">' + fmtTime(s.updatedAt) + '</span>' +
+      '</div>' +
+      '<div class="sc-mode">' + (MODE_NAMES[s.mode] || s.mode) + '</div>' +
+      '<div class="sc-stats">' +
+        '<span class="ok-t">✓ 正确 ' + stat.right + '</span>' +
+        '<span class="bad-t">✗ 错误 ' + stat.wrong + '</span>' +
+        '<span class="tot-t">共 ' + stat.total + ' 题</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  $('hpFoot').innerHTML =
+    '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+}
+
+function renderSessionDetail(){
+  var s = getSession(state.histSessionId);
+  if(!s){ state.histView='list'; renderHistory(); return; }
+
+  var stat = sessionStats(s);
+  $('hpBack').style.display = 'block';
+  $('hpTitle').textContent = s.name;
+  $('hpSub').textContent = (MODE_NAMES[s.mode] || s.mode) + ' · 正确 ' +
+    stat.right + ' / 错误 ' + stat.wrong + ' / 共 ' + stat.total + ' 题';
+
+  $('hpTabs').style.display = 'flex';
+  $('htWrong').textContent = '错题 ' + stat.wrong;
+  $('htAll').textContent = '全部 ' + stat.total;
+  $('htWrong').classList.toggle('active', state.histDetailTab==='wrong');
+  $('htAll').classList.toggle('active', state.histDetailTab==='all');
+
+  if(stat.wrong > 0){
+    $('hpFoot').innerHTML =
+      '<button class="primary-sm" id="hpReview">重新练习错题 (' + stat.wrong + ')</button>' +
+      '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+  }else{
+    $('hpFoot').innerHTML =
+      '<span class="hint" style="font-size:13px">本次练习没有错题 🎉</span>' +
+      '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+  }
+
+  var entries = [];
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var rec = s.answers[no];
+    var ok = rec.c === item.a;
+    if(state.histDetailTab === 'wrong' && ok) return;
+    entries.push({it:item, rec:rec, ok:ok});
+  });
+  entries.sort(function(a,b){ return a.it.no - b.it.no; });
+
+  var box = $('hlist');
+  if(entries.length === 0){
+    box.innerHTML = '<div class="empty">' +
+      (state.histDetailTab==='wrong' ? '本次练习没有错题 🎉' : '暂无作答记录') +
+      '</div>';
+    return;
+  }
+
+  box.innerHTML = entries.map(function(x){
+    return '<div class="hitem">' +
+      '<div class="hrow">' +
+        '<span class="tag ' + (x.it.type==='judge'?'judge':'') + '">' +
+          (x.it.type==='single'?'单选题':'判断题') + '</span>' +
+        '<span class="hno">No.' + x.it.no + '</span>' +
+      '</div>' +
+      '<div class="hq">' + esc(x.it.q) + '</div>' +
+      '<div class="ha">你的答案：<span class="' + (x.ok?'right':'yours') + '">' +
+        esc(optLabel(x.it, x.rec.c)) + '</span></div>' +
+      (x.ok ? '' : '<div class="ha">正确答案：<span class="right">' +
+        esc(optLabel(x.it, x.it.a)) + '</span></div>') +
+    '</div>';
+  }).join('');
+}
+
+function reviewSessionWrong(sessionId){
+  var s = getSession(sessionId);
+  if(!s) return;
+
+  var wrongNos = [];
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(item && s.answers[no].c !== item.a) wrongNos.push(Number(no));
+  });
+  if(wrongNos.length === 0) return;
+
+  var ns = createSession('wrong', s.name + ' · 错题重练');
+  state.mode = 'wrong';
+
+  var idxs = [];
+  wrongNos.forEach(function(no){
+    for(var i=0;i<BANK.length;i++){
+      if(BANK[i].no === no){ idxs.push(i); break; }
+    }
+  });
+  state.queue = idxs;
+  state.pos = 0;
+  state.currentId = ns.id;
+  saveSessions();
+
+  closeHistory();
+  updateModeButtons();
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function startRename(el){
+  var id = el.dataset.id;
+  var s = getSession(id);
+  if(!s) return;
+
+  var input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'hname-input';
+  input.value = s.name;
+  input.maxLength = 30;
+
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+
+  var done = false;
+  function commit(){
+    if(done) return;
+    done = true;
+    var v = input.value.trim();
+    if(v) s.name = v;
+    saveSessions();
+    renderHistory();
+  }
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', function(ev){
+    if(ev.key === 'Enter'){ ev.preventDefault(); input.blur(); }
+    else if(ev.key === 'Escape'){ input.value = s.name; input.blur(); }
+    ev.stopPropagation();
+  });
+}
+
+/* ================== 事件绑定 ================== */
+$('modes').addEventListener('click', function(e){
+  var btn = e.target.closest('button[data-mode]');
+  if(btn) switchMode(btn.dataset.mode);
+});
+$('prevBtn').addEventListener('click', prev);
+$('nextBtn').addEventListener('click', next);
+$('jumpBtn').addEventListener('click', function(){
+  var v = parseInt($('jumpInput').value,10);
+  if(!isNaN(v) && v>=1 && v<=state.queue.length){
+    state.pos = v-1;
+    render();
+    $('jumpInput').value = '';
+  }
+});
+$('jumpInput').addEventListener('keydown', function(e){
+  if(e.key==='Enter') $('jumpBtn').click();
+});
+
+/* 收起 / 展开 */
+$('collapseBtn').addEventListener('click', function(e){
+  e.stopPropagation();
+  collapseTopbar();
+});
+$('topbarMini').addEventListener('click', function(){
+  expandTopbar();
+});
+
+/* 夜间模式 */
+$('themeBtn').addEventListener('click', function(e){
+  e.stopPropagation();
+  toggleTheme();
+});
+
+/* 新练习 */
+$('redoBtn').addEventListener('click', function(){
+  var cur = getCurrentSession();
+  var n = Object.keys(cur.answers).length;
+  if(n > 0 && !confirm('开始一次新的练习？当前进度会保存到「历史记录」。')) return;
+  createSession(state.mode);
+  state.queue = buildQueue(state.mode);
+  state.pos = 0;
+  saveSessions();
+  render();
+});
+
+/* 清空 */
+$('clearBtn').addEventListener('click', function(){
+  if(confirm('确定要清空全部练习记录吗？此操作不可恢复。')){
+    state.sessions = [];
+    state.currentId = null;
+    saveSessions();
+    createSession(state.mode);
+    state.queue = buildQueue(state.mode);
+    state.pos = 0;
+    saveSessions();
+    render();
+    if($('hpanel').classList.contains('show')){
+      state.histView='list'; state.histSessionId=null;
+      renderHistory();
+    }
+  }
+});
+
+/* 历史面板 */
+$('histBtn').addEventListener('click', openHistory);
+$('hpClose').addEventListener('click', closeHistory);
+$('hpBack').addEventListener('click', function(){
+  state.histView = 'list';
+  state.histSessionId = null;
+  renderHistory();
+});
+$('htWrong').addEventListener('click', function(){
+  state.histDetailTab='wrong'; renderSessionDetail();
+});
+$('htAll').addEventListener('click', function(){
+  state.histDetailTab='all'; renderSessionDetail();
+});
+
+$('hlist').addEventListener('click', function(e){
+  var nameEl = e.target.closest('.hname');
+  if(nameEl){
+    e.preventDefault(); e.stopPropagation();
+    startRename(nameEl);
+    return;
+  }
+  var cardEl = e.target.closest('.session-card');
+  if(cardEl){
+    state.histView = 'detail';
+    state.histSessionId = cardEl.dataset.id;
+    state.histDetailTab = 'wrong';
+    renderHistory();
+    $('hlist').scrollTop = 0;
+    return;
+  }
+});
+
+$('hpFoot').addEventListener('click', function(e){
+  if(e.target.closest('#hpReview')){
+    reviewSessionWrong(state.histSessionId);
+    return;
+  }
+  if(e.target.closest('#hpClearAll')){
+    if(confirm('确定要清空全部练习记录吗？此操作不可恢复。')){
+      state.sessions = [];
+      state.currentId = null;
+      createSession(state.mode);
+      state.queue = buildQueue(state.mode);
+      state.pos = 0;
+      saveSessions();
+      state.histView = 'list';
+      state.histSessionId = null;
+      renderHistory();
+      render();
+    }
+  }
+});
+
+/* 键盘 */
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && $('hpanel').classList.contains('show')){
+    if(state.histView === 'detail'){
+      state.histView = 'list';
+      state.histSessionId = null;
+      renderHistory();
+    }else{
+      closeHistory();
+    }
+    return;
+  }
+  if(e.target.tagName==='INPUT') return;
+  if(state.queue.length===0) return;
+  if($('hpanel').classList.contains('show')) return;
+
+  var item = currentItem();
+  var k = e.key.toUpperCase();
+  if(k.length===1 && 'ABCD'.indexOf(k)>=0){
+    var i1 = 'ABCD'.indexOf(k);
+    if(i1 < item.o.length){ choose(i1); e.preventDefault(); }
+  }else if(k.length===1 && '1234'.indexOf(k)>=0){
+    var i2 = parseInt(k,10)-1;
+    if(i2 < item.o.length){ choose(i2); e.preventDefault(); }
+  }else if(e.key==='ArrowRight'){
+    next();
+  }else if(e.key==='ArrowLeft'){
+    prev();
+  }
+});
+
+/* ================== 启动 ================== */
+loadSessions();
+applyTheme(loadTheme());
+switchMode('all');
+</script>
+</body>
+</html>
