@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>电工四级理论题库</title>
+<style>
+:root{--bg:#f7f9fc;--bg-top:#eef3fb;--card:#fff;--card-2:#fafbfe;--text:#0f172a;--text-2:#334155;--text-3:#64748b;--text-4:#94a3b8;--border:#e8edf5;--border-2:#dde5f0;--brand:#3b82f6;--brand-dark:#1d4ed8;--brand-soft:#eef4ff;--brand-grad:linear-gradient(135deg,#4f8cf8,#6366f1);--success:#16a34a;--success-soft:#f0fdf4;--success-bg:#dcfce7;--danger:#dc2626;--danger-soft:#fef2f2;--danger-bg:#fee2e2;--warning:#d97706;--warning-soft:#fff7ed;--purple:#7c3aed;--purple-soft:#f5f3ff;--star:#f59e0b;--shadow:0 1px 3px rgba(15,23,42,.04),0 8px 24px rgba(15,23,42,.05);--shadow-sm:0 1px 2px rgba(15,23,42,.04);--r:10px;--r-md:14px;--r-lg:18px}
+body.dark{--bg:#0a1020;--bg-top:#0f1729;--card:#1a2540;--card-2:#213052;--text:#e6edf7;--text-2:#b8c5da;--text-3:#8899b3;--text-4:#5c6d88;--border:#2a3a5c;--border-2:#334a73;--brand:#60a5fa;--brand-dark:#93c5fd;--brand-soft:#1e3a5f;--success:#4ade80;--success-soft:#052e16;--success-bg:#0f3a1f;--danger:#f87171;--danger-soft:#3f0a0a;--danger-bg:#5a1414;--warning:#fbbf24;--warning-soft:#422006;--purple:#c4b5fd;--purple-soft:#2e1065;--star:#fbbf24;--shadow:0 1px 3px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(180deg,var(--bg-top) 0%,var(--bg) 200px,var(--bg) 100%);color:var(--text);min-height:100vh;min-height:100dvh;transition:background .25s,color .25s;-webkit-text-size-adjust:100%;line-height:1.5;font-size:15px}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font-family:inherit;outline:none}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:780px;margin:0 auto;padding:12px 12px 100px;padding-left:calc(12px + env(safe-area-inset-left));padding-right:calc(12px + env(safe-area-inset-right));padding-top:calc(12px + env(safe-area-inset-top))}
+@media (min-width:768px){.wrap{max-width:820px;padding:18px 18px 110px}}
+@media (min-width:1100px){.wrap{max-width:880px;padding:24px 20px 120px}}
+.topbar{margin-bottom:10px}
+.topbar-mini{display:none}
+.topbar.collapsed .topbar-full{display:none}
+.topbar.collapsed .topbar-mini{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 14px;cursor:pointer;box-shadow:var(--shadow-sm);font-size:13px;color:var(--text-2);transition:.15s}
+.topbar.collapsed .topbar-mini:active{transform:scale(.995)}
+.mini-icon{font-size:15px;flex:0 0 auto}
+.mini-mode{font-weight:700;color:var(--brand-dark);flex:0 0 auto;font-size:13px}
+.mini-prog{color:var(--text-3);flex:0 0 auto;font-size:12.5px}
+.mini-rate{color:var(--text-4);flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12.5px}
+.mini-expand{color:var(--brand);font-weight:700;flex:0 0 auto;font-size:12px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 2px 12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.logo{width:36px;height:36px;border-radius:11px;background:var(--brand-grad);display:grid;place-items:center;font-size:18px;flex:0 0 auto;box-shadow:0 4px 12px rgba(79,140,248,.3)}
+h1{font-size:16px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text);font-weight:700}
+.head-btns{display:flex;gap:6px;flex:0 0 auto}
+.icon-btn{width:36px;height:36px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:grid;place-items:center;font-size:15px;color:var(--text-3);transition:.15s;position:relative}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn:hover{border-color:var(--border-2);color:var(--brand)}
+.modes{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin-bottom:12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.modes::-webkit-scrollbar{display:none}
+.modes button{flex:0 0 auto;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text-3);font-size:13px;font-weight:500;transition:.18s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.modes button.active{background:var(--brand-grad);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(79,140,248,.28)}
+.badge{display:inline-block;min-width:16px;padding:0 5px;border-radius:8px;background:rgba(255,255,255,.25);font-size:10.5px;line-height:16px;text-align:center;font-weight:700}
+.modes button:not(.active) .badge{background:#ef4444;color:#fff}
+.modes button:not(.active) .badge.fav-badge{background:var(--star);color:#fff}
+.statsbar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.stat{background:var(--card);border-radius:var(--r);padding:8px 4px;text-align:center;border:1px solid var(--border)}
+.stat b{display:block;font-size:16px;line-height:1.3;font-weight:700}
+.stat span{font-size:11px;color:var(--text-4)}
+.stat.ok b{color:var(--success)}
+.stat.bad b{color:var(--danger)}
+.progress{height:4px;border-radius:99px;background:var(--border);overflow:hidden;margin-bottom:12px}
+.progress i{display:block;height:100%;width:0;border-radius:99px;background:var(--brand-grad);transition:width .3s}
+.resume-bar{display:none;align-items:center;gap:10px;margin-bottom:10px;padding:10px 14px;border-radius:var(--r-md);background:var(--warning-soft);border:1px solid rgba(217,119,6,.2);color:var(--warning);font-size:12.5px;line-height:1.4}
+.resume-bar.show{display:flex}
+.resume-bar .rb-icon{font-size:16px;flex:0 0 auto}
+.resume-bar .rb-text{flex:1;min-width:0}
+.resume-bar .rb-text b{font-weight:800}
+.resume-bar .rb-btn{flex:0 0 auto;padding:5px 12px;border-radius:8px;background:var(--warning);color:#fff;font-size:12px;font-weight:700}
+.resume-bar .rb-close{flex:0 0 auto;width:22px;height:22px;border-radius:50%;color:var(--warning);font-size:14px;display:grid;place-items:center}
+.exam-bar{display:none;align-items:center;gap:12px;margin-bottom:10px;padding:10px 14px;border-radius:var(--r-md);background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fbbf24;color:#78350f;font-size:13px;box-shadow:0 4px 14px rgba(251,191,36,.15)}
+.exam-bar.show{display:flex}
+.exam-bar .exam-timer{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;flex:0 0 auto;letter-spacing:.5px}
+.exam-bar .exam-timer.warn{color:#dc2626;animation:pulseRed 1s infinite}
+@keyframes pulseRed{0%,100%{opacity:1}50%{opacity:.55}}
+.exam-bar .exam-info{flex:1;min-width:0;font-size:12.5px;opacity:.85}
+.exam-bar .exam-submit{flex:0 0 auto;padding:6px 14px;border-radius:8px;background:#b45309;color:#fff;font-size:12.5px;font-weight:700}
+body.dark .exam-bar{background:linear-gradient(135deg,#422006,#78350f);border-color:#b45309;color:#fef3c7}
+body.dark .exam-bar .exam-submit{background:#fbbf24;color:#422006}
+.card{background:var(--card);border-radius:var(--r-lg);padding:18px 16px;box-shadow:var(--shadow);border:1px solid var(--border);min-height:220px;position:relative;touch-action:pan-y}
+@media (min-width:768px){.card{padding:22px 22px}}
+.qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.qhead-left{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.qhead-right{display:flex;gap:6px;align-items:center}
+.tag{font-size:11.5px;padding:3px 10px;border-radius:7px;font-weight:600;background:var(--brand-soft);color:var(--brand-dark)}
+.tag.judge{background:var(--warning-soft);color:var(--warning)}
+.tag.shuffled{background:var(--purple-soft);color:var(--purple)}
+.tag.exam{background:#fee2e2;color:#b91c1c}
+.qno{font-size:11.5px;color:var(--text-4)}
+.star-btn{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:16px;color:var(--text-4);transition:.15s;border:1px solid transparent}
+.star-btn:hover{background:var(--card-2);color:var(--star)}
+.star-btn.active{color:var(--star)}
+.star-btn:active{transform:scale(.9)}
+.star-btn.pop{animation:starPop .4s ease}
+@keyframes starPop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.qtext{font-size:16px;line-height:1.7;font-weight:600;margin-bottom:16px;color:var(--text);word-wrap:break-word;overflow-wrap:break-word}
+@media (min-width:768px){.qtext{font-size:17px}}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--border);background:var(--card-2);font-size:14.5px;line-height:1.5;color:var(--text-2);transition:.15s;word-wrap:break-word;overflow-wrap:break-word;position:relative}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft)}
+.opt:active{transform:scale(.995)}
+.opt .letter{flex:0 0 24px;height:24px;border-radius:7px;background:var(--brand-soft);color:var(--brand-dark);display:grid;place-items:center;font-size:12.5px;font-weight:700}
+.opt.right{border-color:var(--success);background:var(--success-soft)}
+.opt.right .letter{background:var(--success);color:#fff}
+.opt.right::after{content:'✓';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:900;color:var(--success);animation:iconIn .35s ease}
+.opt.wrong{border-color:var(--danger);background:var(--danger-soft)}
+.opt.wrong .letter{background:var(--danger);color:#fff}
+.opt.wrong::after{content:'✗';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:900;color:var(--danger);animation:iconIn .35s ease}
+.opt.selected{border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 3px rgba(79,140,248,.15)}
+.opt.selected .letter{background:var(--brand);color:#fff}
+.opt.locked{cursor:default}
+@keyframes iconIn{from{opacity:0;transform:translateY(-50%) scale(.5)}to{opacity:1;transform:translateY(-50%) scale(1)}}
+@keyframes tapPop{0%{transform:scale(1)}50%{transform:scale(.97)}100%{transform:scale(1)}}
+.opt.tapped{animation:tapPop .22s ease}
+.feedback{margin-top:14px;font-size:13.5px;min-height:22px;line-height:1.6}
+.feedback.ok{color:var(--success)}
+.feedback.bad{color:var(--danger)}
+.fb-line{margin-bottom:2px}
+.hint{color:var(--text-4);font-size:12.5px}
+.exam-hint{color:var(--brand-dark);font-size:12.5px;font-weight:600;padding:8px 12px;background:var(--brand-soft);border-radius:9px;display:inline-block;margin-top:6px}
+.confirm-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:14px;padding:8px 26px;border-radius:9px;background:var(--brand-grad);color:#fff;font-size:14px;font-weight:600;box-shadow:0 4px 12px rgba(79,140,248,.28);transition:.15s;vertical-align:middle}
+.confirm-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(79,140,248,.36)}
+.confirm-btn:active:not(:disabled){transform:scale(.97)}
+.confirm-btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+@media (max-width:520px){.confirm-btn{margin-left:8px;padding:7px 20px;font-size:13.5px}}
+.explain{margin-top:12px;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border);background:var(--card);animation:fadeIn .25s ease}
+.explain.ok{border-color:rgba(22,163,74,.3)}
+.explain.bad{border-color:rgba(220,38,38,.3)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.exp-head{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--brand-soft);border-bottom:1px solid var(--border)}
+.explain.ok .exp-head{background:var(--success-soft)}
+.explain.bad .exp-head{background:var(--danger-soft)}
+.exp-head-icon{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:12.5px;flex:0 0 auto;background:var(--brand);color:#fff}
+.explain.ok .exp-head-icon{background:var(--success)}
+.explain.bad .exp-head-icon{background:var(--danger)}
+.exp-head-title{font-size:13px;font-weight:700;color:var(--brand-dark)}
+.explain.ok .exp-head-title{color:var(--success)}
+.explain.bad .exp-head-title{color:var(--danger)}
+.exp-head-status{margin-left:auto;font-size:11px;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--card);color:var(--text-3)}
+.exp-body{padding:12px 14px 14px}
+.exp-block{margin-bottom:12px}
+.exp-block:last-child{margin-bottom:0}
+.exp-label{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--brand-dark);margin-bottom:6px;padding:2px 8px;border-radius:5px;background:var(--brand-soft)}
+.exp-label::before{content:'';width:3px;height:10px;border-radius:2px;background:var(--brand)}
+.explain.ok .exp-label{color:var(--success);background:var(--success-soft)}
+.explain.ok .exp-label::before{background:var(--success)}
+.explain.bad .exp-label{color:var(--danger);background:var(--danger-soft)}
+.explain.bad .exp-label::before{background:var(--danger)}
+.exp-block p{margin:0;font-size:13px;line-height:1.75;color:var(--text-3);word-wrap:break-word;overflow-wrap:break-word}
+.k-main{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:center}
+.k-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;background:var(--purple-soft);color:var(--purple);transition:.15s;line-height:1.4;border:1px solid transparent;cursor:pointer}
+.k-chip:hover{transform:translateY(-1px);border-color:var(--purple)}
+.k-chip .k-icon{font-size:11px;opacity:.8}
+.k-chip .k-plus{font-size:10px;font-weight:900;opacity:.55;margin-left:2px}
+.k-sub{display:inline-flex;align-items:center;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:500;background:var(--card-2);color:var(--text-3);border:1px dashed var(--border-2);line-height:1.4}
+.k-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.k-link{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:600;background:var(--brand-soft);color:var(--brand-dark);transition:.15s;line-height:1.4}
+.k-link:hover{transform:translateY(-1px)}
+.k-link .k-arrow{font-size:10px;opacity:.6}
+.exp-options{display:flex;flex-direction:column;gap:6px}
+.exp-option{display:flex;gap:10px;align-items:flex-start;padding:9px 11px;border-radius:9px;background:var(--card-2);border-left:3px solid var(--border-2);font-size:12.5px;line-height:1.6}
+.exp-option .opt-tag{flex:0 0 22px;height:22px;font-weight:800;font-size:12px;display:grid;place-items:center;border-radius:6px;background:var(--border);color:var(--text-3)}
+.exp-option .opt-content{flex:1;min-width:0}
+.exp-option .opt-text{font-weight:600;color:var(--text-2);margin-bottom:3px;word-wrap:break-word;overflow-wrap:break-word}
+.exp-option .opt-analysis{color:var(--text-3);word-wrap:break-word;overflow-wrap:break-word}
+.exp-option.is-right{background:var(--success-soft);border-left-color:var(--success)}
+.exp-option.is-right .opt-tag{background:var(--success);color:#fff}
+.exp-option.is-right .opt-text{color:var(--success)}
+.exp-option.is-right .opt-analysis{color:var(--success)}
+.exp-option.is-wrong{background:var(--danger-soft);border-left-color:var(--danger)}
+.exp-option.is-wrong .opt-tag{background:var(--danger);color:#fff}
+.exp-option.is-wrong .opt-text{color:var(--danger)}
+.exp-option.is-wrong .opt-analysis{color:var(--danger)}
+.sheet-toggle{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;padding:10px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text-3);font-size:12.5px;font-weight:600;transition:.15s}
+.sheet-toggle:hover{border-color:var(--brand);color:var(--brand)}
+.sheet-toggle .arrow{font-size:10px;transition:.2s}
+.sheet-toggle.open .arrow{transform:rotate(180deg)}
+.progress-ring{width:20px;height:20px;flex:0 0 auto;transform:rotate(-90deg)}
+.progress-ring .ring-bg{stroke:var(--border)}
+.progress-ring .ring-fg{stroke:var(--brand);transition:stroke-dashoffset .4s ease;stroke-linecap:round}
+.sheet-toggle .ring-pct{font-size:11px;color:var(--text-4);font-variant-numeric:tabular-nums;min-width:34px;text-align:left}
+.answer-sheet{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.answer-sheet.open{max-height:600px;margin-top:10px;overflow-y:auto}
+.as-filters{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.as-filters button{padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text-3);font-size:12px;transition:.15s}
+.as-filters button.active{background:var(--brand-grad);color:#fff;border-color:transparent}
+.as-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:5px;padding:10px;background:var(--card);border-radius:var(--r-md);border:1px solid var(--border)}
+.as-cell{aspect-ratio:1;min-width:0;border-radius:7px;border:1.5px solid var(--border);background:var(--card-2);color:var(--text-3);font-size:12px;font-weight:700;display:grid;place-items:center;transition:.12s;padding:0}
+.as-cell:active{transform:scale(.9)}
+.as-cell.right{background:var(--success-bg);border-color:var(--success);color:var(--success)}
+.as-cell.wrong{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
+.as-cell.current{box-shadow:0 0 0 2.5px rgba(79,140,248,.3);border-color:var(--brand);color:var(--brand-dark)}
+.as-cell.fav{position:relative}
+.as-cell.fav::after{content:'★';position:absolute;top:-3px;right:-3px;font-size:9px;color:var(--star)}
+.navbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:8px 12px calc(8px + env(safe-area-inset-bottom));display:flex;gap:6px;align-items:center;justify-content:center;z-index:50}
+body.dark .navbar{background:rgba(10,16,32,.92)}
+.nav-btn{flex:1;max-width:200px;padding:11px 8px;border-radius:var(--r);border:1px solid var(--border);background:var(--card);color:var(--text-2);font-size:14px;font-weight:500;transition:.15s}
+.nav-btn:hover{border-color:var(--border-2)}
+.nav-btn.primary{background:var(--brand-grad);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(79,140,248,.3);font-weight:600}
+.nav-btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.jump{display:flex;gap:3px;align-items:center}
+.jump input{width:64px;padding:10px 4px;border-radius:9px;border:1px solid var(--border);background:var(--card);color:var(--text);text-align:center;font-size:13px}
+.jump button{padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card);color:var(--text-3);font-size:12.5px}
+.modal-overlay{position:fixed;inset:0;z-index:300;background:rgba(15,23,42,.5);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:var(--card);border-radius:var(--r-lg);max-width:420px;width:100%;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border)}
+.modal-head h3{margin:0;font-size:15.5px;font-weight:700}
+.modal-close{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--text-3);font-size:14px}
+.modal-close:hover{background:var(--card-2)}
+.modal-body{padding:16px;overflow-y:auto}
+.form-row{margin-bottom:16px}
+.form-row:last-child{margin-bottom:0}
+.form-row>label{display:block;font-size:12.5px;font-weight:600;color:var(--text-3);margin-bottom:8px}
+.btn-group{display:flex;flex-wrap:wrap;gap:6px}
+.btn-group button{padding:8px 14px;border-radius:9px;border:1px solid var(--border);background:var(--card);color:var(--text-3);font-size:13px;font-weight:500;transition:.15s}
+.btn-group button:hover{border-color:var(--brand);color:var(--brand)}
+.btn-group button.active{background:var(--brand-grad);color:#fff;border-color:transparent}
+.modal-foot{padding:12px 16px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px}
+.result-card{background:var(--card);border-radius:var(--r-lg);padding:24px 20px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.result-head{text-align:center;margin-bottom:20px}
+.result-score{font-size:48px;font-weight:800;line-height:1;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.result-total{font-size:18px;color:var(--text-4);font-weight:600;margin-left:4px}
+.result-label{font-size:13px;color:var(--text-4);margin-top:6px;letter-spacing:.5px}
+.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.result-stat{text-align:center}
+.result-stat b{display:block;font-size:18px;font-weight:800;line-height:1.3}
+.result-stat span{font-size:11.5px;color:var(--text-4)}
+.result-stat.ok b{color:var(--success)}
+.result-stat.bad b{color:var(--danger)}
+.result-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.result-btns button{padding:10px 18px;border-radius:10px;font-size:13.5px;font-weight:600}
+.result-btns .btn-primary{background:var(--brand-grad);color:#fff;box-shadow:0 4px 14px rgba(79,140,248,.28)}
+.result-btns .btn-ghost{background:var(--card);border:1px solid var(--border);color:var(--text-3)}
+.result-wrong-list{margin-top:8px}
+.result-wrong-item{padding:12px;background:var(--card-2);border-radius:var(--r-md);margin-bottom:8px;border-left:3px solid var(--danger);font-size:13px;line-height:1.6}
+.result-wrong-item .rw-q{font-weight:600;color:var(--text-2);margin-bottom:4px}
+.result-wrong-item .rw-a{font-size:12.5px;color:var(--text-3)}
+.result-wrong-item .rw-a .yours{color:var(--danger);font-weight:700}
+.result-wrong-item .rw-a .right{color:var(--success);font-weight:700}
+.empty{text-align:center;padding:50px 12px;color:var(--text-3);font-size:15px;line-height:1.9}
+.empty span{font-size:12.5px;color:var(--text-4)}
+.toast{position:fixed;left:50%;bottom:80px;transform:translate(-50%,20px);max-width:88%;padding:9px 18px;border-radius:99px;background:rgba(15,23,42,.9);color:#fff;font-size:13px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;z-index:200;text-align:center;backdrop-filter:blur(6px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hpanel{position:fixed;top:0;bottom:0;left:0;right:0;z-index:120;background:var(--bg);display:none;flex-direction:column;max-width:780px;margin:0 auto}
+.hpanel.show{display:flex}
+.hp-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card);border-bottom:1px solid var(--border);padding-top:calc(12px + env(safe-area-inset-top))}
+.hp-back{background:var(--card-2);color:var(--text-2);width:34px;height:34px;border-radius:10px;font-size:15px;flex:0 0 auto;display:grid;place-items:center}
+.hp-title-wrap{flex:1;min-width:0}
+.hp-head h2{margin:0;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hp-head .sub2{margin:2px 0 0;font-size:11.5px;color:var(--text-4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hp-close{background:var(--card-2);color:var(--text-2);width:34px;height:34px;border-radius:10px;font-size:14px;flex:0 0 auto;display:grid;place-items:center}
+.hp-tabs{display:flex;gap:6px;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border)}
+.hp-tabs button{flex:0 0 auto;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text-3);font-size:12.5px}
+.hp-tabs button.active{background:var(--brand-grad);color:#fff;border-color:transparent}
+.hp-body{flex:1;overflow-y:auto;padding:12px 12px 20px;-webkit-overflow-scrolling:touch}
+.hp-foot{padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--border);display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.session-card{position:relative;background:var(--card);border-radius:var(--r-md);padding:14px;margin-bottom:8px;border:1px solid var(--border);transition:.15s}
+.session-card:active{transform:scale(.995)}
+.session-card.live{border-color:var(--brand)}
+.sc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.hname-wrap{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap;flex:1}
+.hname{font-size:14.5px;font-weight:700;color:var(--text);cursor:pointer;padding-right:30px}
+.hname-input{font-size:14.5px;font-weight:700;color:var(--text);border:1.5px solid var(--brand);border-radius:7px;padding:2px 8px;background:var(--card);min-width:120px;max-width:200px}
+.live-badge{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border-radius:99px;padding:2px 8px;flex:0 0 auto}
+.live-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand);animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.exam-badge{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:#b91c1c;background:#fee2e2;border-radius:99px;padding:2px 8px;flex:0 0 auto}
+body.dark .exam-badge{background:#5a1414;color:#fca5a5}
+.sc-time{font-size:11px;color:var(--text-4);flex:0 0 auto}
+.sc-del{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:8px;background:var(--danger-soft);color:var(--danger);font-size:13px;display:grid;place-items:center;opacity:0;transition:.15s}
+.session-card:hover .sc-del{opacity:1}
+@media (hover:none){.sc-del{opacity:.5}}
+.sc-del:hover{background:var(--danger);color:#fff}
+.sc-mode{font-size:11.5px;color:var(--text-4);margin-bottom:6px}
+.sc-stats{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12.5px}
+.sc-stats .ok-t{color:var(--success);font-weight:700}
+.sc-stats .bad-t{color:var(--danger);font-weight:700}
+.sc-stats .tot-t{color:var(--text-4)}
+.hitem{background:var(--card);border-radius:var(--r-md);padding:12px 14px;margin-bottom:8px;border:1px solid var(--border)}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.hno{font-size:11px;color:var(--text-4)}
+.hq{font-size:13.5px;line-height:1.6;color:var(--text);font-weight:600;margin:8px 0}
+.ha{font-size:12.5px;line-height:1.8;color:var(--text-3)}
+.ha .yours{color:var(--danger);font-weight:700}
+.ha .right{color:var(--success);font-weight:700}
+.primary-sm{background:var(--brand-grad);color:#fff;border-radius:10px;padding:10px 18px;font-size:13.5px;font-weight:600;box-shadow:0 4px 14px rgba(79,140,248,.28)}
+.ghost-sm{background:var(--card);border:1px solid var(--border);color:var(--text-3);border-radius:10px;padding:10px 16px;font-size:12.5px}
+@media (max-width:600px){.wrap{padding:10px 10px 96px}.card{padding:16px 14px}.qtext{font-size:15.5px}}
+@media (max-width:520px){.wrap{padding:8px 10px 90px}header{margin:0 0 10px}h1{font-size:15px}.logo{width:34px;height:34px;border-radius:10px;font-size:17px}.icon-btn{width:34px;height:34px;font-size:14px}.modes{margin-bottom:10px}.modes button{padding:7px 12px;font-size:12.5px}.statsbar{gap:5px}.stat{padding:7px 3px;border-radius:9px}.stat b{font-size:15px}.stat span{font-size:10.5px}.card{padding:15px 13px;border-radius:16px}.qtext{font-size:15px;margin-bottom:14px}.opts{gap:7px}.opt{padding:11px 12px;font-size:14px;border-radius:10px;gap:9px}.opt .letter{flex:0 0 22px;height:22px;font-size:12px;border-radius:6px}.feedback{font-size:13px;margin-top:12px}.exp-body{padding:10px 12px 12px}.exp-block p{font-size:12.5px}.exp-option{font-size:12px;padding:8px 10px}.as-grid{grid-template-columns:repeat(auto-fill,minmax(30px,1fr));gap:4px;padding:9px}.as-cell{font-size:11px}.navbar{padding:7px 8px calc(7px + env(safe-area-inset-bottom));gap:5px}.nav-btn{padding:10px 6px;font-size:13.5px;border-radius:10px}.jump{gap:2px}.jump input{width:50px;padding:9px 3px;font-size:12.5px}.jump button{padding:9px 8px;font-size:12px}.result-score{font-size:40px}}
+@media (max-width:380px){h1{font-size:14px}.logo{width:32px;height:32px;font-size:16px}.icon-btn{width:32px;height:32px;font-size:13.5px}.modes button{padding:6px 10px;font-size:12px}.qtext{font-size:14.5px}.opt{font-size:13.5px;padding:10px 11px}.nav-btn{font-size:13px;padding:9px 5px}.jump input{width:44px;font-size:12px}.stat b{font-size:14px}}
+@media (orientation:landscape) and (max-height:520px){.wrap{padding:8px 14px 68px;padding-top:calc(8px + env(safe-area-inset-top));max-width:100%}.card{padding:14px;border-radius:14px;min-height:auto}.qtext{font-size:15px;margin-bottom:12px}.opt{padding:10px 12px;font-size:14px}.navbar{padding:6px 10px calc(6px + env(safe-area-inset-bottom));gap:6px}.nav-btn{padding:9px 8px;font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar" id="topbar">
+    <div class="topbar-full">
+      <header>
+        <div class="brand"><span class="logo">⚡</span><h1>电工四级理论题库</h1></div>
+        <div class="head-btns">
+          <button class="icon-btn" id="histBtn" title="历史记录" aria-label="历史记录">📋</button>
+          <button class="icon-btn" id="redoBtn" title="新练习" aria-label="新练习">✨</button>
+          <button class="icon-btn" id="themeBtn" title="夜间模式" aria-label="夜间模式">🌙</button>
+          <button class="icon-btn" id="collapseBtn" title="收起顶部" aria-label="收起顶部">▲</button>
+        </div>
+      </header>
+      <div class="modes" id="modes">
+        <button data-mode="all" class="active">全部练习</button>
+        <button data-mode="single">单选题</button>
+        <button data-mode="judge">判断题</button>
+        <button data-mode="random">随机练习</button>
+        <button data-mode="favorite" id="favModeBtn" style="display:none">收藏 <span class="badge fav-badge" id="favBadge">0</span></button>
+        <button data-mode="wrong">错题重练 <span class="badge" id="wrongBadge">0</span></button>
+        <button data-mode="topic" id="topicBtn" style="display:none">专题</button>
+        <button data-mode="exam" id="examModeBtn">🎯 模拟考试</button>
+      </div>
+      <div class="statsbar">
+        <div class="stat"><b id="statDone">0</b><span>已答</span></div>
+        <div class="stat ok"><b id="statRight">0</b><span>正确</span></div>
+        <div class="stat bad"><b id="statWrong">0</b><span>错误</span></div>
+        <div class="stat"><b id="statRate">0%</b><span>正确率</span></div>
+      </div>
+      <div class="progress"><i id="progressBar"></i></div>
+    </div>
+    <div class="topbar-mini" id="topbarMini" title="点击展开顶部">
+      <span class="mini-icon">⚡</span>
+      <span class="mini-mode" id="miniMode">全部练习</span>
+      <span class="mini-prog" id="miniProg">第 1 / 234 题</span>
+      <span class="mini-rate" id="miniRate">未作答</span>
+      <span class="mini-expand">展开 ▼</span>
+    </div>
+  </div>
+  <div class="resume-bar" id="resumeBar">
+    <span class="rb-icon">⏯️</span>
+    <div class="rb-text" id="resumeText"></div>
+    <button class="rb-btn" id="resumeGo">继续</button>
+    <button class="rb-close" id="resumeClose" aria-label="关闭">✕</button>
+  </div>
+  <div class="exam-bar" id="examBar">
+    <span class="exam-timer" id="examTimer">60:00</span>
+    <span class="exam-info" id="examInfo">0 / 50 已答</span>
+    <button class="exam-submit" id="examSubmit">交卷</button>
+  </div>
+  <main id="card" class="card"></main>
+  <button type="button" class="sheet-toggle" id="sheetToggle">
+    <svg class="progress-ring" viewBox="0 0 20 20">
+      <circle class="ring-bg" cx="10" cy="10" r="8" fill="none" stroke-width="2"/>
+      <circle class="ring-fg" id="ringFg" cx="10" cy="10" r="8" fill="none" stroke-width="2" stroke-dasharray="50.265" stroke-dashoffset="50.265" transform="rotate(-90 10 10)"/>
+    </svg>
+    <span>📋 答题卡</span>
+    <span class="ring-pct" id="ringPct">0%</span>
+    <span class="arrow">▼</span>
+  </button>
+  <div class="answer-sheet" id="answerSheet">
+    <div class="as-filters" id="asFilters">
+      <button data-filter="all" class="active">全部</button>
+      <button data-filter="unanswered">未答</button>
+      <button data-filter="wrong">错题</button>
+      <button data-filter="right">正确</button>
+      <button data-filter="fav">收藏</button>
+    </div>
+    <div class="as-grid" id="asGrid"></div>
+  </div>
+</div>
+<div class="navbar">
+  <button class="nav-btn" id="prevBtn">← 上一题</button>
+  <div class="jump">
+    <input id="jumpInput" type="number" min="1" placeholder="题号" aria-label="跳转题号">
+    <button id="jumpBtn">跳转</button>
+  </div>
+  <button class="nav-btn primary" id="nextBtn">下一题 →</button>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal-overlay" id="examModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🎯 模拟考试设置</h3>
+      <button class="modal-close" id="examModalClose" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label>题数</label>
+        <div class="btn-group" id="examCountGroup">
+          <button data-count="10">10 题</button>
+          <button data-count="20">20 题</button>
+          <button data-count="30">30 题</button>
+          <button data-count="50" class="active">50 题</button>
+          <button data-count="100">100 题</button>
+          <button data-count="0">全部</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>时长</label>
+        <div class="btn-group" id="examTimeGroup">
+          <button data-time="15">15 分钟</button>
+          <button data-time="30">30 分钟</button>
+          <button data-time="45">45 分钟</button>
+          <button data-time="60" class="active">60 分钟</button>
+          <button data-time="90">90 分钟</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>范围</label>
+        <div class="btn-group" id="examScopeGroup">
+          <button data-scope="all" class="active">全部</button>
+          <button data-scope="single">仅单选题</button>
+          <button data-scope="judge">仅判断题</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="ghost-sm" id="examModalCancel">取消</button>
+      <button class="primary-sm" id="examModalStart">开始考试</button>
+    </div>
+  </div>
+</div>
+<div class="hpanel" id="hpanel">
+  <div class="hp-head">
+    <button class="hp-back" id="hpBack" style="display:none" aria-label="返回">←</button>
+    <div class="hp-title-wrap"><h2 id="hpTitle">历史记录</h2><p class="sub2" id="hpSub"></p></div>
+    <button class="hp-close" id="hpClose" aria-label="关闭">✕</button>
+  </div>
+  <div class="hp-tabs" id="hpTabs" style="display:none">
+    <button id="htWrong" class="active">错题 0</button>
+    <button id="htAll">全部 0</button>
+  </div>
+  <div class="hp-body" id="hlist"></div>
+  <div class="hp-foot" id="hpFoot"></div>
+</div>
+<script>
+'use strict';
+/* ===== 知识点链接 ===== */
+var KB_LINKS = {
+  'PLC':[{name:'百度百科',url:'https://baike.baidu.com/item/可编程逻辑控制器'}],
+  'PLC编程':[{name:'百度百科',url:'https://baike.baidu.com/item/可编程逻辑控制器'}],
+  'PLC编程软件':[{name:'百度百科',url:'https://baike.baidu.com/item/可编程逻辑控制器'}],
+  'SIMATIC':[{name:'百度百科',url:'https://baike.baidu.com/item/SIMATIC'}],
+  '软启动器':[{name:'百度百科',url:'https://baike.baidu.com/item/软启动器'}],
+  '充电桩':[{name:'百度百科',url:'https://baike.baidu.com/item/充电桩'}],
+  '直流充电桩':[{name:'百度百科',url:'https://baike.baidu.com/item/直流充电桩'}],
+  '电动汽车':[{name:'百度百科',url:'https://baike.baidu.com/item/电动汽车'}],
+  '电工职业守则':[{name:'百度百科',url:'https://baike.baidu.com/item/电工职业守则'}],
+  '职业道德':[{name:'百度百科',url:'https://baike.baidu.com/item/职业道德'}],
+  '质量管理':[{name:'百度百科',url:'https://baike.baidu.com/item/质量管理'}],
+  '工艺管理':[{name:'百度百科',url:'https://baike.baidu.com/item/工艺管理'}],
+  '中间继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/中间继电器'}],
+  '时间继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/时间继电器'}],
+  '速度继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/速度继电器'}],
+  '温度继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/温度继电器'}],
+  '压力继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/压力继电器'}],
+  '热继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/热继电器'}],
+  '接触器':[{name:'百度百科',url:'https://baike.baidu.com/item/接触器'}],
+  '断路器':[{name:'百度百科',url:'https://baike.baidu.com/item/断路器'}],
+  '低压断路器':[{name:'百度百科',url:'https://baike.baidu.com/item/低压断路器'}],
+  '继电器':[{name:'百度百科',url:'https://baike.baidu.com/item/继电器'}],
+  '计数器':[{name:'百度百科',url:'https://baike.baidu.com/item/计数器'}],
+  '光电开关':[{name:'百度百科',url:'https://baike.baidu.com/item/光电开关'}],
+  '霍尔效应':[{name:'百度百科',url:'https://baike.baidu.com/item/霍尔效应'}],
+  '霍尔开关':[{name:'百度百科',url:'https://baike.baidu.com/item/霍尔开关'}],
+  '霍尔传感器':[{name:'百度百科',url:'https://baike.baidu.com/item/霍尔传感器'}],
+  '霍尔元件':[{name:'百度百科',url:'https://baike.baidu.com/item/霍尔元件'}],
+  '电感式开关':[{name:'百度百科',url:'https://baike.baidu.com/item/电感式接近开关'}],
+  '电感式接近开关':[{name:'百度百科',url:'https://baike.baidu.com/item/电感式接近开关'}],
+  '电容式开关':[{name:'百度百科',url:'https://baike.baidu.com/item/电容式接近开关'}],
+  '电容式接近开关':[{name:'百度百科',url:'https://baike.baidu.com/item/电容式接近开关'}],
+  '万用表':[{name:'百度百科',url:'https://baike.baidu.com/item/万用表'}],
+  '示波器':[{name:'百度百科',url:'https://baike.baidu.com/item/示波器'}],
+  '信号发生器':[{name:'百度百科',url:'https://baike.baidu.com/item/信号发生器'}],
+  '钳形电流表':[{name:'百度百科',url:'https://baike.baidu.com/item/钳形电流表'}],
+  '双臂电桥':[{name:'百度百科',url:'https://baike.baidu.com/item/双臂电桥'}],
+  '三端稳压器':[{name:'百度百科',url:'https://baike.baidu.com/item/三端稳压器'}],
+  '二极管':[{name:'百度百科',url:'https://baike.baidu.com/item/二极管'}],
+  '三极管':[{name:'百度百科',url:'https://baike.baidu.com/item/三极管'}],
+  '变压器':[{name:'百度百科',url:'https://baike.baidu.com/item/变压器'}],
+  '整流电路':[{name:'百度百科',url:'https://baike.baidu.com/item/整流电路'}],
+  '放大电路':[{name:'百度百科',url:'https://baike.baidu.com/item/放大电路'}],
+  '晶闸管整流':[{name:'百度百科',url:'https://baike.baidu.com/item/晶闸管'}],
+  '单相半波整流':[{name:'百度百科',url:'https://baike.baidu.com/item/单相半波整流电路'}],
+  '稳压电源':[{name:'百度百科',url:'https://baike.baidu.com/item/稳压电源'}],
+  '电源分类':[{name:'百度百科',url:'https://baike.baidu.com/item/直流电源'}],
+  '导电材料':[{name:'百度百科',url:'https://baike.baidu.com/item/导电材料'}],
+  '绝缘材料':[{name:'百度百科',url:'https://baike.baidu.com/item/绝缘材料'}],
+  '电工材料':[{name:'百度百科',url:'https://baike.baidu.com/item/电工材料'}],
+  '电工工具':[{name:'百度百科',url:'https://baike.baidu.com/item/电工工具'}],
+  '钳工工具':[{name:'百度百科',url:'https://baike.baidu.com/item/钳工'}],
+  '安全用具':[{name:'百度百科',url:'https://baike.baidu.com/item/绝缘安全用具'}],
+  '绝缘工具':[{name:'百度百科',url:'https://baike.baidu.com/item/绝缘工具'}],
+  '交流电':[{name:'百度百科',url:'https://baike.baidu.com/item/交流电'}],
+  '电动机':[{name:'百度百科',url:'https://baike.baidu.com/item/电动机'}],
+  '电动机保护':[{name:'百度百科',url:'https://baike.baidu.com/item/电动机保护'}],
+  '电动机控制':[{name:'百度百科',url:'https://baike.baidu.com/item/电动机控制'}],
+  '绕线式电动机':[{name:'百度百科',url:'https://baike.baidu.com/item/绕线式异步电动机'}],
+  '能耗制动':[{name:'百度百科',url:'https://baike.baidu.com/item/能耗制动'}],
+  '再生发电制动':[{name:'百度百科',url:'https://baike.baidu.com/item/再生发电制动'}],
+  '顺序控制':[{name:'百度百科',url:'https://baike.baidu.com/item/顺序控制'}],
+  '顺序启动':[{name:'百度百科',url:'https://baike.baidu.com/item/顺序控制'}],
+  '多地控制电路':[{name:'百度百科',url:'https://baike.baidu.com/item/多地控制'}],
+  '接零系统':[{name:'百度百科',url:'https://baike.baidu.com/item/接零保护'}],
+  '接地装置':[{name:'百度百科',url:'https://baike.baidu.com/item/接地装置'}],
+  '接地电阻测试仪':[{name:'百度百科',url:'https://baike.baidu.com/item/接地电阻测试仪'}],
+  '等电位联结':[{name:'百度百科',url:'https://baike.baidu.com/item/等电位联结'}],
+  '防雷接地':[{name:'百度百科',url:'https://baike.baidu.com/item/防雷接地'}],
+  '临时用电':[{name:'百度百科',url:'https://baike.baidu.com/item/临时用电'}],
+  '临时供电':[{name:'百度百科',url:'https://baike.baidu.com/item/临时用电'}],
+  '低压电器':[{name:'百度百科',url:'https://baike.baidu.com/item/低压电器'}],
+  '防护等级':[{name:'百度百科',url:'https://baike.baidu.com/item/IP防护等级'}],
+  '劳动合同法':[{name:'百度百科',url:'https://baike.baidu.com/item/中华人民共和国劳动合同法'}],
+  '触电急救':[{name:'百度百科',url:'https://baike.baidu.com/item/触电急救'}],
+  '环境保护':[{name:'百度百科',url:'https://baike.baidu.com/item/环境保护'}],
+  '电气施工图':[{name:'百度百科',url:'https://baike.baidu.com/item/电气施工图'}],
+  '电气维护':[{name:'百度百科',url:'https://baike.baidu.com/item/电气设备维护'}],
+  '机床电气':[{name:'百度百科',url:'https://baike.baidu.com/item/机床电气控制'}],
+  '数控机床':[{name:'百度百科',url:'https://baike.baidu.com/item/数控机床'}],
+  '汽车电路':[{name:'百度百科',url:'https://baike.baidu.com/item/汽车电路'}],
+  'C6140车床':[{name:'百度百科',url:'https://baike.baidu.com/item/C6140车床'}],
+  'M7130磨床':[{name:'百度百科',url:'https://baike.baidu.com/item/平面磨床'}],
+  'Z37钻床':[{name:'百度百科',url:'https://baike.baidu.com/item/摇臂钻床'}]
+};
+
+/* ===== 单选题 [题号, 题干, [选项], 答案, {a:解析, k:知识点, o:选项详解}] ===== */
+var SINGLE = [
+[1,"电工职业守则中强调的遵纪守法不包括（　）的要求。",["国家法律","企业内部纪律","地方风俗习惯","行业规范"],"C",{a:'遵纪守法要求遵守国家法律、行业规范和企业内部纪律。地方风俗习惯不具备强制约束力。',k:'电工职业守则 · 遵纪守法',o:{A:'正确。国家法律是每个公民必须遵守的基本法律。',B:'正确。企业内部纪律是从业人员必须遵守的规章制度。',C:'错误。地方风俗习惯属于社会文化范畴，不具备法律或纪律的强制约束力。',D:'正确。行业规范是行业统一的行为准则。'}}],
+[2,"关于职业幸福感，它通常是建立在员工对（　）的理解和接受基础上。",["工作报酬","公司福利","职业生涯","职业责任"],"D",{a:'职业幸福感源于对职业责任的认同与担当。',k:'职业道德 · 职业幸福感',o:{A:'错误。工作报酬属于外部物质激励。',B:'错误。公司福利同样属于外部激励。',C:'错误。职业生涯是发展路径。',D:'正确。职业幸福感源于对职业责任的认同与担当。'}}],
+[3,"软启动器能够减少启动时产生的（　），从而保护电机和相关设备。",["振动","噪声","冲击电流","温度升高"],"C",{a:'软启动器通过控制晶闸管触发角使启动电压平滑上升，限制启动冲击电流。',k:'软启动器 · 启动保护',o:{A:'错误。振动是运行中的次生现象。',B:'错误。噪声不是主要抑制对象。',C:'正确。冲击电流是造成电机绕组过热的主要因素。',D:'错误。温度升高是运行中的现象。'}}],
+[4,"软启动器主要通过改变（　）来控制电动机的启动过程。",["电源频率","启动电压","负载大小","工作温度"],"B",{a:'软启动器通过晶闸管调压原理改变启动电压。',k:'软启动器 · 调压原理',o:{A:'错误。改变电源频率是变频器的功能。',B:'正确。通过晶闸管调压改变启动电压。',C:'错误。负载大小由生产机械决定。',D:'错误。工作温度不是控制电机启动的参数。'}}],
+[5,"PLC在一个完整的扫描周期中，最终完成的任务是在（　）阶段更新输出锁存电路的状态。",["输入采样","指令解释","程序执行","输出刷新"],"D",{a:'PLC扫描周期依次为输入采样、程序执行、输出刷新。',k:'PLC · 扫描周期',o:{A:'错误。输入采样是扫描周期的开始阶段。',B:'错误。指令解释用于翻译程序指令。',C:'错误。程序执行是扫描周期的中间阶段。',D:'正确。输出刷新阶段是最后环节，更新输出锁存电路。'}}],
+[6,"软启动器在运行过程中，如果发现启动时间明显延长，可能是由于（　）引起的问题。",["电源电压过高","负载过轻","内部元件老化","环境温度过低"],"C",{a:'软启动器内部晶闸管等元件老化后导通性能下降。',k:'软启动器 · 故障诊断',o:{A:'错误。电源电压过高反而会使启动更快。',B:'错误。负载过轻时启动时间会缩短。',C:'正确。内部元件老化导致导通性能下降、触发延迟。',D:'错误。环境温度过低影响有限。'}}],
+[7,"可编程控制器的输入信号通常来自于（　）。",["传感器和开关","变压器","电机","继电器线圈"],"A",{a:'PLC的输入模块用于接收现场各种开关量和模拟量信号。',k:'PLC · 输入模块',o:{A:'正确。按钮、行程开关、接近开关、光电传感器等是主要来源。',B:'错误。变压器是电源设备，不是输入信号源。',C:'错误。电机是输出控制对象。',D:'错误。继电器线圈是受控元件。'}}],
+[8,"充电桩的通信接口主要用于与（　）进行信息交换。",["电网系统","车辆管理系统","用户手机","充电站服务器"],"B",{a:'充电桩通过CAN总线与车辆BMS进行握手。',k:'充电桩 · 通信接口',o:{A:'错误。电网系统通过电力线连接。',B:'正确。通过CAN总线与车辆BMS握手交换电池状态、充电需求等。',C:'错误。用户手机通过网络后台交互。',D:'错误。服务器是后台通信通道。'}}],
+[9,"对于小型可编程控制器而言，常用的直流电源电压是（　）。",["5VDC","12VDC","24VDC","36VDC"],"C",{a:'24VDC是小型PLC的标准直流供电电压。',k:'PLC · 供电电源',o:{A:'错误。5VDC多用于电子电路内部。',B:'错误。12VDC常见于汽车电子。',C:'正确。24VDC是小型PLC的标准直流供电电压。',D:'错误。36VDC超出安全电压范围。'}}],
+[10,"在充电桩的调试过程中，首先要确保（　）的设置和调整是正确的。",["显示屏亮度","通信协议","外壳材料","充电线缆长度"],"B",{a:'充电桩调试的核心是通信协议的匹配与正确设置。',k:'充电桩 · 调试要点',o:{A:'错误。显示屏亮度不影响充电功能。',B:'正确。只有通信协议正确才能与车辆BMS正常握手。',C:'错误。外壳材料与功能实现无关。',D:'错误。线缆长度不影响充电功能。'}}],
+[11,"当充电桩无法启动充电时，首先应检查的是（　）。",["电源输入状态","用户支付信息","充电桩外观损坏情况","后台系统日志"],"A",{a:'故障排查应遵循先电源后信号的原则。',k:'充电桩 · 故障排查顺序',o:{A:'正确。首先确认充电桩供电是否正常。',B:'错误。支付信息应在确认电源正常后检查。',C:'错误。外观损坏应在电源正常后检查。',D:'错误。后台日志是辅助排查手段。'}}],
+[12,"对于直流充电桩而言，重点维护的对象是其内部的（　）。",["电缆长度","显示屏亮度","功率模块","散热风扇"],"C",{a:'功率模块是直流充电桩的核心部件。',k:'直流充电桩 · 功率模块',o:{A:'错误。电缆长度是固定参数。',B:'错误。显示屏亮度不是决定充电性能的关键。',C:'正确。功率模块负责AC/DC变换和功率调节。',D:'错误。散热风扇不是决定充电性能的核心部件。'}}],
+[13,"启动可编程控制器编程软件时，若出现版本不兼容提示，应（　）。",["忽略提示继续使用","更新软件版本","卸载软件重新安装","联系技术支持"],"B",{a:'版本不兼容会导致程序无法正常编译或与PLC通信异常。',k:'PLC · 软件兼容性',o:{A:'错误。忽略提示可能导致通信异常或程序错误。',B:'正确。应更新到与PLC固件匹配的软件版本。',C:'错误。重装同版本无法解决兼容性问题。',D:'错误。联系技术支持是后备方案。'}}],
+[14,"当需要将某个输出信号置为1并且保持该状态时，应该使用（　）指令。",["AND","LD","SET","OUT"],"C",{a:'SET为置位指令，可将输出置为1并保持该状态。',k:'PLC · 基本指令',o:{A:'错误。AND是逻辑与运算指令。',B:'错误。LD是取指令，无保持功能。',C:'正确。SET为置位指令，可将输出置为1并保持。',D:'错误。OUT状态随程序执行结果变化。'}}],
+[15,"为了确保计数器指令能够正确工作，其初始化条件一般通过（　）触发。",["手动按钮","定时器中断","系统复位信号","外部继电器"],"C",{a:'计数器初始化通常由系统复位信号触发。',k:'PLC · 计数器初始化',o:{A:'错误。手动按钮不是标准触发方式。',B:'错误。定时器中断不是标准方式。',C:'正确。系统复位信号保证计数器从零开始。',D:'错误。外部继电器不是标准触发方式。'}}],
+[16,"当可编程控制器出现通信故障时，首先应该检查（　）。",["电源电压","通信线路","程序代码","输出负载"],"B",{a:'通信故障应优先检查物理层。',k:'PLC · 通信故障排查',o:{A:'错误。电源问题不是通信故障的首查项。',B:'正确。通信线路连接、接头松动、终端电阻等物理连接问题最常见。',C:'错误。程序代码不是通信故障的首查项。',D:'错误。输出负载与通信故障无直接关系。'}}],
+[17,"为了排查PLC程序中的错误，可以利用（　）来监控程序运行状态。",["仿真软件","万用表","示波器","PLC自带诊断功能"],"D",{a:'PLC自带诊断功能可实时监控程序运行状态。',k:'PLC · 诊断功能',o:{A:'错误。仿真软件用于离线调试。',B:'错误。万用表用于测量电气参数。',C:'错误。示波器用于观测波形。',D:'正确。PLC自带诊断功能可实时监控程序运行状态。'}}],
+[18,"为了实现电动机的顺序启动，在控制回路中通常会加入（　）来保证顺序逻辑。",["热继电器","时间继电器","熔断器","电流继电器"],"B",{a:'时间继电器可以按设定延时依次接通各台电动机的启动回路。',k:'顺序控制 · 时间继电器',o:{A:'错误。热继电器用于过载保护。',B:'正确。时间继电器按设定延时依次接通各台电动机。',C:'错误。熔断器用于短路保护。',D:'错误。电流继电器用于电流检测。'}}],
+[19,"中间继电器的触点容量应根据（　）来选择。",["环境湿度","负载电流","线圈电阻","安装位置"],"B",{a:'中间继电器触点容量必须满足所控制回路负载电流的要求。',k:'中间继电器 · 选型',o:{A:'错误。环境湿度影响防护等级选择。',B:'正确。触点容量必须满足所控制回路负载电流的要求。',C:'错误。线圈电阻与触点容量无直接关系。',D:'错误。安装位置与触点容量选择无关。'}}],
+[20,"当电动机处于连续运转状态时，其控制电路中的自锁触点应该（　）。",["与主接触器串联","与主接触器并联","接于电源与停止按钮之间","串联在热继电器之后"],"B",{a:'自锁触点与启动按钮并联，形成自锁回路。',k:'电动机控制 · 自锁电路',o:{A:'错误。串联在主回路无法实现自锁功能。',B:'正确。自锁触点与启动按钮并联，松开按钮后线圈仍持续得电。',C:'错误。接于电源与停止按钮之间无法实现自锁功能。',D:'错误。串联在热继电器之后无法保持状态。'}}],
+[21,"计数器选型过程中，对于需要远程监控的应用场景，应重点考虑（　）特性。",["防水等级","通信接口","抗干扰能力","耐温性能"],"B",{a:'远程监控要求计数器能够将计数数据上传到上位机。',k:'计数器 · 通信接口',o:{A:'错误。防水等级是通用要求。',B:'正确。远程监控要求计数器具备通信接口。',C:'错误。抗干扰能力是通用性能要求。',D:'错误。耐温性能是通用要求。'}}],
+[22,"当机床电气系统出现间歇性故障时，最有效的排查方法是（　）。",["直接更换所有元器件","使用替代法逐个检查","重新布线整个系统","忽略故障继续运行"],"B",{a:'间歇性故障难以直接定位，使用替代法逐个替换可疑元件。',k:'机床电气 · 故障排查',o:{A:'错误。直接更换所有元器件成本过高。',B:'正确。使用替代法逐个替换可疑元件，可有效缩小故障范围。',C:'错误。重新布线工作量大且可能引入新问题。',D:'错误。忽略故障会导致故障扩大。'}}],
+[23,"临时用电配电系统中，开关箱与固定式用电设备的水平距离不宜超过（　）米。",["10","20","30","40"],"C",{a:'根据规范，开关箱与固定式用电设备的水平距离不宜超过30米。',k:'临时用电 · 配电距离',o:{A:'错误。10米偏小。',B:'错误。20米偏小。',C:'正确。规范规定不宜超过30米。',D:'错误。40米超出规范要求。'}}],
+[24,"C6140车床电气控制电路中，用于限制工作台行程的元件是（　）。",["按钮开关","行程开关","热继电器","接触器"],"B",{a:'行程开关安装在工作台运动的极限位置。',k:'C6140车床 · 行程开关',o:{A:'错误。按钮开关由人工操作。',B:'正确。行程开关在工作台极限位置碰撞后切断控制回路。',C:'错误。热继电器用于过载保护。',D:'错误。接触器用于控制通断。'}}],
+[26,"接触器选型过程中，如果负载是电机，则需要特别考虑（　）的影响。",["启动电流较大","电阻值较小","线圈发热","绝缘等级要求"],"A",{a:'电动机启动电流可达额定电流的5~7倍。',k:'接触器 · 电机负载选型',o:{A:'正确。电动机启动电流可达额定电流的5~7倍。',B:'错误。电阻值不是接触器选型的特殊因素。',C:'错误。线圈发热是通用考虑因素。',D:'错误。绝缘等级是通用要求。'}}],
+[27,"M7130平面磨床电气控制电路中，为确保安全操作，通常会使用（　）来检测工作台位置。",["光电传感器","接近开关","限位开关","编码器"],"C",{a:'限位开关用于检测工作台的极限位置。',k:'M7130磨床 · 限位保护',o:{A:'错误。光电传感器不是M7130传统电路中的限位元件。',B:'错误。接近开关不是M7130传统电路中的限位元件。',C:'正确。限位开关检测工作台极限位置，实现安全保护。',D:'错误。编码器不是M7130传统电路中的限位元件。'}}],
+[28,"对于移动式电气设备，最适宜采用的接零系统是（　）。",["TN-C","TN-S","TT","IT"],"B",{a:'TN-S系统中工作零线（N）和保护零线（PE）完全分开。',k:'接零系统 · TN-S',o:{A:'错误。TN-C的N线和PE线合一，安全性差。',B:'正确。TN-S的PE线专用于保护接地，安全性能好。',C:'错误。TT系统不常用于移动式电气设备。',D:'错误。IT系统不常用于移动式电气设备。'}}],
+[29,"时间继电器的额定电流指的是其线圈允许长期通过的（　）。",["最大电压","最大电流","最小电流","最小电压"],"B",{a:'时间继电器额定电流是指线圈允许长期通过的最大电流值。',k:'时间继电器 · 额定电流',o:{A:'错误。最大电压是额定电压的参数。',B:'正确。额定电流指线圈允许长期通过的最大电流值。',C:'错误。最小电流不是额定电流的定义。',D:'错误。最小电压不是额定电流的定义。'}}],
+[30,"当三相交流笼型异步电动机出现过载现象时，应优先检查（　）的工作状态。",["热继电器","接触器线圈","行程开关","电动机绕组"],"A",{a:'热继电器是电动机过载保护的核心元件。',k:'电动机保护 · 热继电器',o:{A:'正确。热继电器是电动机过载保护的核心元件。',B:'错误。接触器线圈与过载现象无直接关系。',C:'错误。行程开关与过载现象无关。',D:'错误。电动机绕组是过载的受害者。'}}],
+[31,"断路器的额定绝缘电压（　）其使用环境的实际工作电压。",["必须高于","可以低于","等于","无关紧要"],"A",{a:'额定绝缘电压是断路器绝缘设计的安全上限。',k:'断路器 · 额定绝缘电压',o:{A:'正确。额定绝缘电压必须高于实际工作电压。',B:'错误。可以低于会导致绝缘击穿。',C:'错误。等于没有安全余量。',D:'错误。额定绝缘电压与实际工作电压密切相关。'}}],
+[32,"根据安全规范，临时用电设备的金属外壳必须与（　）可靠连接。",["电源线","接地线","零线","火线"],"B",{a:'临时用电设备的金属外壳必须与接地线（PE）可靠连接。',k:'临时用电 · 保护接地',o:{A:'错误。电源线不能作为保护接地使用。',B:'正确。金属外壳必须与接地线（PE）可靠连接。',C:'错误。工作零线不能作为保护接地使用。',D:'错误。火线绝对不能作为保护接地使用。'}}],
+[33,"对于临时供电系统而言，在进行接地电阻测试之前首先要做的是确保（　）。",["负载已连接好","所有人员撤离现场","断开市电供电来源","绝缘电阻已经合格"],"C",{a:'测量接地电阻时必须断开市电电源。',k:'临时供电 · 接地电阻测试',o:{A:'错误。负载连接与否不影响接地电阻测量。',B:'错误。人员撤离不是必要步骤。',C:'正确。必须断开市电电源。',D:'错误。绝缘电阻与接地电阻测试无直接关系。'}}],
+[34,"在三相交流绕线式异步电动机启动控制电路中，启动时转子回路串入的元件是（　）。",["电容","电阻","电感","二极管"],"B",{a:'绕线式异步电动机启动时，在转子回路中串入电阻。',k:'绕线式电动机 · 转子串电阻',o:{A:'错误。电容不用于绕线式电动机的转子启动回路。',B:'正确。串入电阻可减小启动电流、增大启动转矩。',C:'错误。电感不用于绕线式电动机的转子启动回路。',D:'错误。二极管不用于绕线式电动机的转子启动回路。'}}],
+[35,"接地装置安装过程中，接地体之间的连接应采用（　）方式以确保电气连续性。",["绑扎","焊接","胶带缠绕","螺栓连接"],"B",{a:'接地体之间的连接必须采用焊接方式。',k:'接地装置 · 连接方式',o:{A:'错误。绑扎不能保证良好的电气连续性。',B:'正确。焊接能保证电气连续性和足够的机械强度。',C:'错误。胶带缠绕不能保证电气连续性。',D:'错误。螺栓连接容易松动、锈蚀。'}}],
+[36,"为了实现绕线式异步电动机的平稳启动，通常使用（　）来逐级切除启动电阻。",["延时触头","温度继电器","电流继电器","液磁开关"],"A",{a:'时间继电器的延时触头按设定时间顺序逐级短接启动电阻。',k:'绕线式电动机 · 逐级切除电阻',o:{A:'正确。延时触头按时间顺序逐级短接启动电阻。',B:'错误。温度继电器不用于逐级切除启动电阻。',C:'错误。电流继电器用于电流检测。',D:'错误。液磁开关不用于此场合。'}}],
+[37,"在完成三相交流绕线式异步电动机启动控制电路调试后，应该记录各项参数和结果，这一过程的主要目的是为了（　）。",["向客户汇报工作","满足工艺要求","积累数据供后续改进","简化操作流程"],"C",{a:'记录调试参数和结果的主要目的是积累数据。',k:'调试记录 · 数据积累',o:{A:'错误。向客户汇报不是主要目的。',B:'错误。满足工艺要求是基本要求。',C:'正确。积累数据为后续故障分析、性能优化提供依据。',D:'错误。简化操作流程与记录参数无关。'}}],
+[38,"三相交流异步电动机能耗制动时，电动机处于（　）状态。",["发电","电动","停止","加速"],"A",{a:'能耗制动时定子通入直流电，转子切割磁场。',k:'能耗制动 · 发电状态',o:{A:'正确。转子切割磁场产生感应电流，形成制动转矩，电动机处于发电状态。',B:'错误。电动状态是正常运行状态。',C:'错误。停止是最终结果。',D:'错误。加速与制动相反。'}}],
+[39,"速度继电器的常开触点一般用于（　）控制电路中。",["启动","停止","正反转","调速"],"A",{a:'速度继电器的常开触点常用于反接制动等启动控制电路中。',k:'速度继电器 · 应用',o:{A:'正确。常开触点常用于反接制动等启动控制电路中。',B:'错误。停止控制不是典型应用。',C:'错误。正反转控制不是典型应用。',D:'错误。调速控制不是典型应用。'}}],
+[40,"在调整速度继电器时，通过改变触点（　）可以调整动作灵敏度。",["材质","间距","颜色","温度"],"B",{a:'改变速度继电器触点间距可以调整动作灵敏度。',k:'速度继电器 · 灵敏度调整',o:{A:'错误。触点材质与灵敏度调整无关。',B:'正确。间距越小，动作越灵敏。',C:'错误。触点颜色与灵敏度调整无关。',D:'错误。温度不是灵敏度调整参数。'}}],
+[41,"当速度继电器出现频繁误动作时，可能的原因是（　）。",["触点弹簧压力过大","转轴润滑不良","复位弹簧失效","安装位置不当"],"C",{a:'复位弹簧失效会导致触点无法正常复位。',k:'速度继电器 · 故障排查',o:{A:'错误。弹簧压力过大会降低灵敏度。',B:'错误。转轴润滑不良影响转动，但不直接导致误动作。',C:'正确。复位弹簧失效导致触点无法正常复位，引起频繁误动作。',D:'错误。安装位置不当影响检测。'}}],
+[42,"光电开关在工业自动化中主要用于检测（　）。",["电流变化","物体存在与否","温度变化","电压波动"],"B",{a:'光电开关通过发射光束并检测反射或遮挡情况。',k:'光电开关 · 检测对象',o:{A:'错误。电流变化需电流传感器检测。',B:'正确。光电开关判断物体是否存在、到位或通过。',C:'错误。温度变化需温度传感器检测。',D:'错误。电压波动需电压传感器检测。'}}],
+[43,"光电开关出现误动作的原因可能是（　）。",["检测距离设置过短","周围有强光源干扰","电源电压过高","负载电阻过大"],"B",{a:'强光源会干扰光电开关的接收器。',k:'光电开关 · 误动作原因',o:{A:'错误。检测距离过短不会引起误动作。',B:'正确。强光源会干扰接收器导致输出误动作。',C:'错误。电源电压过高可能损坏器件。',D:'错误。负载电阻过大影响输出能力。'}}],
+[44,"霍尔效应是指在置于磁场中的导体或半导体中通以（　），则在垂直于电流和磁场的方向上将产生电动势的现象。",["直流电流","交流电流","静电荷","热能"],"A",{a:'霍尔效应是在导体或半导体中通以直流电流并置于磁场中时产生电动势的现象。',k:'霍尔效应 · 基本原理',o:{A:'正确。霍尔效应是通以直流电流并置于磁场中产生电动势的现象。',B:'错误。交流电流不构成霍尔效应的条件。',C:'错误。静电荷不构成霍尔效应的条件。',D:'错误。热能不构成霍尔效应的条件。'}}],
+[45,"温度继电器的复位方式一般为（　）。",["手动复位","自动复位","远程复位","延时复位"],"B",{a:'温度继电器通常采用自动复位方式。',k:'温度继电器 · 复位方式',o:{A:'错误。手动复位不是常规复位方式。',B:'正确。温度降低后触点自动恢复。',C:'错误。远程复位不是常规复位方式。',D:'错误。延时复位不是常规复位方式。'}}],
+[46,"温度继电器主要用于检测和控制（　）的变化。",["电压","电流","温度","湿度"],"C",{a:'温度继电器是专门用于检测温度变化的保护元件。',k:'温度继电器 · 功能',o:{A:'错误。电压由电压继电器检测。',B:'错误。电流由电流继电器检测。',C:'正确。温度继电器专门检测温度变化。',D:'错误。湿度由湿度传感器检测。'}}],
+[47,"霍尔开关在工业应用中常用于（　）的检测。",["液体流量","气体浓度","旋转编码器","环境温度"],"C",{a:'霍尔开关可以检测磁场变化，常用于旋转编码器中测量转速和位置。',k:'霍尔开关 · 应用',o:{A:'错误。液体流量需流量传感器检测。',B:'错误。气体浓度需气体传感器检测。',C:'正确。霍尔开关可检测磁场变化，常用于旋转编码器。',D:'错误。环境温度需温度传感器检测。'}}],
+[48,"温度继电器在使用过程中如果出现频繁动作，可能是由于（　）造成的。",["环境温度过低","设定值过高","触点接触不良","电源电压不稳定"],"C",{a:'触点接触不良会使接触电阻增大、发热加剧。',k:'温度继电器 · 故障排查',o:{A:'错误。环境温度过低不会引起频繁动作。',B:'错误。设定值过高反而会减少动作。',C:'正确。触点接触不良导致接触电阻增大、发热加剧。',D:'错误。电源电压不稳定不是直接原因。'}}],
+[49,"霍尔开关的输出信号通常是（　）信号。",["模拟","数字","脉冲","频率"],"B",{a:'霍尔开关内部集成了整形电路，输出为数字信号。',k:'霍尔开关 · 输出信号',o:{A:'错误。模拟信号是霍尔元件的原始输出。',B:'正确。霍尔开关输出数字信号便于与PLC等系统接口。',C:'错误。脉冲是信号形式。',D:'错误。频率是信号形式。'}}],
+[50,"在调试霍尔开关时，正确的操作顺序是先（　），再调整灵敏度参数。",["检查电源电压","确认机械固定","读取初始信号","进行电气连接"],"A",{a:'调试霍尔开关应首先检查供电电压是否正常。',k:'霍尔开关 · 调试步骤',o:{A:'正确。首先检查供电电压，只有电源正常才能进行后续调整。',B:'错误。机械固定应在确认电源正常后进行。',C:'错误。读取信号应在确认电源正常后进行。',D:'错误。电气连接应在确认电源正常后进行。'}}],
+[51,"压力继电器的微动开关主要用于（　）。",["传递压力信号","调整设定压力","实现电路通断","提供弹性支撑"],"C",{a:'压力继电器的微动开关根据压力变化实现电路的通断控制。',k:'压力继电器 · 微动开关',o:{A:'错误。传递压力信号由压力传感元件完成。',B:'错误。调整设定压力由弹簧调节机构完成。',C:'正确。微动开关根据压力变化实现电路的通断控制。',D:'错误。弹性支撑由弹簧完成。'}}],
+[52,"电感式开关的核心元件是（　），它决定了传感器的灵敏度和响应速度。",["电阻","电容","振荡线圈","二极管"],"C",{a:'振荡线圈是电感式开关的核心元件。',k:'电感式开关 · 振荡线圈',o:{A:'错误。电阻不是电感式开关的核心元件。',B:'错误。电容不是电感式开关的核心元件。',C:'正确。振荡线圈改变振荡状态，其参数决定灵敏度和响应速度。',D:'错误。二极管不是电感式开关的核心元件。'}}],
+[53,"电感式开关可以有效工作在含有大量（　）的工况中。",["水汽","粉尘","化学气体","电磁噪声"],"D",{a:'电感式开关采用非接触式检测，抗电磁噪声干扰能力强。',k:'电感式开关 · 抗干扰',o:{A:'错误。水汽会影响电感式开关的可靠性。',B:'错误。粉尘会影响电感式开关的可靠性。',C:'错误。化学气体会影响电感式开关的寿命。',D:'正确。电感式开关抗电磁噪声干扰能力强。'}}],
+[54,"当需要提高压力继电器的动作灵敏度时，应适当（　）弹簧预紧力。",["增大","减小","保持不变","完全放松"],"B",{a:'减小弹簧预紧力可使压力继电器在较小的压力变化下动作。',k:'压力继电器 · 灵敏度调整',o:{A:'错误。增大预紧力会降低灵敏度。',B:'正确。减小弹簧预紧力可提高动作灵敏度。',C:'错误。保持不变无法实现灵敏度调整。',D:'错误。完全放松会使继电器无法正常工作。'}}],
+[55,"压力继电器能够根据（　）的变化来控制电路的通断。",["温度","压力","速度","位置"],"B",{a:'压力继电器通过检测系统压力的变化实现通断控制。',k:'压力继电器 · 工作原理',o:{A:'错误。温度由温度继电器检测。',B:'正确。压力继电器检测系统压力变化。',C:'错误。速度由速度继电器检测。',D:'错误。位置由位置传感器检测。'}}],
+[56,"使用万用表测量电阻时，必须确保被测电路处于（　）状态。",["通电","断电","短路","开路"],"B",{a:'测量电阻时万用表内部提供测试电源。',k:'万用表 · 电阻测量',o:{A:'错误。通电测量会损坏万用表。',B:'正确。必须断电测量。',C:'错误。短路是电路状态。',D:'错误。开路是电路状态。'}}],
+[57,"如果一个电源输出的是稳定且不发生变化的电流，则我们称这个电源为（　）。",["正弦波交流源","非正弦波电源","脉冲电源","恒流直流源"],"D",{a:'输出稳定不变电流的电源称为恒流直流源。',k:'电源分类 · 恒流源',o:{A:'错误。正弦波交流源的输出电流随时间变化。',B:'错误。非正弦波电源的输出电流随时间变化。',C:'错误。脉冲电源的输出电流是脉冲形式。',D:'正确。恒流直流源输出稳定不变的电流。'}}],
+[58,"《中华人民共和国劳动合同法》规定，经济补偿按劳动者在本单位工作的年限，每满一年支付（　）个月工资的标准向劳动者支付。",["半","一","两","三"],"B",{a:'《劳动合同法》第四十七条规定，每满一年支付一个月工资。',k:'劳动合同法 · 经济补偿',o:{A:'错误。每满一年支付半年工资不符合法律规定。',B:'正确。劳动合同法规定每满一年支付一个月工资。',C:'错误。每满一年支付两个月工资不符合法律规定。',D:'错误。每满一年支付三个月工资不符合法律规定。'}}],
+[59,"下列材料中，导电性能最差的是（　）。",["铜","铝","铁","银"],"C",{a:'铁的电阻率最高，导电性能最差。',k:'导电材料 · 导电性能',o:{A:'错误。铜的导电性能优于铁。',B:'错误。铝的导电性能优于铁。',C:'正确。铁的电阻率最高，导电性能最差。',D:'错误。银的导电性能最好。'}}],
+[60,"在高温环境下工作的电气设备，应优先选择（　）作为导电材料。",["铝","铜","银","镍"],"D",{a:'镍具有优良的耐高温性能和抗氧化性能。',k:'导电材料 · 耐高温',o:{A:'错误。铝在高温下易氧化、强度下降。',B:'错误。铜在高温下易氧化。',C:'错误。银虽然导电性好但高温下性能下降。',D:'正确。镍耐高温性能和抗氧化性能优良。'}}],
+[61,"在进行心肺复苏前，首先需要确认患者的（　）。",["体温","意识","血压","脉搏"],"B",{a:'心肺复苏前应首先确认患者意识。',k:'触电急救 · 心肺复苏',o:{A:'错误。体温不是必须首先确认的。',B:'正确。通过呼唤和轻拍肩部判断患者是否有反应。',C:'错误。血压不是首要确认内容。',D:'错误。脉搏虽需观察，但确认意识是首要步骤。'}}],
+[62,"在电气设备中，用于变压器绕组绝缘的主要材料是（　）。",["玻璃纤维","聚酯薄膜","云母片","陶瓷材料"],"C",{a:'云母片具有优异的耐热性、绝缘性和机械强度。',k:'绝缘材料 · 云母',o:{A:'错误。玻璃纤维不是主要材料。',B:'错误。聚酯薄膜不是主要材料。',C:'正确。云母片耐热性、绝缘性和机械强度优异。',D:'错误。陶瓷材料不是主要材料。'}}],
+[63,"在测量未知电路的电压时，应首先将万用表的量程设为（　）。",["最小量程","中间量程","最大量程","自动量程"],"C",{a:'测量未知电压时应先选择最大量程。',k:'万用表 · 量程选择',o:{A:'错误。最小量程容易超量程损坏仪表。',B:'错误。中间量程可能仍不够。',C:'正确。先选最大量程可避免超量程损坏万用表。',D:'错误。手动表应先选最大量程。'}}],
+[64,"质量控制的核心要点之一是通过（　）来预防质量问题的发生。",["增加库存","提高售价","改进工艺流程","减少广告投入"],"C",{a:'改进工艺流程可以从源头上减少或消除质量缺陷。',k:'质量管理 · 预防为主',o:{A:'错误。增加库存与质量问题的预防无直接关系。',B:'错误。提高售价与质量预防无关。',C:'正确。改进工艺流程可从源头减少质量缺陷。',D:'错误。减少广告投入与质量预防无关。'}}],
+[65,"对于压力继电器，（　）描述是正确的。",["只能用于低压系统","只能用于高压系统","只能根据系统压力一次性设定","可用于各种压力等级的系统"],"D",{a:'压力继电器有多种规格，可根据不同的压力等级选型。',k:'压力继电器 · 适用范围',o:{A:'错误。压力继电器不仅可用于低压系统。',B:'错误。压力继电器不仅可用于高压系统。',C:'错误。压力继电器可调整设定值。',D:'正确。压力继电器有多种规格，适用于各种压力等级。'}}],
+[66,"在多点输出的电容式开关中，（　）描述是正确的。",["每个输出点都有独立的传感器","所有输出点都共享一个传感器","输出点的数量由开关的尺寸决定","输出点的类型由开关的安装环境决定"],"A",{a:'多点输出的电容式开关中，每个输出点都配有一个独立的传感器单元。',k:'电容式开关 · 多点输出',o:{A:'正确。每个输出点都配有一个独立的传感器单元。',B:'错误。共享一个传感器无法实现多点独立检测。',C:'错误。输出点数量由产品设计决定。',D:'错误。输出类型由产品设计决定。'}}],
+[67,"电容式开关的响应时间一般不包含（　）部分。",["机械动作时间","充电时间","放电时间","信号处理时间"],"A",{a:'电容式开关属于非接触式检测元件，没有机械动作部件。',k:'电容式开关 · 响应时间',o:{A:'正确。电容式开关无机械动作部件，响应时间不含机械动作时间。',B:'错误。充电时间是响应时间的组成部分。',C:'错误。放电时间是响应时间的组成部分。',D:'错误。信号处理时间是响应时间的组成部分。'}}],
+[68,"电容式开关在安装时，一般推荐的检测距离范围是（　）。",["1mm~200mm","1mm~100mm","1m~10m","100mm~1m"],"A",{a:'电容式开关的推荐检测距离范围一般为1mm~200mm。',k:'电容式开关 · 检测距离',o:{A:'正确。电容式开关推荐检测距离为1mm~200mm。',B:'错误。1mm~100mm范围偏小。',C:'错误。1m~10m超出常规检测范围。',D:'错误。100mm~1m超出常规检测范围。'}}],
+[69,"在电容式开关的故障排除中，首先应该检查（　）。",["传感器的输出信号","电容器的外观损坏","传感器的安装环境","传感器的供电电压"],"D",{a:'故障排除应遵循先电源后信号的原则。',k:'电容式开关 · 故障排查顺序',o:{A:'错误。输出信号应在确认供电正常后再检查。',B:'错误。外观损坏应在确认供电正常后再检查。',C:'错误。安装环境应在确认供电正常后再检查。',D:'正确。首先检查供电电压是否正常。'}}],
+[70,"根据电容式开关的选型原则，C2.5T/R中的C代表（　）。",["频率","负载电阻","电容的容量","电容的电压"],"C",{a:'在电容式开关型号C2.5T/R中，C代表电容的容量。',k:'电容式开关 · 型号含义',o:{A:'错误。型号中C不代表频率。',B:'错误。型号中C不代表负载电阻。',C:'正确。C代表电容的容量，2.5表示容量值。',D:'错误。型号中C不代表电容电压。'}}],
+[71,"当电容式开关的响应时间过长，（　）可能是原因。",["电容器容量不足","传感器灵敏度低","环境温度变化","电源电压不稳定"],"B",{a:'传感器灵敏度低会导致检测信号弱、响应时间过长。',k:'电容式开关 · 响应时间',o:{A:'错误。电容器容量不足不是响应时间过长的主要原因。',B:'正确。传感器灵敏度低会导致检测信号弱、响应时间过长。',C:'错误。环境温度变化不是主要原因。',D:'错误。电源电压不稳定不是主要原因。'}}],
+[72,"在电容式开关中，为了获得更好的开关效果，一般会选择（　）。",["容量越大的电容","容量越小的电容","体积越小的电容","频率越高的电容"],"A",{a:'容量越大的电容可以储存更多电荷。',k:'电容式开关 · 电容选择',o:{A:'正确。容量越大的电容可储存更多电荷，提高检测灵敏度和稳定性。',B:'错误。容量越小检测效果越差。',C:'错误。体积不是决定开关效果的主要因素。',D:'错误。频率不是决定开关效果的主要因素。'}}],
+[73,"软启动器在电动机启动过程中，能够实现启动电压的平滑上升，这主要得益于（　）的控制。",["电感器","电容器","变压器","微处理器"],"D",{a:'软启动器内部微处理器根据设定程序控制晶闸管的触发角。',k:'软启动器 · 微处理器控制',o:{A:'错误。电感器不能实现晶闸管触发角的精确控制。',B:'错误。电容器不能实现触发角的精确控制。',C:'错误。变压器不能实现触发角的精确控制。',D:'正确。微处理器控制晶闸管触发角。'}}],
+[74,"在软启动器维护中，如果发现并联的时间继电器有送电即亮的现象，应该（　）。",["立即更换新的继电器","继续观察不采取行动","检查控制电路的接线","更换软启动器"],"C",{a:'时间继电器送电即亮说明其线圈可能被误接入常通回路。',k:'软启动器 · 故障排查',o:{A:'错误。立即更换新继电器不能解决问题。',B:'错误。继续观察不采取行动会导致故障持续存在。',C:'正确。应检查控制电路的接线是否正确。',D:'错误。更换软启动器代价过大。'}}],
+[75,"在PLC系统中，用于将控制信号从PLC传送到执行机构的部件是（　）。",["输入模块","输出模块","通信模块","中央处理单元"],"B",{a:'PLC输出模块将中央处理单元运算后的控制信号转换为驱动执行机构的信号。',k:'PLC · 输出模块',o:{A:'错误。输入模块用于接收现场信号。',B:'正确。输出模块将控制信号转换为驱动执行机构的信号。',C:'错误。通信模块用于数据交换。',D:'错误。中央处理单元用于运算处理。'}}],
+[76,"软启动器的启动时间可根据实际需要在（　）秒内调整。",["0-10","10-60","30-120","1-30"],"D",{a:'软启动器的启动时间通常可在1~30秒范围内调整。',k:'软启动器 · 启动时间',o:{A:'错误。0-10秒不是常规调整范围。',B:'错误。10-60秒不是常规调整范围。',C:'错误。30-120秒不是常规调整范围。',D:'正确。软启动器启动时间通常可在1~30秒范围内调整。'}}],
+[77,"（　）启动方式不属于软启动器的常见启动方式。",["电压斜坡起动","突调频率起动","限流起动","斜坡限流起动"],"B",{a:'突调频率起动是变频器的功能。',k:'软启动器 · 启动方式',o:{A:'错误。电压斜坡起动是软启动器的常见启动方式。',B:'正确。突调频率起动是变频器的功能。',C:'错误。限流起动是软启动器的常见启动方式。',D:'错误。斜坡限流起动是软启动器的常见启动方式。'}}],
+[78,"（　）不是PLC按照结构分类的依据。",["小型PLC","中型PLC","大型PLC","PLC的输入输出类型"],"D",{a:'PLC按结构通常分为小型、中型、大型。',k:'PLC · 结构分类',o:{A:'错误。小型PLC是按结构分类的常见类别。',B:'错误。中型PLC是按结构分类的常见类别。',C:'错误。大型PLC是按结构分类的常见类别。',D:'正确。输入输出类型不是PLC按结构分类的依据。'}}],
+[79,"（　）情况下接地电阻测试仪不能正常工作。",["电源正常","环境温度适宜","仪器内部电池充足","探针插入地下深度不够"],"D",{a:'探针插入地下深度不够会导致接触电阻过大。',k:'接地电阻测试仪 · 使用条件',o:{A:'错误。电源正常是正常工作的条件。',B:'错误。环境温度适宜是正常工作的条件。',C:'错误。电池充足是正常工作的条件。',D:'正确。探针插入地下深度不够会导致无法正常测量。'}}],
+[80,"在整流电路中，如果需要得到更平滑的直流输出，通常需要加入（　）。",["放大器","滤波器","稳压器","逆变器"],"B",{a:'整流后的脉动直流含有较大的纹波成分，加入滤波器可以滤除纹波。',k:'整流电路 · 滤波',o:{A:'错误。放大器用于信号放大，不能滤除纹波。',B:'正确。滤波器可滤除整流后的脉动成分。',C:'错误。稳压器用于稳定电压。',D:'错误。逆变器用于直流变交流。'}}],
+[81,"在PLC控制系统中，若负载电流较大，通常选择（　）输出模块。",["晶体管","继电器","晶体管/继电器混合型","固态继电器"],"B",{a:'继电器输出模块的触点容量大。',k:'PLC · 输出模块选型',o:{A:'错误。晶体管输出模块容量小。',B:'正确。继电器输出模块触点容量大。',C:'错误。混合型适合特定场合。',D:'错误。固态继电器适合特定场合。'}}],
+[82,"对于需要频繁通断的负载，PLC输出模块最好选择（　）。",["继电器","双向晶闸管","晶体管","继电器/晶体管混合型"],"C",{a:'晶体管输出模块无机械触点，开关速度快、寿命长。',k:'PLC · 输出模块选型',o:{A:'错误。继电器有机械触点，频繁通断会缩短寿命。',B:'错误。双向晶闸管适合特定场合。',C:'正确。晶体管无机械触点，开关速度快、寿命长。',D:'错误。混合型适合特定场合。'}}],
+[83,"在PLC控制电路中，如果需要实现互锁控制，通常使用（　）来实现。",["输入信号","输出信号","外部继电器","内部继电器"],"D",{a:'PLC内部继电器（软继电器）可以实现软互锁。',k:'PLC · 互锁控制',o:{A:'错误。输入信号不是实现互锁控制的常规方式。',B:'错误。输出信号不是实现互锁控制的常规方式。',C:'错误。外部继电器不是实现互锁控制的常规方式。',D:'正确。PLC内部继电器可实现软互锁。'}}],
+[84,"对于800V架构下的电动汽车，（　）是车载充电机OBC需要满足的条件。",["减少充电时间","降低输出电压","提升充电功率","增加输出电流"],"C",{a:'800V高压架构下，为满足快速充电需求，车载充电机OBC需要提升充电功率。',k:'电动汽车 · 车载充电机',o:{A:'错误。减少充电时间是结果。',B:'错误。降低输出电压与800V高压架构相矛盾。',C:'正确。800V架构下OBC需要提升充电功率。',D:'错误。增加输出电流不是核心要求。'}}],
+[85,"在充电桩参数设置中，（　）不是决定充电电流大小的因素。",["用户需求","充电桩类型","电池容量","电池温度"],"A",{a:'充电电流大小由充电桩类型、电池容量和电池温度共同决定。',k:'充电桩 · 充电电流',o:{A:'正确。用户需求虽然影响充电时间，但不直接决定充电电流。',B:'错误。充电桩类型是决定充电电流的关键因素。',C:'错误。电池容量是决定充电电流的关键因素。',D:'错误。电池温度是决定充电电流的关键因素。'}}],
+[86,"下列（　）充电模式通常不适用于快速充电桩的参数设置。",["恒流充电","阶段充电","脉冲充电","恒压充电"],"D",{a:'恒压充电模式充电速度慢。',k:'充电桩 · 充电模式',o:{A:'错误。恒流充电可用于快速充电。',B:'错误。阶段充电可用于快速充电。',C:'错误。脉冲充电可用于快速充电。',D:'正确。恒压充电模式充电速度慢。'}}],
+[87,"在安装PLC编程软件前，（　）是必须确认的。",["计算机操作系统版本","计算机颜色配置","计算机键盘布局","计算机鼠标品牌"],"A",{a:'PLC编程软件对操作系统有特定要求。',k:'PLC编程软件 · 安装',o:{A:'正确。必须确认操作系统版本与软件兼容。',B:'错误。颜色配置与软件安装无关。',C:'错误。键盘布局与软件安装无关。',D:'错误。鼠标品牌与软件安装无关。'}}],
+[88,"在PLC编程软件的界面布局中，（　）区域用于编写和修改控制逻辑。",["逻辑编辑区","输入区","输出区","状态监控区"],"A",{a:'逻辑编辑区是PLC编程软件中用于编写和修改控制程序的核心区域。',k:'PLC编程软件 · 界面',o:{A:'正确。逻辑编辑区用于编写和修改控制程序。',B:'错误。输入区用于I/O配置。',C:'错误。输出区用于I/O配置。',D:'错误。状态监控区用于监视程序状态。'}}],
+[89,"在使用PLC编程软件时，（　）快捷键通常用于打开或关闭程序注释。",["Ctrl+Shift+C","Ctrl+Z","Ctrl+S","Ctrl+F"],"A",{a:'Ctrl+Shift+C是打开或关闭程序注释的快捷键。',k:'PLC编程软件 · 快捷键',o:{A:'正确。Ctrl+Shift+C用于打开或关闭程序注释。',B:'错误。Ctrl+Z是撤销操作的快捷键。',C:'错误。Ctrl+S是保存的快捷键。',D:'错误。Ctrl+F是查找的快捷键。'}}],
+[90,"在进行充电桩的日常维护时，（　）不是对充电枪维护的正确做法。",["拔枪时野蛮拖拽","不使用时将枪头插回插座","保持枪头干燥，无积水","定期检查线缆和枪头"],"A",{a:'拔枪时野蛮拖拽会损坏充电枪、线缆和接口。',k:'充电桩 · 充电枪维护',o:{A:'正确。拔枪时野蛮拖拽会损坏充电枪和线缆。',B:'错误。不使用时将枪头插回插座是正确做法。',C:'错误。保持枪头干燥无积水是正确做法。',D:'错误。定期检查线缆和枪头是正确做法。'}}],
+[91,"充电桩的急停开关损坏时，（　）措施是正确的。",["立即手动断开电源","等待下次维护时再处理","通知专业人员维修","用胶带封住以避免误操作"],"C",{a:'急停开关是充电桩的重要安全保护装置。',k:'充电桩 · 安全装置维护',o:{A:'错误。手动断电是临时措施。',B:'错误。等待下次维护存在安全隐患。',C:'正确。应通知专业人员维修。',D:'错误。用胶带封住不能解决问题。'}}],
+[92,"当使用PLC编程软件进行项目开发时，（　）操作不应在项目管理中进行。",["设置项目参数","编写用户手册","分配I/O地址","编译程序代码"],"B",{a:'编写用户手册属于文档编写工作。',k:'PLC编程软件 · 项目管理',o:{A:'错误。设置项目参数是项目管理的正常操作。',B:'正确。编写用户手册不属于PLC编程软件的功能范围。',C:'错误。分配I/O地址是项目管理的正常操作。',D:'错误。编译程序代码是项目管理的正常操作。'}}],
+[93,"在优化PLC串口配置界面后，（　）操作不能进行。",["读取PLC信息","列出所有可用串口","下载程序","修改工程机型"],"D",{a:'优化串口配置界面后不能修改工程机型。',k:'PLC · 串口配置',o:{A:'错误。优化串口配置后可以读取PLC信息。',B:'错误。优化串口配置后可以列出所有可用串口。',C:'错误。优化串口配置后可以下载程序。',D:'正确。修改工程机型属于项目设置功能。'}}],
+[94,"在进行PLC程序仿真测试时，（　）是必须的步骤。",["启用虚拟轴功能","连接所有物理硬件","下载程序到PLC","手动控制所有输入输出"],"A",{a:'PLC仿真测试时，需要启用虚拟轴功能来模拟实际运动控制。',k:'PLC · 仿真测试',o:{A:'正确。仿真测试需要启用虚拟轴功能。',B:'错误。仿真测试无需连接真实硬件。',C:'错误。仿真测试无需下载程序到PLC。',D:'错误。仿真测试中无需手动控制I/O。'}}],
+[95,"在PLC仿真测试中，若要监控轴的运动状态和参数，可以通过（　）途径。",["使用调试面板","修改电路板参数","直接观察物理轴","分析系统日志"],"A",{a:'在PLC仿真测试中可以通过调试面板监控虚拟轴。',k:'PLC · 仿真监控',o:{A:'正确。调试面板可监控虚拟轴的运动状态和参数。',B:'错误。仿真环境无需修改电路板参数。',C:'错误。仿真环境没有物理轴可观察。',D:'错误。分析系统日志不适用于实时监控。'}}],
+[96,"在SIMATIC管理器中，用于查看PLC模块故障诊断符号的菜单命令是（　）。",["在线","查看","离线","配置"],"A",{a:'在SIMATIC管理器中通过“在线”菜单可以查看故障诊断符号。',k:'SIMATIC · 在线诊断',o:{A:'正确。通过“在线”菜单可查看PLC模块的故障诊断符号。',B:'错误。“查看”菜单不提供在线故障诊断功能。',C:'错误。“离线”菜单无法查看实时故障诊断。',D:'错误。“配置”菜单用于参数设置。'}}],
+[97,"在PLC编程中，接通延时定时器通常用于（　）。",["定时启动设备","延时停止设备","流程控制","计数功能"],"B",{a:'接通延时定时器在输入条件满足后开始计时。',k:'PLC · 定时器应用',o:{A:'错误。定时启动设备不是典型用途。',B:'正确。接通延时定时器常用于延时停止设备。',C:'错误。流程控制不是典型用途。',D:'错误。计数功能不是定时器用途。'}}],
+[98,"在PLC程序流程控制中，当满足特定条件时，可以使用（　）指令来跳过某些程序段。",["循环","延时","顺序","跳转"],"D",{a:'跳转指令（如JMP）可以跳过某些程序段。',k:'PLC · 跳转指令',o:{A:'错误。循环指令不能实现跳过程序段的功能。',B:'错误。延时指令不能实现跳过程序段的功能。',C:'错误。顺序指令不能实现跳过程序段的功能。',D:'正确。跳转指令可在满足条件时跳过某些程序段。'}}],
+[99,"在PLC的逻辑控制中，（　）是PLC的基本逻辑运算。",["加法运算","减法运算","与运算","乘法运算"],"C",{a:'与、或、非是PLC最基本的逻辑运算。',k:'PLC · 基本逻辑运算',o:{A:'错误。加法属于算术运算。',B:'错误。减法属于算术运算。',C:'正确。与运算是PLC的基本逻辑运算之一。',D:'错误。乘法属于算术运算。'}}],
+[100,"在PLC的高级指令中，用于条件分支判断的指令是（　）。",["CASE","IF-ENDIF","FOR-NEXT","WHILE-END"],"A",{a:'CASE指令用于多条件分支判断。',k:'PLC · 高级指令',o:{A:'正确。CASE指令用于多条件分支判断。',B:'错误。IF-ENDIF是条件判断语句，不是多分支指令。',C:'错误。FOR-NEXT是循环指令。',D:'错误。WHILE-END是条件循环指令。'}}],
+[101,"在PLC控制电路中，单向顺序启停控制电路的主要特点是（　）。",["无记忆功能","执行机构按顺序动作","执行机构同时动作","无法实现停止功能"],"B",{a:'单向顺序启停控制电路的特点是执行机构按预定顺序依次动作。',k:'PLC · 顺序控制',o:{A:'错误。单向顺序启停控制电路具有记忆功能。',B:'正确。执行机构按预定顺序依次动作。',C:'错误。执行机构按顺序动作，不是同时动作。',D:'错误。单向顺序启停控制电路可以实现停止功能。'}}],
+[102,"在汽车电路中，使用中间继电器的主要目的是（　）。",["增大电流容量","防止触点烧蚀","提高开关速度","减少电路复杂性"],"B",{a:'汽车电路中中间继电器用于隔离大电流负载。',k:'汽车电路 · 中间继电器',o:{A:'错误。增大电流容量不是主要目的。',B:'正确。中间继电器用于隔离大电流负载，防止开关触点烧蚀。',C:'错误。提高开关速度不是主要目的。',D:'错误。减少电路复杂性不是主要目的。'}}],
+[103,"在继电器选型时，（　）不是主要的考虑因素。",["触头数量","继电器重量","工作电压","外壳材质"],"B",{a:'继电器选型主要考虑触头数量、工作电压、触点容量、线圈电压等参数。',k:'继电器 · 选型',o:{A:'错误。触头数量是选型时需要考虑的因素。',B:'正确。继电器重量不是选型的主要考虑因素。',C:'错误。工作电压是选型时的重要参数。',D:'错误。外壳材质在某些场合也是考虑因素。'}}],
+[104,"若要实现两台电动机顺序启动，接触器KM1的（　）应串接到接触器KM2的线圈电路中。",["常闭触点","常开触点","动合触点","动断触点"],"B",{a:'KM1的常开触点串入KM2线圈电路。',k:'顺序启动 · 接触器触点',o:{A:'错误。常闭触点在KM1启动后会断开。',B:'正确。KM1的常开触点闭合后KM2才能得电启动。',C:'错误。动合触点即常开触点，但选项B更准确。',D:'错误。动断触点即常闭触点。'}}],
+[105,"按时间原则控制的电动机顺序启动电路，其核心是（　）。",["速度继电器","压力继电器","温度继电器","时间继电器"],"D",{a:'按时间原则控制的顺序启动电路以时间继电器为核心。',k:'顺序控制 · 时间原则',o:{A:'错误。速度继电器不用于时间原则的顺序控制。',B:'错误。压力继电器不用于时间原则的顺序控制。',C:'错误。温度继电器不用于时间原则的顺序控制。',D:'正确。时间继电器通过延时功能依次接通各台电动机。'}}],
+[106,"在临时用电配电箱、开关箱内，（　）做法是不允许的。",["放置杂物","保持整洁","随意改动电器配置和接线","使用符合原规格的熔体更换熔断器"],"C",{a:'随意改动电器配置和接线违反临时用电安全规范。',k:'临时用电 · 安全规范',o:{A:'错误。放置杂物是不允许的，但本题重点考察改动接线的违规性。',B:'错误。保持整洁是正确的做法。',C:'正确。随意改动电器配置和接线严重违反安全规范。',D:'错误。使用符合原规格的熔体更换熔断器是正确做法。'}}],
+[107,"在机床电气控制电路中，对于PLC程序的故障，（　）不是常见的处理方法。",["重新编程","更换整个PLC系统","修改PLC程序","更换备用接口"],"B",{a:'更换整个PLC系统代价过大。',k:'PLC · 程序故障处理',o:{A:'错误。重新编程是处理程序故障的常见方法。',B:'正确。更换整个PLC系统代价过大。',C:'错误。修改PLC程序是常见方法。',D:'错误。更换备用接口是常见方法。'}}],
+[108,"多地控制电路的设计可以实现电动机的（　）。",["多地启动","多地停止","多地启动和停止","单地控制"],"C",{a:'多地控制电路可以在不同地点实现电动机的启动和停止。',k:'多地控制电路',o:{A:'错误。多地启动只是多地控制的一部分功能。',B:'错误。多地停止只是多地控制的一部分功能。',C:'正确。多地控制电路可同时支持多地启动和多地停止。',D:'错误。单地控制不是多地控制电路的设计目标。'}}],
+[109,"当数控机床出现电气故障时，（　）做法是错误的。",["立即断开电源","使用系统自诊断功能","随意触动电路元件","根据梯形图分析"],"C",{a:'随意触动电路元件可能造成故障扩大或人身危险。',k:'数控机床 · 故障处理',o:{A:'错误。立即断开电源是正确的处理方式。',B:'错误。使用自诊断功能是正确的处理方式。',C:'正确。随意触动电路元件可能造成故障扩大或人身危险。',D:'错误。根据梯形图分析是正确的处理方式。'}}],
+[110,"在设计三相交流笼型异步电动机顺序控制电路时，第一台电动机启动后，第二台电动机启动的控制信号通常来自于（　）。",["第一台电动机的停止按钮","第一台电动机的接触器常开触点","第一台电动机的启动按钮","第二台电动机的接触器常闭触点"],"B",{a:'第一台电动机接触器的常开触点闭合后，才能发出第二台电动机的启动信号。',k:'顺序控制 · 控制信号',o:{A:'错误。停止按钮不能发出启动下一台电动机的信号。',B:'正确。第一台接触器的常开触点闭合后发出第二台的启动信号。',C:'错误。启动按钮按下后同时启动两台。',D:'错误。第二台接触器常闭触点不能实现顺序启动。'}}],
+[111,"临时用电架空线路在施工现场的最大弧垂与地面距离应不低于（　）米。",["1.5","2.5","2.0","3.0"],"B",{a:'临时用电架空线路最大弧垂与地面距离应不低于2.5米。',k:'临时用电 · 架空线路',o:{A:'错误。1.5米不符合规范要求。',B:'正确。规范要求不低于2.5米。',C:'错误。2.0米不符合规范要求。',D:'错误。3.0米虽高于要求，但规范值为2.5米。'}}],
+[112,"对于临时用电架空线路，（　）不是其安装要求。",["可以架设在易燃材料附近","架设在专用电杆或支架上","不得进行接头连接","最大弧垂与地面距离符合规定"],"A",{a:'临时用电架空线路不能架设在易燃材料附近。',k:'临时用电 · 架空线路安装',o:{A:'正确。架空线路不能架设在易燃材料附近，这是严格禁止的。',B:'错误。架设在专用电杆或支架上是正确的安装要求。',C:'错误。不得进行接头连接是正确要求。',D:'错误。最大弧垂符合规定是正确要求。'}}],
+[113,"中间继电器在电气工程中的作用不包括（　）。",["动力传输","信号传递","电路保护","远程操控"],"A",{a:'中间继电器用于信号传递、电路保护和远程操控。',k:'中间继电器 · 功能',o:{A:'正确。中间继电器不用于动力传输，动力传输通常由接触器完成。',B:'错误。信号传递是中间继电器的常见功能。',C:'错误。电路保护是中间继电器的常见功能。',D:'错误。远程操控是中间继电器的常见功能。'}}],
+[114,"在顺序控制电路中，用于实现两台电动机顺序启动的接触器，其常开触点应该（　）。",["并联在下一台电动机的启动回路中","串联在下一台电动机的启动回路中","串联在上一台电动机的停止回路中","并联在上一台电动机的停止回路中"],"B",{a:'上一台接触器的常开触点串联在下一台电动机的启动回路中。',k:'顺序控制 · 触点连接',o:{A:'错误。并联无法实现顺序控制。',B:'正确。串联在下一台电动机的启动回路中。',C:'错误。串联在停止回路中不能实现顺序启动。',D:'错误。并联在停止回路中不能实现顺序启动。'}}],
+[115,"在C6140车床的电气控制电路中，当需要切断控制电路电源以确保人身安全时，是通过（　）来实现的。",["位置开关SQ2","钥匙开关SB","断路器QF","位置开关SQ1"],"D",{a:'在C6140车床电气控制电路中，位置开关SQ1用于切断控制电路电源。',k:'C6140车床 · 安全控制',o:{A:'错误。位置开关SQ2不是用于切断控制电路电源的安全元件。',B:'错误。钥匙开关SB不是用于切断控制电路电源的安全元件。',C:'错误。断路器QF是总电源开关。',D:'正确。位置开关SQ1用于切断控制电路电源，确保人身安全。'}}],
+[116,"下列（　）类型的时间继电器在线圈断电后触点会有延时动作。",["通电延时型","断电延时型","无延时型","立即动作型"],"B",{a:'断电延时型时间继电器在线圈断电后触点会延时动作。',k:'时间继电器 · 断电延时',o:{A:'错误。通电延时型在线圈通电后延时动作。',B:'正确。断电延时型在线圈断电后触点延时动作。',C:'错误。无延时型无延时功能。',D:'错误。立即动作型无延时功能。'}}],
+[117,"在低压电器设备维护中，对设备进行检查前，应首先确保（　）。",["设备处于运行状态","设备已经断电","设备周围环境安全","设备处于备用状态"],"B",{a:'检查低压电器设备前必须确保设备已经断电。',k:'低压电器 · 维护安全',o:{A:'错误。设备处于运行状态时不能进行检查。',B:'正确。必须确保设备已经断电。',C:'错误。环境安全是辅助条件。',D:'错误。备用状态不是检查前的首要安全条件。'}}],
+[118,"低压电器设备在运行操作中，若发现设备温度异常升高，应立即（　）。",["继续观察","降低负载","断开电源","加大负载"],"C",{a:'设备温度异常升高说明可能过载或存在故障。',k:'低压电器 · 异常处理',o:{A:'错误。继续观察会延误时机。',B:'错误。降低负载不能从根本上解决问题。',C:'正确。立即断开电源，防止设备损坏或引发火灾。',D:'错误。加大负载会加剧异常，极其危险。'}}],
+[119,"低压断路器的额定电流选择应基于（　）。",["线路的最大短路电流","线路的额定电压","设备的遮断电流","线路的计算负荷电流"],"D",{a:'低压断路器额定电流应根据线路的计算负荷电流选择。',k:'低压断路器 · 额定电流',o:{A:'错误。最大短路电流是选择分断能力的依据。',B:'错误。额定电压是选择电压等级的依据。',C:'错误。遮断电流是断路器分断能力的参数。',D:'正确。额定电流应根据线路的计算负荷电流选择。'}}],
+[120,"在C6140车床的电气控制电路中，用于控制刀架快速移动的电机一般采用（　）。",["步进电机","直流电机","同步电机","异步电机"],"A",{a:'C6140车床刀架快速移动采用步进电机。',k:'C6140车床 · 刀架电机',o:{A:'正确。步进电机可实现精确的位置控制和快速移动。',B:'错误。直流电机不用于C6140车床刀架快速移动控制。',C:'错误。同步电机不用于C6140车床刀架快速移动控制。',D:'错误。异步电机不用于C6140车床刀架快速移动控制。'}}],
+[121,"在接触器选型时，（　）不是必须考虑的因素。",["负载的计算电流","接触器的外观颜色","接触器的接通电流","操作频率"],"B",{a:'接触器选型主要考虑负载计算电流、接通电流、操作频率等参数。',k:'接触器 · 选型',o:{A:'错误。负载计算电流是必须考虑的因素。',B:'正确。外观颜色不影响性能，不是选型考虑因素。',C:'错误。接通电流是必须考虑的因素。',D:'错误。操作频率是必须考虑的因素。'}}],
+[122,"在潮湿环境中，应选择至少为IP（　）级的低压电器及电动机。",["IP20","IP54","IP67","IP44"],"D",{a:'潮湿环境中应选择至少IP44防护等级的低压电器及电动机。',k:'防护等级 · IP44',o:{A:'错误。IP20防护等级过低。',B:'错误。IP54防护等级高于最低要求。',C:'错误。IP67防护等级高于最低要求。',D:'正确。IP44是潮湿环境最低要求。'}}],
+[123,"在热继电器选型时，其额定电压应（　）回路的工作电压。",["不小于","大于","小于","等于"],"A",{a:'热继电器额定电压应不小于回路的工作电压。',k:'热继电器 · 选型',o:{A:'正确。额定电压应不小于回路的工作电压。',B:'错误。“大于”不是规范的表述。',C:'错误。额定电压小于工作电压会导致热继电器损坏。',D:'错误。“等于”过于严格。'}}],
+[124,"对于照明电路，热继电器的瞬时电流整定值通常是线路计算负荷电流的（　）倍。",["6","2","4","8"],"A",{a:'照明电路热继电器瞬时电流整定值通常为线路计算负荷电流的6倍。',k:'热继电器 · 整定值',o:{A:'正确。照明电路热继电器瞬时电流整定值通常为6倍。',B:'错误。2倍偏小。',C:'错误。4倍偏小。',D:'错误。8倍偏大。'}}],
+[125,"绕线式异步电动机启动时，通常采用（　）方式来逐段切除转子回路中的电阻。",["平衡短接法","不平衡短接法","电流原则控制","时间原则控制"],"A",{a:'绕线式异步电动机启动时通常采用平衡短接法。',k:'绕线式电动机 · 启动方式',o:{A:'正确。平衡短接法逐段切除转子电阻，使电动机平稳加速。',B:'错误。不平衡短接法不是最常用的方式。',C:'错误。电流原则控制不是最常用的方式。',D:'错误。时间原则控制不是最常用的方式。'}}],
+[126,"在临时用电系统中，当达到规定接地电阻值有困难时，可以调整到（　）以内。",["20","40","30","50"],"C",{a:'当达到规定接地电阻值有困难时可以调整到30Ω以内。',k:'临时用电 · 接地电阻',o:{A:'错误。20Ω不是规范规定的调整值。',B:'错误。40Ω不是规范规定的调整值。',C:'正确。规范规定可以调整到30Ω以内。',D:'错误。50Ω不是规范规定的调整值。'}}],
+[128,"低压断路器按其结构、功能和用途可分为多种类型，不属于常见分类的是（　）。",["冰箱式","万能式","塑料外壳式","灭磁式"],"A",{a:'低压断路器常见分类包括万能式、塑料外壳式、灭磁式等。',k:'低压断路器 · 分类',o:{A:'正确。“冰箱式”不是低压断路器的分类。',B:'错误。万能式是低压断路器的常见分类。',C:'错误。塑料外壳式是低压断路器的常见分类。',D:'错误。灭磁式是低压断路器的常见分类。'}}],
+[129,"在临时用电系统中，（　）设备的金属外壳不必与保护零线连接。",["发电机","继电器","电动机","断路器"],"B",{a:'继电器通常安装在配电箱内，其外壳不必与保护零线连接。',k:'临时用电 · 保护接零',o:{A:'错误。发电机的金属外壳必须与保护零线连接。',B:'正确。继电器通常安装在配电箱内，外壳不必与保护零线连接。',C:'错误。电动机的金属外壳必须与保护零线连接。',D:'错误。断路器的金属外壳必须与保护零线连接。'}}],
+[130,"临时用电工程在验收合格后，（　）不是必须做到的。",["采用固定式或移动式配电箱","配电箱中心点与地面垂直距离符合规定","必须经过专业电工的检查","保护装置齐全、灵敏、可靠"],"C",{a:'验收合格后并非必须经过专业电工检查。',k:'临时用电 · 验收要求',o:{A:'错误。采用固定式或移动式配电箱是必须做到的。',B:'错误。配电箱中心点与地面垂直距离符合规定是必须做到的。',C:'正确。验收合格后并非必须经过专业电工检查。',D:'错误。保护装置齐全、灵敏、可靠是必须做到的。'}}],
+[131,"在M7130平面磨床中，砂轮箱的运动是由（　）电动机驱动的。",["M4","M1","M2","M3"],"A",{a:'在M7130平面磨床中，砂轮箱的运动由M4电动机驱动。',k:'M7130磨床 · 电动机',o:{A:'正确。M4电动机驱动砂轮箱运动。',B:'错误。M1为砂轮电动机。',C:'错误。M2为冷却泵电动机。',D:'错误。M3为液压泵电动机。'}}],
+[132,"接触器按工作电压类型分为（　）。",["直流接触器和交流接触器","高电压接触器和低电压接触器","有载接触器和空载接触器","手动接触器和自动接触器"],"A",{a:'接触器按工作电压类型分为直流接触器和交流接触器。',k:'接触器 · 分类',o:{A:'正确。接触器按工作电压类型分为直流接触器和交流接触器。',B:'错误。高电压/低电压不是按工作电压类型的分类方式。',C:'错误。有载/空载不是按工作电压类型的分类方式。',D:'错误。手动/自动不是按工作电压类型的分类方式。'}}],
+[133,"关于临时用电系统接地装置的安装，（　）说法是正确的。",["接地电阻应小于规定值","接地线可以采用任意材质的导线","接地装置的安装位置可以随意选择","接地装置安装后不需要测试"],"A",{a:'接地装置安装后接地电阻必须小于规定值。',k:'临时用电 · 接地装置',o:{A:'正确。接地电阻必须小于规定值，保证接地保护有效。',B:'错误。接地线材质有明确要求。',C:'错误。接地装置安装位置不能随意选择。',D:'错误。接地装置安装后必须进行接地电阻测试。'}}],
+[134,"在Z37型摇臂钻床电气控制线路中，用于控制主轴启动和停止的元件通常是（　）。",["继电器","接触器","熔断器","电阻器"],"B",{a:'Z37型摇臂钻床主轴启动和停止由接触器控制。',k:'Z37钻床 · 主轴控制',o:{A:'错误。继电器不用于Z37钻床主轴启动和停止控制。',B:'正确。接触器可频繁通断且具有足够的触点容量。',C:'错误。熔断器用于短路保护。',D:'错误。电阻器不用于主轴启动和停止控制。'}}],
+[135,"若要实现对电动机正反转的自动控制，需要使用的电器是（　）。",["隔离开关QS","熔断器FU","接触器KM","继电器"],"D",{a:'继电器可以实现电动机正反转的自动控制。',k:'电动机 · 正反转控制',o:{A:'错误。隔离开关不能独立实现自动控制。',B:'错误。熔断器用于短路保护。',C:'错误。接触器不能独立实现自动控制。',D:'正确。继电器可通过逻辑组合控制接触器线圈。'}}],
+[136,"关于临时用电系统接地装置的维护，（　）做法是错误的。",["定期检查接地线连接是否牢固","确保接地极无腐蚀","接地电阻超过规定值时立即更换接地极","在土壤干燥时进行接地电阻测量"],"C",{a:'接地电阻超过规定值时应先分析原因，采取相应措施。',k:'临时用电 · 接地维护',o:{A:'错误。定期检查接地线连接是否牢固是正确的做法。',B:'错误。确保接地极无腐蚀是正确的做法。',C:'正确。接地电阻超标应先分析原因，不能立即更换接地极。',D:'错误。在土壤干燥时进行接地电阻测量是正确的做法。'}}],
+[137,"（　）措施不属于等电位联结原则。",["使用独立接地系统","确保各个设备之间的电位相等","减少雷电流产生的电压差","连接所有设备的接地"],"A",{a:'等电位联结要求将所有设备的接地连接在一起。',k:'等电位联结 · 原则',o:{A:'正确。使用独立接地系统违反等电位联结原则。',B:'错误。确保各设备电位相等是等电位联结的正确做法。',C:'错误。减少雷电流产生的电压差是等电位联结的正确做法。',D:'错误。连接所有设备的接地是等电位联结的正确做法。'}}],
+[138,"在Z37型摇臂钻床电气控制线路中，若油缸被卡导致摇臂不易变速，（　）措施是正确的。",["调整液压体系阀","加大液压油量","检查油路中的压力","更换摇臂部件"],"C",{a:'油缸被卡导致摇臂不易变速时，应检查油路中的压力是否正常。',k:'Z37钻床 · 故障排查',o:{A:'错误。调整阀不能解决油缸被卡的根本问题。',B:'错误。加大油量不能解决卡阻问题。',C:'正确。检查油路中的压力是否正常，找出卡阻原因。',D:'错误。更换摇臂部件代价过大。'}}],
+[140,"在再生发电制动电路中，当电动机需要制动时，下列（　）措施是必须采取的。",["将电动机与负载断开","断开电源","改变电源相序","在电动机绕组中接入直流电源"],"A",{a:'再生发电制动必须将电动机与负载断开。',k:'再生发电制动',o:{A:'正确。必须将电动机与负载断开，使电动机进入发电状态产生制动转矩。',B:'错误。断开电源不是再生发电制动的必要措施。',C:'错误。改变电源相序是反接制动的措施。',D:'错误。接入直流电源是能耗制动的措施。'}}],
+[141,"在防雷接地系统中，如果孔或轴的上偏差或下偏差为0，则（　）。",["必须标注","用虚线标注","用红色标注","可以省略标注"],"D",{a:'如果孔或轴的上偏差或下偏差为0，可以省略标注。',k:'防雷接地 · 制图规范',o:{A:'错误。上偏差或下偏差为0时可以省略标注。',B:'错误。虚线标注不是制图规范的要求。',C:'错误。红色标注不是制图规范的要求。',D:'正确。如果上偏差或下偏差为0，可以省略标注。'}}],
+[142,"对于企业员工来说，追求精益求精意味着（　）。",["提高个人及团队的工作效率","增加工作负担","忽视个人发展","过度关注细节"],"A",{a:'精益求精要求员工不断改进工作方法。',k:'职业道德 · 精益求精',o:{A:'正确。精益求精意味着不断改进工作方法，提高个人及团队工作效率。',B:'错误。增加工作负担不是精益求精的本意。',C:'错误。忽视个人发展是对精益求精的误解。',D:'错误。过度关注细节是对精益求精的误解。'}}],
+[143,"关于职业道德的说法中，正确的是（　）。",["职业道德是主观思考的产物，没有客观依据","每个人都有各自的职业道德观念，以共同的职业道德规范要求他人是不正确的","职业道德是在职业活动中调节人与人之间关系的特殊行为规范","职业道德同法律一样，必须在外在规范的约束下才能发挥作用"],"C",{a:'职业道德是在职业活动中调节人与人之间关系的特殊行为规范。',k:'职业道德 · 定义',o:{A:'错误。职业道德有客观依据。',B:'错误。共同的职业道德规范可以要求他人遵守。',C:'正确。职业道德是在职业活动中调节人与人之间关系的特殊行为规范。',D:'错误。职业道德不仅依赖外在约束，还依赖内在自律。'}}],
+[144,"（　）不是职业道德的作用。",["规范全社会职业秩序和劳动者的职业行为","减少劳动者的工作压力","提高劳动者的职业素质","促进社会良好道德风尚的形成"],"B",{a:'职业道德的作用包括规范职业秩序、提高职业素质、促进良好道德风尚。',k:'职业道德 · 作用',o:{A:'错误。规范职业秩序和职业行为是职业道德的作用。',B:'正确。减少劳动者的工作压力不是职业道德的作用。',C:'错误。提高劳动者的职业素质是职业道德的作用。',D:'错误。促进社会良好道德风尚的形成是职业道德的作用。'}}],
+[145,"（　）不是爱护设备的具体表现。",["随意更改设备设置","定期对设备进行保养","操作设备时遵守规程","发现设备故障及时上报"],"A",{a:'随意更改设备设置可能造成设备损坏或运行异常。',k:'职业道德 · 爱护设备',o:{A:'正确。随意更改设备设置可能损坏设备。',B:'错误。定期对设备进行保养是爱护设备的具体表现。',C:'错误。操作设备时遵守规程是爱护设备的具体表现。',D:'错误。发现设备故障及时上报是爱护设备的具体表现。'}}],
+[146,"（　）不是工艺管理的主要内容。",["树立良好的职业道德","自觉遵守工艺纪律","随意改变工艺流程以提高效率","严格按工艺规程进行生产操作"],"C",{a:'随意改变工艺流程违反工艺纪律。',k:'工艺管理 · 内容',o:{A:'错误。树立良好的职业道德是工艺管理的内容之一。',B:'错误。自觉遵守工艺纪律是工艺管理的内容之一。',C:'正确。随意改变工艺流程违反工艺纪律，不是工艺管理的内容。',D:'错误。严格按工艺规程进行生产操作是工艺管理的内容之一。'}}],
+[147,"在职业道德中，（　）行为是不被提倡的。",["在工作中接受被监理单位的礼金","严格保守工作秘密","积极参与团队合作","遵守相关法律法规"],"A",{a:'在工作中接受被监理单位的礼金违反职业道德和廉洁纪律。',k:'职业道德 · 廉洁自律',o:{A:'正确。接受被监理单位的礼金违反职业道德和廉洁纪律，不被提倡。',B:'错误。严格保守工作秘密是被提倡的职业道德行为。',C:'错误。积极参与团队合作是被提倡的职业道德行为。',D:'错误。遵守相关法律法规是被提倡的职业道德行为。'}}],
+[150,"在使用双臂电桥进行电阻测量前，（　）操作是不必要的。",["装入电池后立即进行测量","检查已知电阻的准确性","保持电路的稳定性","估计未知电阻阻值"],"A",{a:'双臂电桥测量前应先检查、估计电阻、保持电路稳定。',k:'双臂电桥 · 测量准备',o:{A:'正确。装入电池后立即测量是不必要的。',B:'错误。检查已知电阻的准确性是必要的准备工作。',C:'错误。保持电路的稳定性是必要的准备工作。',D:'错误。估计未知电阻阻值是必要的准备工作。'}}],
+[151,"（　）系列的最大输出电流为100mA。",["78M系列","78系列","79系列","78L系列"],"D",{a:'78L系列三端稳压集成电路的最大输出电流为100mA。',k:'三端稳压器 · 78L系列',o:{A:'错误。78M系列最大输出电流为500mA。',B:'错误。78系列最大输出电流为1.5A。',C:'错误。79系列为负电压输出系列。',D:'正确。78L系列最大输出电流为100mA。'}}],
+[152,"在选择79系列三端稳压集成电路时，若负载电流较大，应该（　）。",["增加散热片","选择大功率型号","降低输入电压","减少负载电流"],"B",{a:'负载电流较大时应选择大功率型号的79系列稳压集成电路。',k:'三端稳压器 · 选型',o:{A:'错误。增加散热片不是根本解决方案。',B:'正确。选择大功率型号以保证足够的输出能力和可靠性。',C:'错误。降低输入电压不能解决负载电流大的问题。',D:'错误。减少负载电流不是解决选型问题的方法。'}}],
+[153,"在使用信号发生器时，如果需要获得实际输出信号频率，应该（　）操作。",["直接读取微调器指示数据","只调节档级开关不调微调器","按下相应的档级开关并调节微调器","只调节微调器不按档级开关"],"C",{a:'使用信号发生器时应按下相应的档级开关并调节微调器。',k:'信号发生器 · 频率调节',o:{A:'错误。直接读取微调器数据不能获得准确的实际输出频率。',B:'错误。只调节档级开关不能获得精确频率。',C:'正确。应按下相应的档级开关并调节微调器。',D:'错误。只调节微调器不按档级开关无法获得准确频率。'}}],
+[154,"对于SDG5162函数/任意波形信号发生器，（　）描述是正确的。",["带宽为120MHz","输出信号地与机壳地不隔离","不支持USB Host","具有14bit垂直分辨率"],"D",{a:'SDG5162函数/任意波形信号发生器具有14bit垂直分辨率。',k:'信号发生器 · 技术参数',o:{A:'错误。SDG5162的带宽不是120MHz。',B:'错误。输出信号地与机壳地是隔离的。',C:'错误。SDG5162支持USB Host功能。',D:'正确。SDG5162具有14bit垂直分辨率。'}}],
+[155,"在信号发生器中，DDS技术的全称是（　）。",["Digital Signal Broadcasting","Direct Digital Synthesis","Direct Signal Broadcasting","Digital Signal Conversion"],"B",{a:'DDS技术的全称是Direct Digital Synthesis。',k:'信号发生器 · DDS技术',o:{A:'错误。DDS不是Digital Signal Broadcasting。',B:'正确。DDS全称为Direct Digital Synthesis。',C:'错误。DDS不是Direct Signal Broadcasting。',D:'错误。DDS不是Digital Signal Conversion。'}}],
+[156,"单相全控桥式晶闸管整流电路，在阻感性负载下，（　）时刻晶闸管会承受反压。",["正半波开始时","负半波开始时","触发信号给出后","电源电压过零时"],"B",{a:'在阻感性负载下，负半波开始时晶闸管会承受反向电压。',k:'晶闸管整流 · 反压',o:{A:'错误。正半波开始时晶闸管不承受反压。',B:'正确。负半波开始时晶闸管承受反向电压。',C:'错误。触发信号给出后晶闸管导通，不承受反压。',D:'错误。电源电压过零时不一定是晶闸管承受反压的时刻。'}}],
+[157,"单相半波可控整流电路中，当晶闸管导通时，（　）现象会发生。",["负载电压为零","负载电流减小","负载电流方向改变","负载电压等于输入电压"],"D",{a:'晶闸管导通时负载电压等于输入电压（忽略管压降）。',k:'单相半波整流 · 导通',o:{A:'错误。晶闸管导通时负载电压不为零。',B:'错误。晶闸管导通时负载电流不为减小状态。',C:'错误。晶闸管导通时负载电流方向不改变。',D:'正确。晶闸管导通时负载电压等于输入电压。'}}],
+[158,"在示波器上，时间基准（time base）设置不当会导致（　）。",["时间延迟","信号幅度变化","信号失真","信号频率改变"],"A",{a:'示波器时间基准设置不当会导致波形显示的时间延迟。',k:'示波器 · 时间基准',o:{A:'正确。时间基准设置不当会导致波形显示的时间延迟。',B:'错误。信号幅度变化不是时间基准设置不当的直接后果。',C:'错误。信号失真不是时间基准设置不当的直接后果。',D:'错误。信号频率改变不是时间基准设置不当的直接后果。'}}],
+[159,"在示波器触发设置中，如果需要捕获特定的事件，应首先选择（　）。",["信号源","触发级别","触发类型","时间基准"],"C",{a:'捕获特定事件应首先选择触发类型。',k:'示波器 · 触发设置',o:{A:'错误。信号源不是捕获特定事件的首要选择。',B:'错误。触发级别不是首要选择。',C:'正确。应首先选择触发类型。',D:'错误。时间基准不是捕获特定事件的首要选择。'}}],
+[160,"（　）类型的螺丝刀不能通过更换批头以适应不同螺丝。",["组合型螺丝刀","电动螺丝刀","精密型手动螺丝刀","一字型螺丝刀"],"D",{a:'一字型螺丝刀的批头固定。',k:'电工工具 · 螺丝刀',o:{A:'错误。组合型螺丝刀可更换批头。',B:'错误。电动螺丝刀可更换批头。',C:'错误。精密型手动螺丝刀可更换批头。',D:'正确。一字型螺丝刀批头固定。'}}],
+[161,"在电工工具中，用于旋动头部为横槽的螺钉的螺丝刀刀头形状是（　）。",["十字形","圆形","三角形","一字形"],"D",{a:'一字形螺丝刀用于旋动头部为横槽的螺钉。',k:'电工工具 · 螺丝刀',o:{A:'错误。十字形螺丝刀用于十字槽螺钉。',B:'错误。圆形不是标准螺丝刀头形状。',C:'错误。三角形不是标准螺丝刀头形状。',D:'正确。一字形螺丝刀用于旋动头部为横槽的螺钉。'}}],
+[162,"在良导体材料中，导电性能最好的是（　）。",["铜","铝","铁","金"],"D",{a:'在铜、铝、铁、金四种良导体材料中，金的导电性能最好。',k:'导电材料 · 导电性能',o:{A:'错误。铜的导电性能不如金。',B:'错误。铝的导电性能不如金。',C:'错误。铁的导电性能最差。',D:'正确。金的导电性能最好，但因价格昂贵实际多采用铜。'}}],
+[163,"在电气设备的维护和修理中，（　）做法是正确的。",["带电作业以节省时间","仅凭经验判断设备状态","在断电情况下进行维护","忽略设备的异常声响"],"C",{a:'电气设备维护和修理应在断电情况下进行。',k:'电气维护 · 安全规范',o:{A:'错误。带电作业极易造成触电事故。',B:'错误。仅凭经验判断设备状态不可靠。',C:'正确。在断电情况下进行维护是保证人身安全的基本要求。',D:'错误。忽略设备的异常声响可能错过故障预警。'}}],
+[164,"根据《劳动合同法》，用人单位自用工之日起超过一个月不满一年未与劳动者订立书面劳动合同的，应当向劳动者每月支付（　）的工资。",["二倍","一倍","一点五倍","三倍"],"A",{a:'超过一个月不满一年未订立书面劳动合同的，应当向劳动者每月支付二倍的工资。',k:'劳动合同法 · 未签合同',o:{A:'正确。法律规定应支付二倍工资。',B:'错误。一倍不符合法律规定。',C:'错误。一点五倍不符合法律规定。',D:'错误。三倍不符合法律规定。'}}],
+[165,"二极管在正向电压较小时，呈现的电阻较大，几乎不导通的区域被称为（　）。",["导通区","截止区","扩散区","死区"],"D",{a:'二极管正向电压较小时几乎不导通的区域称为死区。',k:'二极管 · 死区',o:{A:'错误。导通区是二极管正向导通后的区域。',B:'错误。截止区是二极管反向电压时的区域。',C:'错误。扩散区不是描述该区域的术语。',D:'正确。正向电压较小时几乎不导通的区域称为死区。'}}],
+[166,"对于大容量、高参数电力传输需求，传统电工材料通常（　）。",["存在性能瓶颈","能够满足需求","完全无法使用","仅限于特殊应用"],"A",{a:'传统电工材料在大容量、高参数需求下存在性能瓶颈。',k:'电工材料 · 性能瓶颈',o:{A:'正确。传统电工材料在大容量、高参数需求下存在性能瓶颈。',B:'错误。传统电工材料已难以满足大容量、高参数需求。',C:'错误。传统电工材料并非完全无法使用。',D:'错误。传统电工材料在常规应用中仍广泛使用。'}}],
+[167,"在潮湿天气，无伞型罩的绝缘棒（　）使用。",["不宜","可以随意","应谨慎","没有影响"],"A",{a:'潮湿天气下无伞型罩的绝缘棒表面容易形成水膜。',k:'绝缘工具 · 潮湿天气',o:{A:'正确。潮湿天气下无伞型罩绝缘棒不宜使用。',B:'错误。可以随意使用是错误的。',C:'错误。应谨慎的说法不够明确。',D:'错误。潮湿天气对绝缘棒有影响。'}}],
+[168,"下列（　）工具不是钳工在划线阶段常用的。",["样冲","手电钻","分度头","方箱"],"B",{a:'手电钻不是钳工划线阶段的常用工具。',k:'钳工工具 · 划线',o:{A:'错误。样冲是钳工划线阶段的常用工具。',B:'正确。手电钻不是钳工划线阶段的常用工具。',C:'错误。分度头是钳工划线阶段的常用工具。',D:'错误。方箱是钳工划线阶段的常用工具。'}}],
+[169,"劳动者在劳动合同解除或终止前12个月的平均工资低于当地最低工资标准的，经济补偿金的计算按照（　）进行。",["当地最低工资标准","实际工资","平均工资","计时工资或计件工资"],"A",{a:'劳动者平均工资低于当地最低工资标准时按当地最低工资标准计算。',k:'劳动合同法 · 经济补偿',o:{A:'正确。按照当地最低工资标准计算经济补偿金。',B:'错误。实际工资低于最低工资标准时不能按实际工资计算。',C:'错误。平均工资低于标准时不能按平均工资计算。',D:'错误。计时或计件工资不是计算依据。'}}],
+[170,"当使用万用表测量电容时，若没有C-×槽，可以选择（　）进行测量。",["电阻档","电压档","通用的测量插口","二极管测量档"],"C",{a:'没有C-×槽时可以选择通用的测量插口进行电容测量。',k:'万用表 · 电容测量',o:{A:'错误。电阻档不能直接用于电容测量。',B:'错误。电压档不能直接用于电容测量。',C:'正确。没有C-×槽时可选通用测量插口进行电容测量。',D:'错误。二极管测量档不能直接用于电容测量。'}}],
+[171,"下列（　）做法不适宜在触电急救时使用。",["使用干燥衣物拖拽触电者","直接用手触碰触电者","用绝缘物挑开电线","迅速切断电源"],"B",{a:'触电急救时直接用手触碰触电者会导致施救者触电。',k:'触电急救 · 安全',o:{A:'错误。使用干燥衣物拖拽是正确的急救做法。',B:'正确。直接用手触碰触电者会导致施救者触电，绝对禁止。',C:'错误。用绝缘物挑开电线是正确的急救做法。',D:'错误。迅速切断电源是正确的急救做法。'}}],
+[173,"在NPN型三极管中，基区是由（　）半导体材料组成的。",["N型","相同","P型","无法确定"],"C",{a:'NPN型三极管中基区由P型半导体材料组成。',k:'三极管 · NPN结构',o:{A:'错误。NPN型三极管的基区是P型半导体。',B:'错误。基区与发射区材料不相同。',C:'正确。NPN型三极管基区由P型半导体材料组成。',D:'错误。NPN型三极管基区材料是确定的。'}}],
+[174,"环境保护法律法规要求，对于开发建设项目必须实行（　）制度和“三同时”制度。",["环境治理方案","环境质量监测","环境影响评价","环境保护税征收"],"C",{a:'开发建设项目必须实行环境影响评价制度和“三同时”制度。',k:'环境保护 · 基本制度',o:{A:'错误。环境治理方案不是必须实行的基本制度。',B:'错误。环境质量监测不是必须实行的基本制度。',C:'正确。开发建设项目必须实行环境影响评价制度和“三同时”制度。',D:'错误。环境保护税征收不是必须实行的基本制度。'}}],
+[175,"在环境保护法律法规中，政府担当的角色是（　）。",["环境监管的监督者","环境治理的实施者","环境污染的制造者","环境保护的旁观者"],"A",{a:'在环境保护法律法规中政府担当环境监管的监督者角色。',k:'环境保护 · 政府角色',o:{A:'正确。政府担当环境监管的监督者角色。',B:'错误。政府不是环境治理的实施者。',C:'错误。政府不是环境污染的制造者。',D:'错误。政府不是环境保护的旁观者。'}}],
+[176,"在变压器空载状态下，一次绕组所流过的电流称为（　）。",["负载电流","空载电流","短路电流","额定电流"],"B",{a:'变压器空载状态下一次绕组所流过的电流称为空载电流。',k:'变压器 · 空载电流',o:{A:'错误。负载电流是变压器带负载时的电流。',B:'正确。空载状态下一次绕组的电流称为空载电流。',C:'错误。短路电流是变压器短路时的电流。',D:'错误。额定电流是变压器额定运行时的电流。'}}],
+[177,"如果三极管的静态工作点设置不当，可能会导致（　）。",["放大倍数增加","输出信号失真","三极管损坏","电流放大作用消失"],"B",{a:'静态工作点设置不当会导致输出信号失真。',k:'三极管 · 静态工作点',o:{A:'错误。放大倍数增加不是静态工作点设置不当的直接后果。',B:'正确。静态工作点设置不当会导致输出信号失真。',C:'错误。三极管损坏不是静态工作点设置不当的直接后果。',D:'错误。电流放大作用消失不是静态工作点设置不当的直接后果。'}}],
+[178,"（　）情况下接地电阻测试仪不能正常工作。",["电源正常","环境温度适宜","仪器内部电池充足","探针插入地下深度不够"],"D",{a:'探针插入地下深度不够时无法形成有效测试回路。',k:'接地电阻测试仪 · 使用条件',o:{A:'错误。电源正常是正常工作的条件。',B:'错误。环境温度适宜是正常工作的条件。',C:'错误。电池充足是正常工作的条件。',D:'正确。探针插入地下深度不够会导致无法形成有效测试回路。'}}],
+[179,"在整流电路中，如果需要得到更平滑的直流输出，通常需要加入（　）。",["放大器","滤波器","稳压器","逆变器"],"B",{a:'加入滤波器可以滤除脉动成分。',k:'整流电路 · 滤波',o:{A:'错误。放大器用于信号放大，不能滤除纹波。',B:'正确。滤波器可以滤除脉动成分，得到更平滑的直流输出。',C:'错误。稳压器用于稳定电压，不能滤除纹波。',D:'错误。逆变器用于直流变交流，不符合要求。'}}],
+[180,"在光电开关中，用于接收光信号并将其转换为电信号的元件是（　）。",["发射器","检测电路","接收器","光学元件"],"C",{a:'接收器用于接收光信号并将其转换为电信号。',k:'光电开关 · 接收器',o:{A:'错误。发射器用于发射光信号。',B:'错误。检测电路用于处理信号，不直接接收光信号。',C:'正确。接收器将接收到的光信号转换为电信号。',D:'错误。光学元件用于光路处理。'}}],
+[181,"在光电开关中，用于滤出有效信号和应用该信号的部件是（　）。",["发射器","接收器","光学元件","检测电路"],"D",{a:'检测电路用于滤出有效信号并应用该信号。',k:'光电开关 · 检测电路',o:{A:'错误。发射器用于发射光信号。',B:'错误。接收器用于接收光信号并转换为电信号。',C:'错误。光学元件用于光路处理。',D:'正确。检测电路用于滤出有效信号并应用该信号。'}}],
+[182,"速度继电器线圈的圈数和线径与（　）继电器相似。",["电压","电流","中间","热敏干簧"],"B",{a:'速度继电器线圈的圈数和线径与电流继电器相似。',k:'速度继电器 · 线圈参数',o:{A:'错误。电压继电器线圈的圈数和线径与速度继电器不同。',B:'正确。速度继电器线圈的圈数和线径与电流继电器相似。',C:'错误。中间继电器线圈的圈数和线径与速度继电器不同。',D:'错误。热敏干簧继电器的线圈参数与速度继电器不同。'}}],
+[183,"对射式光电开关的发射器和接收器在安装时，应当保持（　）。",["相互靠近","相互远离","光轴重合","在同一平面上"],"C",{a:'对射式光电开关安装时应保持光轴重合。',k:'光电开关 · 安装',o:{A:'错误。相互靠近不是对射式光电开关安装的要求。',B:'错误。相互远离不是对射式光电开关安装的要求。',C:'正确。发射器和接收器应保持光轴重合。',D:'错误。在同一平面上不能保证光轴重合。'}}],
+[184,"速度继电器接线时，应首先确认（　）。",["线缆的长度","继电器的位置","线缆的规格","继电器的颜色"],"C",{a:'速度继电器接线时应首先确认线缆的规格是否符合要求。',k:'速度继电器 · 接线',o:{A:'错误。线缆长度不是接线时首先需要确认的内容。',B:'错误。继电器位置不是接线时首先需要确认的内容。',C:'正确。应首先确认线缆的规格是否符合要求。',D:'错误。继电器颜色不是接线时首先需要确认的内容。'}}],
+[185,"当使用NPN型三线制光电开关时，其输出信号线通常的颜色是（　）。",["红色","黑色","蓝色","白色"],"B",{a:'NPN型三线制光电开关的输出信号线通常为黑色。',k:'光电开关 · 接线颜色',o:{A:'错误。红色不是输出信号线的标准颜色。',B:'正确。NPN型三线制光电开关输出信号线通常为黑色。',C:'错误。蓝色通常接电源负极。',D:'错误。白色不是输出信号线的标准颜色。'}}],
+[186,"速度继电器调整完成后，下列（　）测试是必须进行的。",["电气寿命测试","机械强度测试","环境适应性测试","动作速度测试"],"D",{a:'速度继电器调整完成后必须进行动作速度测试。',k:'速度继电器 · 测试',o:{A:'错误。电气寿命测试不是调整后必须进行的测试。',B:'错误。机械强度测试不是调整后必须进行的测试。',C:'错误。环境适应性测试不是调整后必须进行的测试。',D:'正确。必须进行动作速度测试。'}}],
+[187,"光电开关中，光电器件的响应时间主要取决于（　）。",["光敏三极管的PN结导通时间","发光二极管的亮度","环境温度","光电开关的供电电压"],"A",{a:'响应时间主要取决于光敏三极管PN结的导通时间。',k:'光电开关 · 响应时间',o:{A:'正确。响应时间主要取决于光敏三极管PN结的导通时间。',B:'错误。发光二极管亮度不是决定响应时间的主要因素。',C:'错误。环境温度不是决定响应时间的主要因素。',D:'错误。供电电压不是决定响应时间的主要因素。'}}],
+[188,"在包卷输送线和分包输送线中，通常使用（　）光电开关进行物体检测。",["镜反射式","漫反射式","对射式","以上均不适用"],"B",{a:'包卷输送线和分包输送线中通常使用漫反射式光电开关。',k:'光电开关 · 应用',o:{A:'错误。镜反射式不是包卷输送线的常用选择。',B:'正确。漫反射式光电开关安装方便，检测可靠。',C:'错误。对射式不是包卷输送线的常用选择。',D:'错误。漫反射式适用于该类输送线。'}}],
+[189,"在调整光电开关的灵敏度时，（　）说法是正确的。",["灵敏度调低，检测范围缩小","灵敏度调低，检测范围扩大","灵敏度调高，检测范围缩小","灵敏度调整不影响检测范围"],"A",{a:'光电开关灵敏度调低时检测范围缩小。',k:'光电开关 · 灵敏度调整',o:{A:'正确。灵敏度调低时检测范围缩小。',B:'错误。灵敏度调低时检测范围缩小，不是扩大。',C:'错误。灵敏度调高时检测范围扩大，不是缩小。',D:'错误。灵敏度调整会影响检测范围。'}}],
+[190,"速度继电器发生故障时，（　）处理方法是正确的。",["立即断开电源","继续运行以观察","自行拆卸维修","通知专业人员"],"D",{a:'速度继电器发生故障时应通知专业人员维修。',k:'速度继电器 · 故障处理',o:{A:'错误。立即断开电源不是根本的处理方法。',B:'错误。继续运行可能导致故障扩大。',C:'错误。自行拆卸维修可能造成更大损坏。',D:'正确。应通知专业人员维修。'}}],
+[191,"在光电开关的使用过程中，（　）不是造成其检测误差的主要原因。",["发射器的指向角","被测物体表面的反射率","环境中的强酸性物质","光电开关的最大检测距离"],"C",{a:'环境中的强酸性物质不是造成光电开关检测误差的主要原因。',k:'光电开关 · 检测误差',o:{A:'错误。发射器指向角是造成检测误差的主要原因。',B:'错误。被测物体反射率是造成检测误差的主要原因。',C:'正确。环境中的强酸性物质不是造成检测误差的主要原因。',D:'错误。最大检测距离是造成检测误差的主要原因。'}}],
+[192,"当需要检测物体的存在并判断其尺寸时，应优先考虑选用（　）光电开关。",["漫反射式","对射式","镜反射式","光纤式"],"B",{a:'对射式光电开关检测精度高。',k:'光电开关 · 选型',o:{A:'错误。漫反射式不是判断物体尺寸的首选。',B:'正确。对射式光电开关检测精度高。',C:'错误。镜反射式不是判断物体尺寸的首选。',D:'错误。光纤式不是判断物体尺寸的首选。'}}]
+];
+
+/* ===== 判断题 [题号, 题干, 答案, {a:解析, k:知识点}] ===== */
+var JUDGE = [
+[193,"为了延长设备寿命，电工可以在设备超负荷工作时减少巡检频率。","B",{a:'设备超负荷运行时更应加强巡检。',k:'职业道德 · 设备维护'}],
+[194,"社会公德的特点之一是全民共同遵守，体现了广泛的社会共识。","A",{a:'社会公德具有全民共同遵守的特点。',k:'职业道德 · 社会公德'}],
+[195,"软启动器的故障指示灯亮起时，可以直接忽略并继续运行设备。","B",{a:'故障指示灯亮起说明软启动器存在异常。',k:'软启动器 · 故障处理'}],
+[196,"在使用可编程控制器编程软件时，先编写代码后建立新项目可以确保程序的完整性。","B",{a:'应先建立新项目再编写代码。',k:'PLC编程 · 项目建立'}],
+[197,"可编程控制器中的计数器指令可以用于统计脉冲信号的数量，实现精确控制。","A",{a:'计数器指令可以统计脉冲信号的数量。',k:'PLC · 计数器应用'}],
+[198,"在分析机床电气故障时，利用逻辑分析法可以有效缩小故障范围，提高维修效率。","A",{a:'逻辑分析法根据电路原理推断故障点。',k:'机床电气 · 故障分析'}],
+[199,"时间继电器选型仅需关注其动作时间和延时范围，而无须考虑其他因素。","B",{a:'时间继电器选型还需考虑触点容量、线圈电压等。',k:'时间继电器 · 选型'}],
+[200,"速度继电器的工作原理依赖于电磁感应现象，而不是机械离心力的作用。","B",{a:'速度继电器的工作原理依赖于机械离心力的作用。',k:'速度继电器 · 工作原理'}],
+[201,"光电开关在高粉尘环境中工作时，可能会因为灰尘遮挡导致检测灵敏度下降。","A",{a:'高粉尘环境中灰尘会遮挡光路。',k:'光电开关 · 环境适应'}],
+[202,"霍尔开关的响应速度较慢，因此不适合用于高频信号的检测。","B",{a:'霍尔开关响应速度快。',k:'霍尔开关 · 响应速度'}],
+[203,"温度继电器的调整过程中，设定值的准确性直接影响到设备的安全运行。","A",{a:'温度继电器设定值的准确性直接影响设备安全。',k:'温度继电器 · 调整'}],
+[204,"温度继电器可以随意改变其出厂设定的动作温度值而不影响其正常使用性能。","B",{a:'随意改变温度继电器出厂动作温度值会影响其性能。',k:'温度继电器 · 设定值'}],
+[205,"霍尔开关的安装位置对检测精度没有影响，可以随意安装。","B",{a:'霍尔开关的安装位置对检测精度有影响。',k:'霍尔开关 · 安装'}],
+[206,"温度继电器适用于监测电机绕组或其他元件的过热情况以保护设备免受损坏。","A",{a:'温度继电器适用于监测电机绕组过热情况。',k:'温度继电器 · 应用'}],
+[207,"当压力继电器的压力达到设定值，但触点无动作，可能是因为电气线路存在短路。","B",{a:'触点无动作可能因微动开关故障或机械卡滞。',k:'压力继电器 · 故障排查'}],
+[208,"电感式开关仅适用于金属物体的检测，无法用于非金属物体的检测。","B",{a:'电感式开关主要用于金属检测，但特殊型号也可检测非金属物体。',k:'电感式开关 · 检测对象'}],
+[209,"阻容耦合放大电路中的电容C1主要起到隔直通交的作用，对信号的放大没有直接影响。","A",{a:'电容C1起隔直通交作用。',k:'放大电路 · 阻容耦合'}],
+[210,"阻容耦合放大电路在高频区域的表现比低频区域更好，因为电容的阻抗随着频率的增加而减小。","B",{a:'阻容耦合放大电路在低频区域表现更好。',k:'放大电路 · 频率响应'}],
+[211,"阻容耦合放大电路中，电容C1的存在可以保证输入信号顺利耦合到晶体管的基极，同时不影响晶体管的静态工作点。","A",{a:'电容C1可保证输入信号顺利耦合到晶体管基极。',k:'放大电路 · 阻容耦合'}],
+[212,"单相桥式半控整流电路中，所有晶闸管都会在负半周承受正向电压并导通。","B",{a:'单相桥式半控整流电路中只有部分晶闸管参与导通。',k:'整流电路 · 半控桥'}],
+[213,"螺丝刀通常只有一个薄楔形头，无法适应不同类型的螺丝槽。","B",{a:'螺丝刀有多种类型和批头。',k:'电工工具 · 螺丝刀'}],
+[214,"在低压电力系统中，绝缘手套可以作为基本安全用具直接接触电源。","A",{a:'绝缘手套在低压电力系统中可作为基本安全用具。',k:'安全用具 · 绝缘手套'}],
+[215,"所有绝缘安全用具都能承受电气设备的工作电压，可以直接用来操作带电设备。","B",{a:'并非所有绝缘安全用具都能承受工作电压。',k:'安全用具 · 使用条件'}],
+[216,"交流电的频率与角频率之间的关系是线性的，角频率是频率的两倍。","B",{a:'角频率ω=2πf，是频率的2π倍。',k:'交流电 · 频率与角频率'}],
+[217,"二极管在正向导通时，其正向电压降通常为0.6V，这是所有二极管的共同特性。","A",{a:'硅二极管正向导通压降通常为0.6V左右。',k:'二极管 · 正向压降'}],
+[218,"电工锤是电工常用工具中的一种，主要用于敲击而非切割。","A",{a:'电工锤主要用于敲击。',k:'电工工具 · 电工锤'}],
+[219,"万用表测量交流电压时，不需要考虑电压的极性，可以直接测量。","B",{a:'万用表测量交流电压时仍需正确选择量程和档位。',k:'万用表 · 交流电压测量'}],
+[220,"电气施工图中，设备的安装方法、质量要求以及使用维修方面的技术要求往往会在图纸上完全反映出来。","B",{a:'电气施工图不能完全反映所有安装方法和质量要求。',k:'电气施工图 · 内容'}],
+[221,"钳形电流表在使用时，必须确保被测电路的电压等级与表的电压等级相匹配。","A",{a:'钳形电流表使用时必须确保被测电路电压等级与表匹配。',k:'钳形电流表 · 使用'}],
+[222,"稳压电源的输出电压在电网电压波动时能够保持稳定。","A",{a:'稳压电源可在电网电压波动时保持输出电压稳定。',k:'稳压电源 · 功能'}],
+[223,"速度继电器在维护时，必须先断开电源并等待至少5分钟后才能进行操作，以保证安全。","A",{a:'速度继电器维护前必须断电并等待至少5分钟。',k:'速度继电器 · 维护安全'}],
+[224,"温度继电器调整时，首先需要确定继电器的动作温度，这一步骤是在切断电源后进行的。","A",{a:'调整温度继电器应先切断电源。',k:'温度继电器 · 调整步骤'}],
+[225,"在检测温度继电器故障时，可以通过对比动作温度与设定值来初步判断其是否工作正常。","A",{a:'对比动作温度与设定值可初步判断温度继电器是否正常。',k:'温度继电器 · 故障检测'}],
+[226,"霍尔传感器在安装时，可以忽略磁场干扰对其性能的影响。","B",{a:'霍尔传感器安装时必须考虑磁场干扰。',k:'霍尔传感器 · 安装'}],
+[227,"在霍尔传感器安装过程中，确保电路接触良好是预防故障的重要措施。","A",{a:'确保电路接触良好可有效预防霍尔传感器故障。',k:'霍尔传感器 · 安装'}],
+[228,"霍尔元件在检测到磁铁靠近时，一定会输出高电平信号。","B",{a:'霍尔元件输出电平取决于磁场方向和型号。',k:'霍尔元件 · 输出特性'}],
+[229,"电感式接近开关在进行金属物体检测时，需要与被检测物体进行直接接触。","A",{a:'电感式接近开关检测金属物体时通常需要接近到一定距离。',k:'电感式接近开关 · 检测'}],
+[230,"电感式接近开关的振荡器产生的交变磁场，在金属物体接近时会在其内部产生涡流。","A",{a:'金属物体接近时会在交变磁场中产生涡流。',k:'电感式接近开关 · 工作原理'}],
+[231,"调整压力继电器时，返回压力的设置应低于动作压力。","B",{a:'返回压力的设定应根据系统需求确定。',k:'压力继电器 · 调整'}],
+[232,"压力继电器输出异常时，电源电压必须在24V以上才能正常工作。","B",{a:'压力继电器工作电压因型号而异。',k:'压力继电器 · 工作电压'}],
+[233,"压力继电器在电路中可以用来控制大电流回路，且其自身消耗的电流较大。","B",{a:'压力继电器用于信号控制，自身消耗电流小。',k:'压力继电器 · 应用'}],
+[234,"电容式接近开关只能检测金属物体，因为只有金属物体才能产生足够的涡流。","B",{a:'电容式接近开关可检测金属和非金属物体。',k:'电容式接近开关 · 检测对象'}],
+[235,"电容式开关在断电后，其设置参数会因为采用数据存储技术而不会丢失。","A",{a:'电容式开关采用数据存储技术，断电后设置参数不会丢失。',k:'电容式开关 · 数据存储'}],
+[236,"所有的电容式开关都只有单一的输出类型，无法提供多点输出。","B",{a:'电容式开关可提供多点输出。',k:'电容式开关 · 输出类型'}],
+[237,"在处理软启动器EF34（多相欠流）故障时，首先应该检查启动信号端子（8、9、11）的控制电路。","A",{a:'处理EF34故障应首先检查启动信号端子的控制电路。',k:'软启动器 · 故障处理'}],
+[238,"定期对软启动器的散热片进行清洁是维护保养的一项重要内容。","A",{a:'定期清洁散热片可保证软启动器散热良好。',k:'软启动器 · 维护保养'}],
+[239,"在充电桩的充电过程中，充电电流会随着电池电量的增加而逐渐减小，以保持电池充电效率最优化。","A",{a:'充电电流随电量增加逐渐减小。',k:'充电桩 · 充电控制'}],
+[240,"在三相交流笼型异步电动机位置控制电路中，接触器的主触点用于控制电动机的启动和停止。","A",{a:'接触器主触点用于控制电动机的启动和停止。',k:'电动机 · 位置控制'}]
+];
+
+/* ===== 构建题库 ===== */
+var BANK = [];
+SINGLE.forEach(function(it){
+  BANK.push({no:it[0], type:'single', q:it[1], o:it[2], a:'ABCD'.indexOf(it[3]), exp:it[4]});
+});
+JUDGE.forEach(function(it){
+  BANK.push({no:it[0], type:'judge', q:it[1], o:['正确','错误'], a:it[2]==='A'?0:1, exp:it[3]});
+});
+BANK.sort(function(a,b){ return a.no - b.no; });
+
+var BY_NO = {};
+BANK.forEach(function(it){ BY_NO[it.no] = it; });
+
+var MODE_NAMES = {all:'全部练习', single:'单选题', judge:'判断题', random:'随机练习', wrong:'错题重练', topic:'专题练习', exam:'模拟考试', favorite:'我的收藏'};
+
+/* ===== 工具 ===== */
+function $(id){ return document.getElementById(id); }
+var card = $('card');
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function shuffle(arr){
+  for(var i = arr.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+function fmtTime(t){
+  var d = new Date(t), p = function(n){ return String(n).padStart(2,'0'); };
+  var now = new Date();
+  var sameDay = d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth() && d.getDate() === now.getDate();
+  if(sameDay) return '今天 ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  return (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+function fmtDuration(ms){
+  var sec = Math.floor(ms / 1000);
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return m + ' 分 ' + s + ' 秒';
+}
+function kbKeyword(k){
+  if(!k) return '';
+  var i = k.indexOf(' · ');
+  return i > 0 ? k.slice(0, i).trim() : k.trim();
+}
+function kbSub(k){
+  if(!k) return '';
+  var i = k.indexOf(' · ');
+  return i > 0 ? k.slice(i + 3).trim() : '';
+}
+function countByKeyword(kw){
+  var n = 0;
+  BANK.forEach(function(it){
+    if(it.exp && it.exp.k && kbKeyword(it.exp.k) === kw) n++;
+  });
+  return n;
+}
+var toastTimer = null;
+function showToast(msg, dur){
+  var t = $('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, dur || 2400);
+}
+function animateNumber(el, from, to, dur, formatter){
+  if(!el) return;
+  if(el._anim) cancelAnimationFrame(el._anim);
+  var start = performance.now();
+  dur = dur || 400;
+  function step(now){
+    var t = Math.min(1, (now - start) / dur);
+    var e = 1 - Math.pow(1 - t, 3);
+    var val = from + (to - from) * e;
+    el.textContent = formatter ? formatter(val) : Math.round(val);
+    if(t < 1) el._anim = requestAnimationFrame(step);
+    else el._anim = null;
+  }
+  el._anim = requestAnimationFrame(step);
+}
+
+/* ===== 主题 ===== */
+var LS_THEME = 'dg4_theme_v3';
+function applyTheme(dark){
+  document.body.classList.toggle('dark', !!dark);
+  var btn = $('themeBtn');
+  if(btn){ btn.textContent = dark ? '☀️' : '🌙'; btn.title = dark ? '白天模式' : '夜间模式'; }
+}
+function loadTheme(){
+  try{
+    var v = localStorage.getItem(LS_THEME);
+    if(v === 'dark') return true;
+    if(v === 'light') return false;
+  }catch(e){}
+  try{ return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; }catch(e){ return false; }
+}
+function saveTheme(dark){ try{ localStorage.setItem(LS_THEME, dark ? 'dark' : 'light'); }catch(e){} }
+function toggleTheme(){
+  var dark = !document.body.classList.contains('dark');
+  applyTheme(dark);
+  saveTheme(dark);
+}
+
+/* ===== 收藏 ===== */
+var LS_FAVORITES = 'dg4_favorites_v1';
+var state_favorites = new Set();
+function loadFavorites(){
+  var arr = [];
+  try{
+    var raw = localStorage.getItem(LS_FAVORITES);
+    if(raw) arr = JSON.parse(raw);
+  }catch(e){ arr = []; }
+  if(Array.isArray(arr)) state_favorites = new Set(arr.map(Number).filter(function(n){ return !isNaN(n); }));
+  else state_favorites = new Set();
+}
+function saveFavorites(){
+  try{ localStorage.setItem(LS_FAVORITES, JSON.stringify(Array.from(state_favorites))); }catch(e){}
+}
+function toggleFavorite(no){
+  if(state_favorites.has(no)) state_favorites.delete(no);
+  else state_favorites.add(no);
+  saveFavorites();
+  updateFavUI();
+}
+function updateFavUI(){
+  var favBtn = $('favModeBtn');
+  var favBadge = $('favBadge');
+  if(state_favorites.size > 0){
+    favBtn.style.display = '';
+    favBadge.textContent = state_favorites.size;
+  }else{
+    favBtn.style.display = 'none';
+  }
+}
+
+/* ===== 选项打乱 ===== */
+function makeShuffledOpts(item){
+  if(item.type === 'judge') return {o:item.o.slice(), a:item.a, orig:[0,1]};
+  var idxs = item.o.map(function(_, i){ return i; });
+  for(var i = idxs.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = idxs[i]; idxs[i] = idxs[j]; idxs[j] = t;
+  }
+  return {
+    o: idxs.map(function(i){ return item.o[i]; }),
+    a: idxs.indexOf(item.a),
+    orig: idxs
+  };
+}
+function getView(item, session){
+  if(session && session.optsMap && session.optsMap[item.no]) return session.optsMap[item.no];
+  return {o:item.o, a:item.a, orig:null};
+}
+var OPTS_MAP_MAX = 300;
+function ensureOptsForItem(session, item){
+  if(session.mode !== 'random' && session.isExam !== true) return;
+  if(!session.optsMap) session.optsMap = {};
+  if(!session.optsMapOrder) session.optsMapOrder = [];
+  if(!session.optsMap[item.no]){
+    session.optsMap[item.no] = makeShuffledOpts(item);
+    session.optsMapOrder.push(item.no);
+    while(session.optsMapOrder.length > OPTS_MAP_MAX){
+      var oldNo = session.optsMapOrder.shift();
+      delete session.optsMap[oldNo];
+    }
+    saveSessions();
+  }
+}
+
+/* ===== 字母重映射 ===== */
+function remapExpText(text, item, session){
+  if(!text || !item) return text;
+  if(item.type === 'judge') return text;
+  if(!session || (session.mode !== 'random' && session.isExam !== true)) return text;
+  if(!session.optsMap || !session.optsMap[item.no]) return text;
+  var view = getView(item, session);
+  var letterMap = {};
+  for(var i = 0; i < item.o.length; i++){
+    var content = item.o[i];
+    var newIdx = -1;
+    for(var j = 0; j < view.o.length; j++){
+      if(view.o[j] === content){ newIdx = j; break; }
+    }
+    letterMap['ABCD'[i]] = newIdx >= 0 ? 'ABCD'[newIdx] : 'ABCD'[i];
+  }
+  var replacements = [];
+  item.o.forEach(function(optText, idx){
+    var oL = 'ABCD'[idx];
+    var nL = letterMap[oL];
+    if(oL === nL) return;
+    var longPat = oL + optText;
+    var pos = 0;
+    while((pos = text.indexOf(longPat, pos)) !== -1){
+      replacements.push({start:pos, end:pos + longPat.length, text:nL + optText});
+      pos += longPat.length;
+    }
+    ['选项' + oL, '（' + oL + '）', '【' + oL + '】'].forEach(function(p){
+      var p2 = 0;
+      while((p2 = text.indexOf(p, p2)) !== -1){
+        replacements.push({start:p2, end:p2 + p.length, text:p.split(oL).join(nL)});
+        p2 += p.length;
+      }
+    });
+  });
+  if(replacements.length === 0) return text;
+  replacements.sort(function(a,b){ return b.start - a.start; });
+  var filtered = [];
+  var lastStart = Infinity;
+  replacements.forEach(function(r){
+    if(r.end <= lastStart){ filtered.push(r); lastStart = r.start; }
+  });
+  var result = text;
+  filtered.forEach(function(r){
+    result = result.slice(0, r.start) + r.text + result.slice(r.end);
+  });
+  return result;
+}
+
+/* ===== 选项分析提取 ===== */
+function extractOptAnalysis(exp, item){
+  if(!exp || item.type === 'judge') return null;
+  if(exp.o && typeof exp.o === 'object'){
+    var explicit = {};
+    ['A','B','C','D'].forEach(function(L){ if(exp.o[L]) explicit[L] = exp.o[L]; });
+    if(Object.keys(explicit).length > 0) return explicit;
+  }
+  if(exp.opts && typeof exp.opts === 'object'){
+    var exp2 = {};
+    ['A','B','C','D'].forEach(function(L){ if(exp.opts[L]) exp2[L] = exp.opts[L]; });
+    if(Object.keys(exp2).length > 0) return exp2;
+  }
+  var w = exp.w;
+  if(!w) return null;
+  var matches = [];
+  item.o.forEach(function(optText, idx){
+    var letter = 'ABCD'[idx];
+    var patterns = [letter + optText, letter + '、', letter + '：', letter + '.', '选项' + letter, '（' + letter + '）'];
+    for(var p = 0; p < patterns.length; p++){
+      var pos = w.indexOf(patterns[p]);
+      if(pos >= 0){ matches.push({letter:letter, pos:pos, len:patterns[p].length}); break; }
+    }
+  });
+  if(matches.length === 0) return null;
+  matches.sort(function(a,b){ return a.pos - b.pos; });
+  var seen = {};
+  var uniq = [];
+  matches.forEach(function(m){
+    if(!seen[m.letter]){ seen[m.letter] = true; uniq.push(m); }
+  });
+  var result = {};
+  uniq.forEach(function(m, i){
+    var start = m.pos + m.len;
+    var end = (i + 1 < uniq.length) ? uniq[i + 1].pos : w.length;
+    var text = w.slice(start, end).trim();
+    text = text.replace(/^[、，,；;：:\s]+/, '').replace(/[；;。\s]+$/, '');
+    if(text) result[m.letter] = text;
+  });
+  return Object.keys(result).length > 0 ? result : null;
+}
+
+/* ===== 知识点卡片 ===== */
+function buildKnowledgeHtml(k){
+  if(!k) return '';
+  var kw = kbKeyword(k);
+  var sub = kbSub(k);
+  var links = KB_LINKS[kw];
+  var count = countByKeyword(kw);
+  var html = '<div class="k-main">';
+  html += '<span class="k-chip" data-kw="' + esc(kw) + '" title="查看「' + esc(kw) + '」的全部题目（共 ' + count + ' 题）">';
+  html += '<span class="k-icon">📚</span>' + esc(kw);
+  html += '<span class="k-plus">＋</span>';
+  html += '</span>';
+  if(sub) html += '<span class="k-sub">' + esc(sub) + '</span>';
+  html += '</div>';
+  if(links && links.length){
+    html += '<div class="k-links">';
+    links.forEach(function(L){
+      html += '<a class="k-link" href="' + esc(L.url) + '" target="_blank" rel="noopener noreferrer">' + esc(L.name) + '<span class="k-arrow">↗</span></a>';
+    });
+    html += '</div>';
+  }
+  return html;
+}
+
+/* ===== 解析卡片 ===== */
+function buildExplainHtml(exp, ok, compact, item, session){
+  if(!exp) return '';
+  var ansText = exp.a ? remapExpText(exp.a, item, session) : '';
+  var view = getView(item, session);
+  var html = '<div class="explain ' + (ok ? 'ok' : 'bad') + '"' + (compact ? ' style="margin-top:8px"' : '') + '>' +
+    '<div class="exp-head">' +
+      '<div class="exp-head-icon">' + (ok ? '✓' : '✗') + '</div>' +
+      '<div class="exp-head-title">题目解析</div>' +
+      (compact ? '' : '<div class="exp-head-status">' + (ok ? '正确' : '错误') + '</div>') +
+    '</div><div class="exp-body">';
+  if(exp.k){
+    html += '<div class="exp-block"><div class="exp-label">知识点</div>' + buildKnowledgeHtml(exp.k) + '</div>';
+  }
+  if(ansText){
+    html += '<div class="exp-block"><div class="exp-label">答案解析</div><p>' + esc(ansText) + '</p></div>';
+  }
+  if(item.type === 'single'){
+    var optAnalysis = extractOptAnalysis(exp, item);
+    if(optAnalysis){
+      html += '<div class="exp-block"><div class="exp-label">选项详解</div><div class="exp-options">';
+      for(var i = 0; i < item.o.length; i++){
+        var dispLetter = 'ABCD'[i];
+        var dispText = view.o[i];
+        var isCorrect = (i === view.a);
+        var origIdx = (view.orig && view.orig[i] !== undefined) ? view.orig[i] : i;
+        var origLetter = 'ABCD'[origIdx];
+        var analysisText = optAnalysis[origLetter];
+        if(!analysisText && isCorrect){
+          analysisText = remapExpText(exp.a || '', item, session) || '这是本题的正确答案。';
+        }
+        if(!analysisText) analysisText = '暂无详细分析。';
+        analysisText = remapExpText(analysisText, item, session);
+        html += '<div class="exp-option ' + (isCorrect ? 'is-right' : 'is-wrong') + '">' +
+          '<span class="opt-tag">' + dispLetter + '</span>' +
+          '<div class="opt-content">' +
+            '<div class="opt-text">' + esc(dispText) + '</div>' +
+            '<div class="opt-analysis">' + esc(analysisText) + '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      html += '</div></div>';
+    } else if(exp.w){
+      var wt = remapExpText(exp.w, item, session);
+      html += '<div class="exp-block"><div class="exp-label">错项分析</div><div class="exp-options"><div class="exp-option is-wrong"><span class="opt-tag">!</span><div class="opt-content"><div class="opt-analysis">' + esc(wt) + '</div></div></div></div></div>';
+    }
+  }
+  html += '</div></div>';
+  return html;
+}
+
+/* ===== 状态 ===== */
+var LS_SESSIONS = 'dg4_sessions_v9';
+var LS_EXAM_CFG = 'dg4_exam_cfg_v1';
+var state = {
+  mode:'all', queue:[], pos:0, sessions:[], currentId:null,
+  histView:'list', histSessionId:null, histDetailTab:'wrong',
+  topicKeyword:'', favFilter:'all', pending:{},
+  examCfg:{count:50, time:60, scope:'all'}
+};
+
+function loadSessions(){
+  try{
+    var raw = localStorage.getItem(LS_SESSIONS);
+    if(raw){
+      var d = JSON.parse(raw);
+      state.sessions = Array.isArray(d.sessions) ? d.sessions : [];
+      state.currentId = d.currentId || null;
+    }
+  }catch(e){ state.sessions = []; state.currentId = null; }
+  state.sessions = state.sessions.filter(function(s){ return !s.isTemp; });
+  if(!state.sessions.length) state.currentId = null;
+  state.sessions.forEach(function(s){
+    if(s.optsMap && !s.optsMapOrder) s.optsMapOrder = Object.keys(s.optsMap);
+  });
+}
+function saveSessions(){
+  try{
+    var toSave = state.sessions.filter(function(s){ return !s.isTemp; });
+    localStorage.setItem(LS_SESSIONS, JSON.stringify({sessions:toSave, currentId:state.currentId}));
+  }catch(e){}
+}
+function loadExamCfg(){
+  try{
+    var raw = localStorage.getItem(LS_EXAM_CFG);
+    if(raw){
+      var d = JSON.parse(raw);
+      if(d && typeof d === 'object'){
+        Object.keys(d).forEach(function(k){ state.examCfg[k] = d[k]; });
+      }
+    }
+  }catch(e){}
+}
+function saveExamCfg(){ try{ localStorage.setItem(LS_EXAM_CFG, JSON.stringify(state.examCfg)); }catch(e){} }
+
+function getSession(id){
+  for(var i = 0; i < state.sessions.length; i++){
+    if(state.sessions[i].id === id) return state.sessions[i];
+  }
+  return null;
+}
+function getCurrentSession(){
+  var s = getSession(state.currentId);
+  if(!s) s = createSession(state.mode);
+  return s;
+}
+function createSession(mode, name, isTemp){
+  var s = {
+    id:'s' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    name: name || ('第' + (state.sessions.length + 1) + '次练习'),
+    mode: mode, createdAt:Date.now(), updatedAt:Date.now(),
+    answers:{}, optsMap:{}, optsMapOrder:[], isTemp:!!isTemp,
+    topicKeyword: mode === 'topic' ? state.topicKeyword : ''
+  };
+  state.sessions.push(s);
+  state.currentId = s.id;
+  saveSessions();
+  return s;
+}
+function sessionForMode(mode){
+  for(var i = state.sessions.length - 1; i >= 0; i--){
+    var s = state.sessions[i];
+    if(s.isTemp) continue;
+    if(s.mode === mode){
+      if(mode !== 'topic') return s;
+      if(s.topicKeyword === state.topicKeyword) return s;
+    }
+  }
+  return null;
+}
+function sessionStats(s){
+  var total = 0, right = 0, wrong = 0;
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var v = getView(item, s);
+    total++;
+    if(s.answers[no].c === v.a) right++; else wrong++;
+  });
+  return {total:total, right:right, wrong:wrong};
+}
+function computeWrongSet(){
+  var last = {};
+  state.sessions.forEach(function(s){
+    if(s.isTemp) return;
+    Object.keys(s.answers).forEach(function(no){
+      var a = s.answers[no];
+      if(!last[no] || a.t > last[no].t) last[no] = {c:a.c, t:a.t, session:s};
+    });
+  });
+  var set = new Set();
+  Object.keys(last).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var v = getView(item, last[no].session);
+    if(last[no].c !== v.a) set.add(Number(no));
+  });
+  return set;
+}
+
+function buildQueue(mode){
+  var all = BANK.map(function(_, i){ return i; });
+  if(mode === 'single') return all.filter(function(i){ return BANK[i].type === 'single'; });
+  if(mode === 'judge') return all.filter(function(i){ return BANK[i].type === 'judge'; });
+  if(mode === 'wrong'){ var ws = computeWrongSet(); return all.filter(function(i){ return ws.has(BANK[i].no); }); }
+  if(mode === 'random') return shuffle(all.slice());
+  if(mode === 'favorite') return all.filter(function(i){ return state_favorites.has(BANK[i].no); });
+  if(mode === 'topic'){
+    var kw = state.topicKeyword;
+    return all.filter(function(i){
+      return BANK[i].exp && BANK[i].exp.k && kbKeyword(BANK[i].exp.k) === kw;
+    });
+  }
+  return all;
+}
+
+function collapseTopbar(){ $('topbar').classList.add('collapsed'); updateMiniBar(); }
+function expandTopbar(){ $('topbar').classList.remove('collapsed'); }
+function updateMiniBar(){
+  var sess = getCurrentSession();
+  var done = 0, right = 0;
+  state.queue.forEach(function(i){
+    var it = BANK[i], rec = sess.answers[it.no];
+    if(rec !== undefined){
+      done++;
+      var v = getView(it, sess);
+      if(rec.c === v.a) right++;
+    }
+  });
+  $('miniMode').textContent = MODE_NAMES[state.mode] || '练习';
+  $('miniProg').textContent = state.queue.length ? ('第 ' + (state.pos + 1) + ' / ' + state.queue.length + ' 题') : '暂无题目';
+  var rateEl = $('miniRate');
+  if(done === 0) rateEl.textContent = '未作答';
+  else rateEl.textContent = '已答 ' + done + ' · 正确 ' + Math.round(right / done * 100) + '%';
+}
+
+/* ===== 考试 ===== */
+var examTimer = null;
+function isExamActive(sess){ return sess.isExam && !sess.submitted; }
+function startExam(){
+  var cfg = state.examCfg;
+  var pool;
+  if(cfg.scope === 'single') pool = BANK.filter(function(it){ return it.type === 'single'; });
+  else if(cfg.scope === 'judge') pool = BANK.filter(function(it){ return it.type === 'judge'; });
+  else pool = BANK.slice();
+  var count = cfg.count === 0 ? pool.length : Math.min(cfg.count, pool.length);
+  var picked = shuffle(pool.slice()).slice(0, count);
+  state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+  var s = createSession('exam', '模拟考试 · ' + new Date().toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}), true);
+  s.isExam = true; s.submitted = false;
+  s.examCfg = {count:count, time:cfg.time, scope:cfg.scope};
+  s.deadline = Date.now() + cfg.time * 60 * 1000;
+  s.startedAt = Date.now();
+  var idxs = [];
+  picked.forEach(function(it){
+    for(var i = 0; i < BANK.length; i++){
+      if(BANK[i].no === it.no){ idxs.push(i); break; }
+    }
+  });
+  state.queue = idxs; state.pos = 0; state.currentId = s.id;
+  state.mode = 'exam'; state.pending = {};
+  s.optsMap = {}; s.optsMapOrder = [];
+  idxs.forEach(function(idx){
+    var it = BANK[idx];
+    if(it.type === 'single'){
+      s.optsMap[it.no] = makeShuffledOpts(it);
+      s.optsMapOrder.push(it.no);
+    }
+  });
+  saveSessions();
+  updateModeButtons();
+  render();
+  startExamTimer();
+  window.scrollTo({top:0, behavior:'smooth'});
+  showToast('🎯 模拟考试开始 · ' + count + ' 题 · ' + cfg.time + ' 分钟');
+}
+function startExamTimer(){
+  if(examTimer) clearInterval(examTimer);
+  updateExamTimer();
+  examTimer = setInterval(function(){
+    var sess = getSession(state.currentId);
+    if(!sess || !sess.isExam || sess.submitted){
+      clearInterval(examTimer); examTimer = null; return;
+    }
+    updateExamTimer();
+    if(Date.now() >= sess.deadline){
+      clearInterval(examTimer); examTimer = null; autoSubmitExam();
+    }
+  }, 1000);
+}
+function updateExamTimer(){
+  var sess = getSession(state.currentId);
+  if(!sess || !sess.isExam || sess.submitted){ $('examBar').classList.remove('show'); return; }
+  $('examBar').classList.add('show');
+  var remain = Math.max(0, sess.deadline - Date.now());
+  var sec = Math.floor(remain / 1000);
+  var m = Math.floor(sec / 60), s = sec % 60;
+  var timerEl = $('examTimer');
+  timerEl.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  timerEl.classList.toggle('warn', remain < 60000);
+  var done = Object.keys(sess.answers).length;
+  $('examInfo').textContent = done + ' / ' + state.queue.length + ' 已答';
+}
+function submitExam(){
+  var sess = getSession(state.currentId);
+  if(!sess || !sess.isExam || sess.submitted) return;
+  var done = Object.keys(sess.answers).length;
+  var total = state.queue.length;
+  var msg = done < total ? '还有 ' + (total - done) + ' 题未作答，确定要交卷吗？' : '确定要交卷吗？';
+  if(!confirm(msg)) return;
+  doSubmitExam(sess);
+}
+function autoSubmitExam(){
+  var sess = getSession(state.currentId);
+  if(!sess || sess.submitted) return;
+  showToast('⏰ 考试时间到，自动交卷');
+  doSubmitExam(sess);
+}
+function doSubmitExam(sess){
+  sess.submitted = true;
+  sess.submittedAt = Date.now();
+  saveSessions();
+  if(examTimer){ clearInterval(examTimer); examTimer = null; }
+  $('examBar').classList.remove('show');
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function renderExamResult(sess){
+  var stat = sessionStats(sess);
+  var total = state.queue.length;
+  var right = stat.right, wrong = stat.wrong;
+  var unanswered = total - stat.total;
+  var rate = total > 0 ? Math.round(right / total * 100) : 0;
+  var used = (sess.submittedAt || Date.now()) - (sess.startedAt || sess.createdAt);
+  var html = '<div class="result-card">' +
+    '<div class="result-head">' +
+      '<div><span class="result-score">' + right + '</span><span class="result-total">/ ' + total + '</span></div>' +
+      '<div class="result-label">正确率 ' + rate + '% · 用时 ' + fmtDuration(used) + '</div>' +
+    '</div>' +
+    '<div class="result-stats">' +
+      '<div class="result-stat ok"><b>' + right + '</b><span>正确</span></div>' +
+      '<div class="result-stat bad"><b>' + wrong + '</b><span>错误</span></div>' +
+      '<div class="result-stat"><b>' + unanswered + '</b><span>未答</span></div>' +
+    '</div>' +
+    '<div class="result-btns">' +
+      '<button class="btn-primary" id="examRestart">再考一次</button>' +
+      '<button class="btn-ghost" id="examReview">查看错题</button>' +
+      '<button class="btn-ghost" id="examBack">返回首页</button>' +
+    '</div>';
+  if(wrong > 0 || unanswered > 0){
+    html += '<div class="result-wrong-list"><div class="exp-label" style="margin-bottom:10px">错题与未答</div>';
+    state.queue.forEach(function(idx){
+      var it = BANK[idx];
+      var rec = sess.answers[it.no];
+      var v = getView(it, sess);
+      var isWrong = !rec || rec.c !== v.a;
+      if(!isWrong) return;
+      var recText = rec ? ('ABCD'[rec.c] + '. ' + v.o[rec.c]) : '未作答';
+      var rightText = 'ABCD'[v.a] + '. ' + v.o[v.a];
+      html += '<div class="result-wrong-item">' +
+        '<div class="rw-q">No.' + it.no + ' · ' + esc(it.q) + '</div>' +
+        '<div class="rw-a">你的答案：<span class="yours">' + esc(recText) + '</span></div>' +
+        '<div class="rw-a">正确答案：<span class="right">' + esc(rightText) + '</span></div>' +
+      '</div>';
+    });
+    html += '</div>';
+  }
+  html += '</div>';
+  card.innerHTML = html;
+  var btnRestart = $('examRestart');
+  if(btnRestart) btnRestart.addEventListener('click', function(){
+    state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+    state.currentId = null; saveSessions();
+    openExamModal();
+  });
+  var btnReview = $('examReview');
+  if(btnReview) btnReview.addEventListener('click', function(){ enterExamReview(sess); });
+  var btnBack = $('examBack');
+  if(btnBack) btnBack.addEventListener('click', function(){
+    state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+    state.currentId = null; saveSessions();
+    switchMode('all');
+  });
+}
+function enterExamReview(sess){
+  var wrongNos = [];
+  state.queue.forEach(function(idx){
+    var it = BANK[idx];
+    var rec = sess.answers[it.no];
+    var v = getView(it, sess);
+    if(!rec || rec.c !== v.a) wrongNos.push(it.no);
+  });
+  if(wrongNos.length === 0){ showToast('🎉 本次考试没有错题'); return; }
+  state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+  var ns = createSession('wrong', '考试错题重练', true);
+  state.mode = 'wrong'; state.pending = {};
+  var idxs = [];
+  wrongNos.forEach(function(no){
+    for(var i = 0; i < BANK.length; i++){
+      if(BANK[i].no === no){ idxs.push(i); break; }
+    }
+  });
+  state.queue = idxs; state.pos = 0; state.currentId = ns.id;
+  saveSessions(); updateModeButtons(); render();
+  window.scrollTo({top:0, behavior:'smooth'});
+  showToast('✏️ 已进入错题重练（不计入历史）共 ' + idxs.length + ' 题');
+}
+function openExamModal(){
+  var cfg = state.examCfg;
+  var cg = $('examCountGroup');
+  Array.prototype.forEach.call(cg.querySelectorAll('button'), function(b){
+    b.classList.toggle('active', parseInt(b.dataset.count,10) === cfg.count);
+  });
+  var tg = $('examTimeGroup');
+  Array.prototype.forEach.call(tg.querySelectorAll('button'), function(b){
+    b.classList.toggle('active', parseInt(b.dataset.time,10) === cfg.time);
+  });
+  var sg = $('examScopeGroup');
+  Array.prototype.forEach.call(sg.querySelectorAll('button'), function(b){
+    b.classList.toggle('active', b.dataset.scope === cfg.scope);
+  });
+  $('examModal').classList.add('show');
+}
+function closeExamModal(){ $('examModal').classList.remove('show'); }
+
+/* ===== 答题卡 ===== */
+function currentItem(){ return BANK[state.queue[state.pos]]; }
+
+function render(){
+  var sess = getCurrentSession();
+  if(sess.isExam && sess.submitted){ renderExamResult(sess); return; }
+  if(state.queue.length === 0){
+    var tipMsg = state.mode === 'wrong' ? '错题本是空的，先去全部练习刷题吧' :
+                 state.mode === 'favorite' ? '还没有收藏任何题目，点击题目右上角 ★ 收藏' :
+                 state.mode === 'topic' ? '当前知识点下暂无题目' : '请切换其他分组';
+    card.innerHTML = '<div class="empty">🎉 当前分组没有题目<br><span>' + tipMsg + '</span></div>';
+    updateStats(); updateNav(); updateAnswerSheet(); updateExamTimer();
+    return;
+  }
+  var item = currentItem();
+  ensureOptsForItem(sess, item);
+  var view = getView(item, sess);
+  var rec = sess.answers[item.no];
+  var answered = (rec !== undefined);
+  var chosen = answered ? rec.c : undefined;
+  var isExamActiveFlag = isExamActive(sess);
+  var showShuffled = ((state.mode === 'random' || sess.isExam) && item.type === 'single');
+  var isFav = state_favorites.has(item.no);
+  var pendingChoice = state.pending[item.no];
+  card.innerHTML =
+    '<div class="qhead">' +
+      '<div class="qhead-left">' +
+        '<span class="tag ' + (item.type === 'judge' ? 'judge' : '') + '">' + (item.type === 'single' ? '单选题' : '判断题') + '</span>' +
+        (sess.isExam ? '<span class="tag exam">考试中</span>' : '') +
+        (showShuffled && !sess.isExam ? '<span class="tag shuffled">选项已打乱</span>' : '') +
+        '<span class="qno">第 ' + (state.pos + 1) + ' / ' + state.queue.length + ' 题 · No.' + item.no + '</span>' +
+      '</div>' +
+      '<div class="qhead-right">' +
+        '<button type="button" class="star-btn ' + (isFav ? 'active' : '') + '" id="starBtn" title="' + (isFav ? '取消收藏' : '收藏本题') + '">' + (isFav ? '★' : '☆') + '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="qtext">' + esc(item.q) + '</div>' +
+    '<div class="opts" id="opts"></div>' +
+    '<div class="feedback" id="fb"></div>';
+  var optsEl = $('opts');
+  view.o.forEach(function(text, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt';
+    b.innerHTML = '<span class="letter">' + 'ABCD'[i] + '</span><span>' + esc(text) + '</span>';
+    if(answered){
+      b.classList.add('locked');
+      if(isExamActiveFlag){
+        if(i === chosen) b.classList.add('selected');
+      }else{
+        if(i === view.a) b.classList.add('right');
+        else if(i === chosen) b.classList.add('wrong');
+      }
+    }else{
+      if(i === pendingChoice) b.classList.add('selected');
+      b.addEventListener('click', function(){ choose(i); });
+    }
+    optsEl.appendChild(b);
+  });
+  var fb = $('fb');
+  if(answered){
+    if(isExamActiveFlag){
+      fb.className = 'feedback';
+      fb.innerHTML = '<span class="exam-hint">✓ 已选择 ' + ('ABCD'[chosen]) + '，考试结束后显示答案和解析</span>';
+    }else{
+      var ok = (chosen === view.a);
+      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+      var html = '';
+      var ansLetter = 'ABCD'[view.a];
+      var ansText = view.o[view.a];
+      if(ok){
+        html += '<div class="fb-line"><b>✓ 回答正确</b>　正确答案：' + ansLetter + '. ' + esc(ansText) + '</div>';
+      }else{
+        var chLetter = 'ABCD'[chosen];
+        var chText = view.o[chosen];
+        html += '<div class="fb-line"><b>✗ 回答错误</b>　正确答案：' + ansLetter + '. ' + esc(ansText) + '　（你选了 ' + chLetter + '. ' + esc(chText) + '）</div>';
+      }
+      html += buildExplainHtml(item.exp, ok, false, item, sess);
+      fb.innerHTML = html;
+    }
+  }else{
+    fb.className = 'feedback';
+    var hintText = pendingChoice !== undefined
+      ? '已选择 <b>' + ('ABCD'[pendingChoice]) + '</b>，点击确定提交答案'
+      : '点击选项作答 · 键盘 A/B/C/D 或 1-4 也可作答';
+    fb.innerHTML = '<span class="hint">' + hintText + '</span>' +
+      '<button type="button" class="confirm-btn" id="confirmBtn"' + (pendingChoice === undefined ? ' disabled' : '') + '>确定</button>';
+    var cb = $('confirmBtn');
+    if(cb) cb.addEventListener('click', confirmChoice);
+  }
+  var sb = $('starBtn');
+  if(sb){
+    sb.addEventListener('click', function(e){
+      e.stopPropagation();
+      toggleFavorite(item.no);
+      sb.classList.toggle('active', state_favorites.has(item.no));
+      sb.textContent = state_favorites.has(item.no) ? '★' : '☆';
+      sb.title = state_favorites.has(item.no) ? '取消收藏' : '收藏本题';
+      sb.classList.add('pop');
+      setTimeout(function(){ sb.classList.remove('pop'); }, 400);
+      showToast(state_favorites.has(item.no) ? '★ 已加入收藏' : '已取消收藏');
+    });
+  }
+  updateStats(); updateNav(); updateAnswerSheet(); updateExamTimer();
+}
+
+function updateStats(){
+  var sess = getCurrentSession();
+  var done = 0, right = 0;
+  state.queue.forEach(function(i){
+    var it = BANK[i], rec = sess.answers[it.no];
+    if(rec !== undefined){
+      done++;
+      var v = getView(it, sess);
+      if(rec.c === v.a) right++;
+    }
+  });
+  var wrongN = done - right;
+  var rate = done ? Math.round(right / done * 100) : 0;
+  var elDone = $('statDone'), elRight = $('statRight'), elWrong = $('statWrong'), elRate = $('statRate');
+  var prevDone = parseInt(elDone.textContent, 10) || 0;
+  var prevRight = parseInt(elRight.textContent, 10) || 0;
+  var prevWrong = parseInt(elWrong.textContent, 10) || 0;
+  var prevRate = parseInt(elRate.textContent, 10) || 0;
+  animateNumber(elDone, prevDone, done, 400);
+  animateNumber(elRight, prevRight, right, 400);
+  animateNumber(elWrong, prevWrong, wrongN, 400);
+  animateNumber(elRate, prevRate, rate, 400, function(v){ return Math.round(v) + '%'; });
+  $('progressBar').style.width = (state.queue.length ? (done / state.queue.length * 100) : 0) + '%';
+  $('wrongBadge').textContent = computeWrongSet().size;
+  updateMiniBar();
+}
+function updateNav(){
+  $('prevBtn').disabled = state.pos <= 0;
+  $('nextBtn').disabled = state.pos >= state.queue.length - 1;
+}
+function updateAnswerSheet(){
+  var grid = $('asGrid');
+  if(!grid) return;
+  var sess = getCurrentSession();
+  if(state.queue.length === 0){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--text-4);font-size:12.5px;padding:8px">暂无题目</div>';
+    updateRing(0, 0); return;
+  }
+  var done = 0, html = '';
+  var filter = state.favFilter;
+  state.queue.forEach(function(i, idx){
+    var it = BANK[i], rec = sess.answers[it.no];
+    var v = getView(it, sess);
+    var ok = rec !== undefined && rec.c === v.a;
+    var answered = rec !== undefined;
+    if(answered) done++;
+    if(filter === 'unanswered' && answered) return;
+    if(filter === 'wrong' && (!answered || ok)) return;
+    if(filter === 'right' && (!answered || !ok)) return;
+    if(filter === 'fav' && !state_favorites.has(it.no)) return;
+    var cls = 'as-cell';
+    if(answered) cls += ok ? ' right' : ' wrong';
+    if(idx === state.pos) cls += ' current';
+    if(state_favorites.has(it.no)) cls += ' fav';
+    html += '<button type="button" class="' + cls + '" data-idx="' + idx + '" aria-label="第' + (idx + 1) + '题">' + (idx + 1) + '</button>';
+  });
+  if(!html) html = '<div style="grid-column:1/-1;text-align:center;color:var(--text-4);font-size:12.5px;padding:8px">当前筛选下没有题目</div>';
+  grid.innerHTML = html;
+  updateRing(done, state.queue.length);
+}
+function updateRing(done, total){
+  var ring = $('ringFg'), pct = $('ringPct');
+  if(!ring || !pct) return;
+  var circumference = 2 * Math.PI * 8;
+  var progress = total > 0 ? done / total : 0;
+  ring.setAttribute('stroke-dashoffset', (circumference * (1 - progress)).toFixed(2));
+  pct.textContent = total > 0 ? Math.round(progress * 100) + '%' : '0%';
+}
+
+/* ===== 交互 ===== */
+function choose(i){
+  if(state.queue.length === 0) return;
+  var item = currentItem(), sess = getCurrentSession();
+  if(sess.answers[item.no] !== undefined) return;
+  state.pending[item.no] = i;
+  render();
+}
+function confirmChoice(){
+  if(state.queue.length === 0) return;
+  var item = currentItem(), sess = getCurrentSession();
+  if(sess.answers[item.no] !== undefined) return;
+  var choice = state.pending[item.no];
+  if(choice === undefined){ showToast('请先选择一个选项'); return; }
+  sess.answers[item.no] = {c:choice, t:Date.now()};
+  sess.updatedAt = Date.now();
+  delete state.pending[item.no];
+  saveSessions();
+  var optsEl = $('opts');
+  if(optsEl){
+    var opt = optsEl.children[choice];
+    if(opt){ opt.classList.add('tapped'); setTimeout(function(){ opt.classList.remove('tapped'); }, 250); }
+  }
+  render();
+  if($('hpanel').classList.contains('show')) renderHistory();
+}
+function next(){ if(state.pos < state.queue.length - 1){ state.pos++; render(); } }
+function prev(){ if(state.pos > 0){ state.pos--; render(); } }
+function updateModeButtons(){
+  Array.prototype.forEach.call(document.querySelectorAll('.modes button'), function(b){
+    b.classList.toggle('active', b.dataset.mode === state.mode);
+  });
+}
+function switchMode(mode){
+  if(mode === 'topic' && !state.topicKeyword){ showToast('请先在解析卡中点击知识点标签进入专题'); return; }
+  if(mode === 'exam'){ openExamModal(); return; }
+  if(mode === 'favorite' && state_favorites.size === 0){
+    showToast('还没有收藏任何题目，点击题目右上角 ★ 收藏');
+    return;
+  }
+  state.mode = mode;
+  state.pending = {};
+  var s = sessionForMode(mode);
+  if(!s) s = createSession(mode);
+  state.currentId = s.id;
+  state.queue = buildQueue(mode);
+  if(state.queue.length === 0){
+    if(mode === 'favorite'){
+      showToast('收藏夹是空的，已切换回全部练习');
+      state.mode = 'all';
+      s = sessionForMode('all') || createSession('all');
+      state.currentId = s.id;
+      state.queue = buildQueue('all');
+    }
+  }
+  if(mode === 'random'){
+    if(!s.optsMap) s.optsMap = {};
+    if(!s.optsMapOrder) s.optsMapOrder = [];
+    state.queue.forEach(function(idx){
+      var it = BANK[idx];
+      if(it.type === 'single') ensureOptsForItem(s, it);
+    });
+    saveSessions();
+    showToast('🎲 已进入随机练习 · 选项顺序已打乱');
+  }
+  var idx = 0;
+  for(var i = 0; i < state.queue.length; i++){
+    var no = BANK[state.queue[i]].no;
+    if(s.answers[no] === undefined){ idx = i; break; }
+    if(i === state.queue.length - 1) idx = i;
+  }
+  state.pos = idx;
+  saveSessions();
+  updateModeButtons();
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function enterTopic(kw){
+  var cnt = countByKeyword(kw);
+  if(cnt === 0){ showToast('「' + kw + '」下暂无题目'); return; }
+  state.topicKeyword = kw;
+  state.mode = 'topic';
+  state.pending = {};
+  var s = sessionForMode('topic');
+  if(!s) s = createSession('topic', '专题：' + kw);
+  state.currentId = s.id;
+  state.queue = buildQueue('topic');
+  state.pos = 0;
+  saveSessions();
+  updateModeButtons();
+  $('topicBtn').style.display = '';
+  $('topicBtn').innerHTML = '专题：' + esc(kw) + ' <span class="badge">' + state.queue.length + '</span>';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+  showToast('📚 已进入「' + kw + '」专题，共 ' + state.queue.length + ' 题');
+}
+
+/* ===== 导出 ===== */
+function exportSession(session){
+  if(!session) return;
+  var stat = sessionStats(session);
+  var lines = [];
+  lines.push('# 电工四级理论题库 · ' + session.name);
+  lines.push('');
+  lines.push('练习时间：' + fmtTime(session.createdAt));
+  if(session.isExam && session.startedAt && session.submittedAt){
+    lines.push('用时：' + fmtDuration(session.submittedAt - session.startedAt));
+  }
+  lines.push('正确：' + stat.right + ' / 错误：' + stat.wrong + ' / 共：' + stat.total);
+  lines.push(''); lines.push('---'); lines.push('');
+  var wrongCount = 0;
+  Object.keys(session.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var rec = session.answers[no];
+    var v = getView(item, session);
+    if(rec.c === v.a) return;
+    wrongCount++;
+    lines.push('### 第 ' + wrongCount + ' 题（No.' + item.no + '）');
+    lines.push('');
+    lines.push('**' + item.q + '**');
+    lines.push('');
+    item.o.forEach(function(opt, i){
+      var letter = 'ABCD'[i];
+      var mark = '';
+      if(i === v.a) mark = ' ✓';
+      else if(i === rec.c) mark = ' ✗';
+      lines.push('- ' + letter + '. ' + opt + mark);
+    });
+    lines.push('');
+    lines.push('你的答案：' + ('ABCD'[rec.c]) + '. ' + v.o[rec.c]);
+    lines.push('正确答案：' + ('ABCD'[v.a]) + '. ' + v.o[v.a]);
+    if(item.exp && item.exp.a) lines.push('解析：' + item.exp.a);
+    lines.push('');
+  });
+  if(wrongCount === 0) lines.push('🎉 本次练习没有错题！');
+  var text = lines.join('\n');
+  var blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = (session.name || '练习记录') + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  showToast('📄 已导出为文本文件');
+}
+
+/* ===== 历史记录 ===== */
+function openHistory(){
+  state.histView = 'list'; state.histSessionId = null;
+  renderHistory();
+  $('hpanel').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeHistory(){
+  $('hpanel').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function renderHistory(){
+  if(state.histView === 'detail') renderSessionDetail();
+  else renderSessionList();
+}
+function renderSessionList(){
+  $('hpBack').style.display = 'none';
+  $('hpTabs').style.display = 'none';
+  $('hpTitle').textContent = '历史记录';
+  var list = state.sessions.filter(function(s){
+    if(s.isTemp) return false;
+    return Object.keys(s.answers).length > 0 || s.id === state.currentId;
+  }).sort(function(a,b){ return b.updatedAt - a.updatedAt; });
+  $('hpSub').textContent = list.length ? ('共 ' + list.length + ' 次练习记录') : '暂无记录';
+  var box = $('hlist');
+  if(list.length === 0){
+    box.innerHTML = '<div class="empty">暂无练习记录<br><span>去练习吧，每次作答都会自动保存</span></div>';
+    $('hpFoot').innerHTML = '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+    return;
+  }
+  box.innerHTML = list.map(function(s){
+    var stat = sessionStats(s);
+    var isLive = (s.id === state.currentId);
+    var examTag = s.isExam ? '<span class="exam-badge">考试</span>' : '';
+    return '<div class="session-card ' + (isLive ? 'live' : '') + '" data-id="' + s.id + '">' +
+      '<div class="sc-top">' +
+        '<div class="hname-wrap">' +
+          '<span class="hname" data-id="' + s.id + '">' + esc(s.name) + '</span>' +
+          examTag +
+          (isLive ? '<span class="live-badge">正在练习中</span>' : '') +
+        '</div>' +
+        '<span class="sc-time">' + fmtTime(s.updatedAt) + '</span>' +
+      '</div>' +
+      '<div class="sc-mode">' + (MODE_NAMES[s.mode] || s.mode) + (s.mode === 'topic' && s.topicKeyword ? '：' + esc(s.topicKeyword) : '') + '</div>' +
+      '<div class="sc-stats">' +
+        '<span class="ok-t">✓ 正确 ' + stat.right + '</span>' +
+        '<span class="bad-t">✗ 错误 ' + stat.wrong + '</span>' +
+        '<span class="tot-t">共 ' + stat.total + ' 题</span>' +
+      '</div>' +
+      '<button type="button" class="sc-del" data-del="' + s.id + '" title="删除该记录">🗑</button>' +
+    '</div>';
+  }).join('');
+  $('hpFoot').innerHTML = '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+}
+function renderSessionDetail(){
+  var s = getSession(state.histSessionId);
+  if(!s){ state.histView = 'list'; renderHistory(); return; }
+  var stat = sessionStats(s);
+  $('hpBack').style.display = 'block';
+  $('hpTitle').textContent = s.name;
+  $('hpSub').textContent = (MODE_NAMES[s.mode] || s.mode) + ' · 正确 ' + stat.right + ' / 错误 ' + stat.wrong + ' / 共 ' + stat.total + ' 题';
+  $('hpTabs').style.display = 'flex';
+  $('htWrong').textContent = '错题 ' + stat.wrong;
+  $('htAll').textContent = '全部 ' + stat.total;
+  $('htWrong').classList.toggle('active', state.histDetailTab === 'wrong');
+  $('htAll').classList.toggle('active', state.histDetailTab === 'all');
+  var footHtml = '';
+  if(stat.wrong > 0) footHtml += '<button class="primary-sm" id="hpReview">重新练习错题 (' + stat.wrong + ')</button>';
+  footHtml += '<button class="ghost-sm" id="hpExport">导出错题</button>';
+  footHtml += '<button class="ghost-sm" id="hpClearAll">清空全部历史</button>';
+  $('hpFoot').innerHTML = footHtml;
+  var entries = [];
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var rec = s.answers[no];
+    var v = getView(item, s);
+    var ok = rec.c === v.a;
+    if(state.histDetailTab === 'wrong' && ok) return;
+    entries.push({it:item, rec:rec, ok:ok});
+  });
+  entries.sort(function(a,b){ return a.it.no - b.it.no; });
+  var box = $('hlist');
+  if(entries.length === 0){
+    box.innerHTML = '<div class="empty">' + (state.histDetailTab === 'wrong' ? '本次练习没有错题 🎉' : '暂无作答记录') + '</div>';
+    return;
+  }
+  box.innerHTML = entries.map(function(x){
+    var v = getView(x.it, s);
+    var recLetter = 'ABCD'[x.rec.c];
+    var recText = v.o[x.rec.c];
+    var rightLetter = 'ABCD'[v.a];
+    var rightText = v.o[v.a];
+    return '<div class="hitem">' +
+      '<div class="hrow"><span class="tag ' + (x.it.type === 'judge' ? 'judge' : '') + '">' + (x.it.type === 'single' ? '单选题' : '判断题') + '</span><span class="hno">No.' + x.it.no + '</span></div>' +
+      '<div class="hq">' + esc(x.it.q) + '</div>' +
+      '<div class="ha">你的答案：<span class="' + (x.ok ? 'right' : 'yours') + '">' + recLetter + '. ' + esc(recText) + '</span></div>' +
+      (x.ok ? '' : '<div class="ha">正确答案：<span class="right">' + rightLetter + '. ' + esc(rightText) + '</span></div>') +
+      buildExplainHtml(x.it.exp, x.ok, true, x.it, s) +
+    '</div>';
+  }).join('');
+}
+function reviewSessionWrong(sessionId){
+  var s = getSession(sessionId);
+  if(!s) return;
+  var wrongNos = [];
+  Object.keys(s.answers).forEach(function(no){
+    var item = BY_NO[no];
+    if(!item) return;
+    var v = getView(item, s);
+    if(s.answers[no].c !== v.a) wrongNos.push(Number(no));
+  });
+  if(wrongNos.length === 0) return;
+  state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+  var ns = createSession('wrong', s.name + ' · 错题重练', true);
+  state.mode = 'wrong'; state.pending = {};
+  var idxs = [];
+  wrongNos.forEach(function(no){
+    for(var i = 0; i < BANK.length; i++){
+      if(BANK[i].no === no){ idxs.push(i); break; }
+    }
+  });
+  state.queue = idxs; state.pos = 0; state.currentId = ns.id;
+  saveSessions();
+  closeHistory();
+  updateModeButtons();
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+  showToast('✏️ 已进入错题重练（不计入历史）共 ' + idxs.length + ' 题');
+}
+function startRename(el){
+  var id = el.dataset.id;
+  var s = getSession(id);
+  if(!s) return;
+  var input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'hname-input';
+  input.value = s.name;
+  input.maxLength = 30;
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  var done = false;
+  function commit(){
+    if(done) return;
+    done = true;
+    var v = input.value.trim();
+    if(v) s.name = v;
+    saveSessions();
+    renderHistory();
+  }
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', function(ev){
+    if(ev.key === 'Enter'){ ev.preventDefault(); input.blur(); }
+    else if(ev.key === 'Escape'){ input.value = s.name; input.blur(); }
+    ev.stopPropagation();
+  });
+}
+
+/* ===== 继续上次练习 ===== */
+function checkResume(){
+  var sess = getCurrentSession();
+  if(sess && state.queue && state.queue.length && !sess.isTemp && !sess.isExam){
+    var un = 0;
+    state.queue.forEach(function(i){ if(sess.answers[BANK[i].no] === undefined) un++; });
+    if(un > 0 && un < state.queue.length){
+      $('resumeText').innerHTML = '上次「<b>' + esc(sess.name) + '</b>」还剩 <b>' + un + '</b> 题未答，是否继续？';
+      $('resumeBar').classList.add('show');
+      $('resumeBar').dataset.sid = '';
+      return;
+    }
+  }
+  var list = state.sessions.filter(function(s){
+    if(s.isTemp) return false;
+    if(s.isExam) return false;
+    if(!s.answers) return false;
+    if(s.id === state.currentId) return false;
+    var total = Object.keys(s.answers).length;
+    if(total === 0) return false;
+    var qlen = 0;
+    if(s.mode === 'all') qlen = BANK.length;
+    else if(s.mode === 'single') qlen = BANK.filter(function(it){ return it.type === 'single'; }).length;
+    else if(s.mode === 'judge') qlen = BANK.filter(function(it){ return it.type === 'judge'; }).length;
+    else if(s.mode === 'random') qlen = BANK.length;
+    else if(s.mode === 'wrong') qlen = -1;
+    else if(s.mode === 'favorite') qlen = state_favorites.size;
+    else if(s.mode === 'topic') qlen = BANK.filter(function(it){
+      return it.exp && it.exp.k && kbKeyword(it.exp.k) === s.topicKeyword;
+    }).length;
+    if(qlen > 0 && total < qlen) return true;
+    return false;
+  }).sort(function(a,b){ return b.updatedAt - a.updatedAt; });
+  if(list.length === 0) return;
+  var s = list[0];
+  $('resumeText').innerHTML = '上次「<b>' + esc(s.name) + '</b>」尚未完成，是否继续？';
+  $('resumeBar').classList.add('show');
+  $('resumeBar').dataset.sid = s.id;
+}
+function hideResume(){
+  $('resumeBar').classList.remove('show');
+  $('resumeBar').dataset.sid = '';
+}
+function resumeToSession(){
+  var sid = $('resumeBar').dataset.sid;
+  if(sid){
+    var s = getSession(sid);
+    if(!s){ hideResume(); return; }
+    state.mode = s.mode;
+    if(s.mode === 'topic') state.topicKeyword = s.topicKeyword || '';
+    state.currentId = s.id;
+    state.queue = buildQueue(s.mode);
+    if(s.mode === 'random'){
+      if(!s.optsMap) s.optsMap = {};
+      if(!s.optsMapOrder) s.optsMapOrder = [];
+      state.queue.forEach(function(idx){
+        var it = BANK[idx];
+        if(it.type === 'single') ensureOptsForItem(s, it);
+      });
+    }
+    var p = 0;
+    for(var i = 0; i < state.queue.length; i++){
+      if(s.answers[BANK[state.queue[i]].no] === undefined){ p = i; break; }
+    }
+    state.pos = p;
+    saveSessions();
+    updateModeButtons();
+    if(s.mode === 'topic'){
+      $('topicBtn').style.display = '';
+      $('topicBtn').innerHTML = '专题：' + esc(s.topicKeyword || '') + ' <span class="badge">' + state.queue.length + '</span>';
+    }
+  }else{
+    var sess = getCurrentSession();
+    var p = state.pos;
+    for(var i = 0; i < state.queue.length; i++){
+      if(sess.answers[BANK[state.queue[i]].no] === undefined){ p = i; break; }
+    }
+    state.pos = p;
+  }
+  hideResume();
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function jumpTo(input){
+  var v = parseInt(input, 10);
+  if(isNaN(v)) return false;
+  var idx = -1;
+  for(var i = 0; i < state.queue.length; i++){
+    if(BANK[state.queue[i]].no === v){ idx = i; break; }
+  }
+  if(idx >= 0){ state.pos = idx; render(); return true; }
+  if(v >= 1 && v <= state.queue.length){ state.pos = v - 1; render(); return true; }
+  return false;
+}
+
+/* ===== 事件绑定 ===== */
+$('modes').addEventListener('click', function(e){
+  var btn = e.target.closest('button[data-mode]');
+  if(btn) switchMode(btn.dataset.mode);
+});
+$('prevBtn').addEventListener('click', prev);
+$('nextBtn').addEventListener('click', next);
+$('jumpBtn').addEventListener('click', function(){ if(jumpTo($('jumpInput').value)) $('jumpInput').value = ''; });
+$('jumpInput').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ if(jumpTo($('jumpInput').value)) $('jumpInput').value = ''; } });
+$('collapseBtn').addEventListener('click', function(e){ e.stopPropagation(); collapseTopbar(); });
+$('topbarMini').addEventListener('click', expandTopbar);
+$('themeBtn').addEventListener('click', function(e){ e.stopPropagation(); toggleTheme(); });
+
+$('sheetToggle').addEventListener('click', function(){
+  this.classList.toggle('open');
+  $('answerSheet').classList.toggle('open');
+  if($('answerSheet').classList.contains('open')) updateAnswerSheet();
+});
+$('asFilters').addEventListener('click', function(e){
+  var btn = e.target.closest('button[data-filter]');
+  if(!btn) return;
+  Array.prototype.forEach.call($('asFilters').querySelectorAll('button'), function(b){
+    b.classList.toggle('active', b === btn);
+  });
+  state.favFilter = btn.dataset.filter;
+  updateAnswerSheet();
+});
+$('asGrid').addEventListener('click', function(e){
+  var cell = e.target.closest('.as-cell');
+  if(!cell) return;
+  var idx = parseInt(cell.dataset.idx, 10);
+  if(!isNaN(idx) && idx >= 0 && idx < state.queue.length){
+    state.pos = idx;
+    render();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+});
+$('resumeGo').addEventListener('click', resumeToSession);
+$('resumeClose').addEventListener('click', hideResume);
+
+card.addEventListener('click', function(e){
+  var chip = e.target.closest('.k-chip');
+  if(chip){
+    e.preventDefault();
+    var kw = chip.dataset.kw;
+    if(kw) enterTopic(kw);
+  }
+});
+
+$('redoBtn').addEventListener('click', function(){
+  var cur = getCurrentSession();
+  var n = Object.keys(cur.answers).length;
+  if(cur.isExam && !cur.submitted){
+    if(!confirm('当前正在考试中，开始新练习会结束本次考试。确定吗？')) return;
+  }else if(n > 0 && !confirm('开始一次新的练习？当前进度会保存到「历史记录」。')) return;
+  state.sessions = state.sessions.filter(function(x){ return !x.isTemp; });
+  var ns = createSession(state.mode);
+  state.queue = buildQueue(state.mode);
+  state.pending = {};
+  if(state.mode === 'random'){
+    state.queue.forEach(function(idx){
+      var it = BANK[idx];
+      if(it.type === 'single') ensureOptsForItem(ns, it);
+    });
+  }
+  state.pos = 0;
+  saveSessions();
+  render();
+  showToast('✨ 已开始新的练习');
+});
+
+$('histBtn').addEventListener('click', openHistory);
+$('hpClose').addEventListener('click', closeHistory);
+$('hpBack').addEventListener('click', function(){
+  state.histView = 'list';
+  state.histSessionId = null;
+  renderHistory();
+});
+$('htWrong').addEventListener('click', function(){ state.histDetailTab = 'wrong'; renderSessionDetail(); });
+$('htAll').addEventListener('click', function(){ state.histDetailTab = 'all'; renderSessionDetail(); });
+
+$('hlist').addEventListener('click', function(e){
+  var delBtn = e.target.closest('.sc-del');
+  if(delBtn){
+    e.preventDefault(); e.stopPropagation();
+    var sid = delBtn.dataset.del;
+    var s = getSession(sid);
+    if(!s) return;
+    if(!confirm('确定要删除「' + s.name + '」这条练习记录吗？')) return;
+    state.sessions = state.sessions.filter(function(x){ return x.id !== sid; });
+    if(state.currentId === sid){
+      state.currentId = null;
+      var ns = createSession(state.mode);
+      state.queue = buildQueue(state.mode);
+      state.pos = 0;
+      render();
+    }
+    saveSessions();
+    renderHistory();
+    return;
+  }
+  var nameEl = e.target.closest('.hname');
+  if(nameEl){
+    e.preventDefault(); e.stopPropagation();
+    startRename(nameEl);
+    return;
+  }
+  var cardEl = e.target.closest('.session-card');
+  if(cardEl){
+    state.histView = 'detail';
+    state.histSessionId = cardEl.dataset.id;
+    state.histDetailTab = 'wrong';
+    renderHistory();
+    $('hlist').scrollTop = 0;
+    return;
+  }
+});
+
+$('hpFoot').addEventListener('click', function(e){
+  if(e.target.closest('#hpReview')){ reviewSessionWrong(state.histSessionId); return; }
+  if(e.target.closest('#hpExport')){ var s = getSession(state.histSessionId); if(s) exportSession(s); return; }
+  if(e.target.closest('#hpClearAll')){
+    if(!confirm('确定要清空全部练习记录吗？此操作不可恢复。')) return;
+    state.sessions = [];
+    state.currentId = null;
+    var ns = createSession(state.mode);
+    state.queue = buildQueue(state.mode);
+    state.pos = 0;
+    saveSessions();
+    state.histView = 'list';
+    state.histSessionId = null;
+    renderHistory();
+    render();
+  }
+});
+
+$('examModalClose').addEventListener('click', closeExamModal);
+$('examModalCancel').addEventListener('click', closeExamModal);
+$('examModal').addEventListener('click', function(e){ if(e.target === $('examModal')) closeExamModal(); });
+$('examCountGroup').addEventListener('click', function(e){
+  var btn = e.target.closest('button');
+  if(!btn) return;
+  Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){ b.classList.toggle('active', b === btn); });
+  state.examCfg.count = parseInt(btn.dataset.count, 10);
+});
+$('examTimeGroup').addEventListener('click', function(e){
+  var btn = e.target.closest('button');
+  if(!btn) return;
+  Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){ b.classList.toggle('active', b === btn); });
+  state.examCfg.time = parseInt(btn.dataset.time, 10);
+});
+$('examScopeGroup').addEventListener('click', function(e){
+  var btn = e.target.closest('button');
+  if(!btn) return;
+  Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){ b.classList.toggle('active', b === btn); });
+  state.examCfg.scope = btn.dataset.scope;
+});
+$('examModalStart').addEventListener('click', function(){
+  saveExamCfg();
+  closeExamModal();
+  startExam();
+});
+$('examSubmit').addEventListener('click', submitExam);
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && $('hpanel').classList.contains('show')){
+    if(state.histView === 'detail'){ state.histView = 'list'; state.histSessionId = null; renderHistory(); }
+    else closeHistory();
+    return;
+  }
+  if(e.key === 'Escape' && $('examModal').classList.contains('show')){ closeExamModal(); return; }
+  if(e.target.tagName === 'INPUT') return;
+  if(state.queue.length === 0) return;
+  if($('hpanel').classList.contains('show')) return;
+  if($('examModal').classList.contains('show')) return;
+  var item = currentItem();
+  var sess = getCurrentSession();
+  var answered = sess.answers[item.no] !== undefined;
+  var k = e.key.toUpperCase();
+  if(k.length === 1 && 'ABCD'.indexOf(k) >= 0){
+    var i1 = 'ABCD'.indexOf(k);
+    if(i1 < item.o.length){ choose(i1); e.preventDefault(); }
+  }else if(k.length === 1 && '1234'.indexOf(k) >= 0){
+    var i2 = parseInt(k, 10) - 1;
+    if(i2 < item.o.length){ choose(i2); e.preventDefault(); }
+  }else if(e.key === 'Enter'){
+    if(!answered) confirmChoice();
+    e.preventDefault();
+  }else if(e.key === 'ArrowRight'){ next(); }
+  else if(e.key === 'ArrowLeft'){ prev(); }
+  else if(k === 'S'){ if(item){ toggleFavorite(item.no); render(); } e.preventDefault(); }
+});
+
+(function(){
+  var startX = 0, startY = 0, touching = false;
+  card.addEventListener('touchstart', function(e){
+    if(e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    touching = true;
+  }, {passive:true});
+  card.addEventListener('touchend', function(e){
+    if(!touching) return;
+    touching = false;
+    if(!e.changedTouches.length) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2){
+      if(dx < 0) next(); else prev();
+    }
+  }, {passive:true});
+})();
+
+function checkOrientation(){
+  var isLandscape = window.innerWidth > window.innerHeight;
+  var isSmallHeight = window.innerHeight < 520;
+  if(isLandscape && isSmallHeight){
+    $('topbar').classList.add('collapsed');
+    updateMiniBar();
+  }
+}
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', function(){ setTimeout(checkOrientation, 150); });
+
+/* ===== 启动 ===== */
+loadSessions();
+loadFavorites();
+loadExamCfg();
+applyTheme(loadTheme());
+updateFavUI();
+switchMode('all');
+checkOrientation();
+requestAnimationFrame(checkResume);
+</script>
+</body>
+</html>
